@@ -93,15 +93,14 @@ module.exports = function (grunt) {
         files: [
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
-          
+          '{.tmp,<%= yeoman.client %>}/index.html',
           '.tmp/{app,components}/**/*.js',
-          
           '!{.tmp,<%= yeoman.client %>}{app,components}/**/*.spec.js',
           '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js',
           '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
         options: {
-          livereload: true
+          livereload: process.env.LIVERELOAD_PORT ? parseInt(process.env.LIVERELOAD_PORT) : 35729
         }
       },
       express: {
@@ -110,7 +109,7 @@ module.exports = function (grunt) {
         ],
         tasks: ['express:dev', 'wait'],
         options: {
-          livereload: true,
+          livereload: process.env.LIVERELOAD_PORT ? parseInt(process.env.LIVERELOAD_PORT) : 35729,
           nospawn: true //Without this option specified express won't be reloaded
         }
       }
@@ -546,7 +545,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'open', 'express-keepalive']);
+      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'express-keepalive']);
     }
 
     if (target === 'debug') {
@@ -570,7 +569,7 @@ module.exports = function (grunt) {
       'autoprefixer',
       'express:dev',
       'wait',
-      'open',
+//       'open',
       'watch'
     ]);
   });
