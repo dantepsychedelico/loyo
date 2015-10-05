@@ -178,7 +178,7 @@ var App = function () {
 
     return {
         init: function () {
-            handleBootstrap();
+//             handleBootstrap();
             handleSearch();
             handleSearchV1();
             handleSearchV2();

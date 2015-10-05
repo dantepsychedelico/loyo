@@ -3,12 +3,21 @@
   border-bottom: none;
   background: rgba(0,0,0,0.4);
 }
-.header .logo + .logo img{
+@media (max-width: 360px) {
+  .header .logo img {
+    width: 150px;
+  }
+}
+
+.header.header-fixed-shrink .logo img:first-child {
   display: none;
 }
-.header-fixed .header.header-fixed-shrink .logo:first-child {
+.header:not(.header-fixed-shrink) .logo img:nth-child(2) {
   display: none;
 }
-.header-fixed .header.header-fixed-shrink .logo + .logo img {
-  display: inline;
+.header:not(.header-fixed-shrink) .navbar-nav > li > a {
+  color: white;
+}
+.header .navbar-collapse.collapse.in .nav.navbar-nav a {
+  color: white;
 }

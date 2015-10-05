@@ -12,7 +12,7 @@ var RevolutionSlider = function () {
 	                startwidth:1170,
 	                startheight:500,
 	                hideThumbs:10,
-					navigationStyle:"preview4"
+                  navigationStyle:'preview4'
 	            });
 	        });
         },
@@ -27,12 +27,12 @@ var RevolutionSlider = function () {
 	                startwidth:1170,
 	                startheight:400,
 	                hideThumbs:10,
-	                fullWidth:"off",
-	                fullScreen:"on",
-	                hideCaptionAtLimit: "",
-	                dottedOverlay:"twoxtwo",
-	                navigationStyle:"preview4",
-	                fullScreenOffsetContainer: ".header"
+	                fullWidth:'off',
+	                fullScreen:'on',
+	                hideCaptionAtLimit: '',
+	                dottedOverlay:'twoxtwo',
+	                navigationStyle:'preview4',
+	                fullScreenOffsetContainer: '.header'
 	            });
 	        });
         }        
