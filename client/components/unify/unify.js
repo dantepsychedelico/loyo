@@ -1,6 +1,5 @@
 'use strict';
 
-var debug;
 angular.module('unify', [])
 .directive('headerFixedShrink', function($window) {
   return {
@@ -16,18 +15,18 @@ angular.module('unify', [])
     }
   };
 })
-.directive('revolutionSlider', function() {
+.directive('revolutionSlider', function($parse) {
   return {
     restrict: 'A',
-    link: function(scope, element) {
-      element.revolution( {
-                delay: 9000,
-                startwidth: 1170,
-                startheight: 500,
-                hideThumbs: 10,
-                hideTimerBar: 'on',
-                navigationStyle:'preview4'
-            });
+    link: function(scope, element, attrs) {
+      element.revolution(angular.extend({
+          delay: 9000,
+          startwidth: 1170,
+          startheight: 500,
+          hideThumbs: 10,
+          hideTimerBar: 'on',
+          navigationStyle:'preview4'
+      }, $parse(attrs.revolutionSlider)(scope)));
     }
   };
 });

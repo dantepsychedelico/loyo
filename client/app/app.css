@@ -21,3 +21,21 @@
 .header .navbar-collapse.collapse.in .nav.navbar-nav a {
   color: white;
 }
+/* blue */
+.thumbnails .caption a {
+  color: #3498db;
+}
+/* red */
+.thumbnails .caption strong {
+  color: #e74c3c;
+}
+@media (min-width: 992px) {
+.thumbnails {
+    min-height: 340px;
+  }
+}
+@media (min-width: 992px) {
+.thumbnail-kenburn img {
+    height: 219px;
+  }
+}
