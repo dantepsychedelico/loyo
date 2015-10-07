@@ -8,6 +8,15 @@
     width: 150px;
   }
 }
+@media (max-width: 459px) {
+  .header .topbar ul.loginbar > li {
+    display: block;
+    padding-bottom: 0px;
+  }
+}
+.header .topbar ul.loginbar > li > a, .header .topbar ul.loginbar > li > a:hover {
+  color: white;
+}
 
 .header.header-fixed-shrink .logo img:first-child {
   display: none;
@@ -17,6 +26,9 @@
 }
 .header:not(.header-fixed-shrink) .navbar-nav > li > a {
   color: white;
+}
+.header:not(.header-fixed-shrink) .navbar-nav > li:hover > a {
+  color: #e74c3c;
 }
 .header .navbar-collapse.collapse.in .nav.navbar-nav a {
   color: white;
@@ -30,12 +42,21 @@
   color: #e74c3c;
 }
 @media (min-width: 992px) {
-.thumbnails {
-    min-height: 340px;
+  .thumbnails {
+    height: 340px;
   }
-}
-@media (min-width: 992px) {
-.thumbnail-kenburn img {
+  .thumbnail-kenburn img {
     height: 219px;
   }
+}
+@media (max-width: 992px) {
+  .thumbnail-kenburn img {
+    width: 100%;
+  }
+  .social-icons li:hover a {
+    background-position: 0 -38px;
+  }
+}
+.social_line {
+  background: url(/assets/images/icons/line.png) no-repeat;
 }
