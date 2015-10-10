@@ -6,7 +6,8 @@ angular.module('loyoApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'unify'
+  'unify',
+  'FB.Utils'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

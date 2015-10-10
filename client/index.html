@@ -8,9 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
     <title>樂遊旅行社：【OFF慢遊】紐西蘭旅遊專家，東非肯亞動物大遷徙，日本、非洲、歐洲、美加，優質旅遊行程！</title>
+    <meta charset="utf-8">
     <meta name="description" content="樂遊旅行社：【OFF慢遊】紐西蘭旅遊專家，紐西蘭自行車、健行，東非肯亞、坦尚尼亞動物大遷徙，烏干達、盧安達、尚比亞、波茲瓦那、 日本、歐洲、東歐、美加、杜拜，優質旅遊行程！">
     <meta name="keywords" content="紐西蘭旅遊, OFF慢遊, 紐西蘭南島, 肯亞動物大遷徙, 北歐旅遊, 自由行">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <!-- build:css(client) app/vendor.css -->
@@ -70,6 +71,9 @@
 //       ga('create', 'UA-XXXXX-X');
 //       ga('send', 'pageview');
     </script>
+    <!-- Facebook API -->
+    <div id="fb-root"></div>
+    <script id="facebook-jssdk" src="//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5" class="ng-scope"></script>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -110,6 +114,7 @@
           <!-- injector:js -->
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="components/facebook/facebook.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <script src="components/unify/unify.js"></script>
           <!-- endinjector -->
