@@ -9,7 +9,7 @@ case $1 in
     develop)
         docker run -d --name "loyo-$VERSION" -p 58080:9000 \
             -e NODE_ENV=development \
-            loyo:$VERSION grunt
+            loyo:$VERSION grunt serve
         ;;
     production)
         docker run -d --name "loyo-$VERSION" -p 58080:9000 \
