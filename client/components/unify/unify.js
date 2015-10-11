@@ -2,19 +2,14 @@
 
 var ee;
 angular.module('unify', [])
-.directive('headerFixedShrink', function($window, $timeout) {
+.factory('Modernizr', function($window) {
+  return $window.Modernizr;
+})
+.directive('headerFixedShrink', function($window, $timeout, Modernizr) {
   return {
     restirct: 'A',
     link: function(scope, element, attr) {
-      function fixedShrink() {
-        if ($window.scrollY && attr.class.match(/header-fixed-shrink/)===null) {
-          attr.$addClass('header-fixed-shrink');
-        } else if ($window.scrollY === 0) {
-          attr.$removeClass('header-fixed-shrink');
-        }
-        $timeout(fixedShrink, 100);
-      }
-//       $timeout(fixedShrink, 100);
+      console.log(Modernizr);
       angular.element($window).bind('scroll', function() {
         if ($window.scrollY && attr.class.match(/header-fixed-shrink/)===null) {
           attr.$addClass('header-fixed-shrink');

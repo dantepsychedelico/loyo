@@ -83,10 +83,11 @@
     <![endif]-->
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- JS Global Compulsory -->
-      <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
-      <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+      <!--script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script-->
+      <!--script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script-->
       <!--script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script-->
       <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -94,16 +95,18 @@
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/lodash.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="bower_components/mobile-detect/mobile-detect.js"></script>
       <!-- endbower -->
       <!-- JS Implementing Plugins -->
       <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
       <script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
       <script src="assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
       <script src="assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+      <script src="assets/js/modernizr.js"></script>
+      <!--
       <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
       <script type="text/javascript" src="assets/plugins/parallax-slider/js/modernizr.js"></script>
       <script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+      -->
       <!-- JS Page Level -->
       <script type="text/javascript" src="assets/js/app.js"></script>
       <script type="text/javascript">

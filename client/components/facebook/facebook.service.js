@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('FB.Utils', [])
-.factory('FB', function() {
+.factory('FB', function($window) {
   return {
     init: function(params) {
-      FB.init(_.merge({
+      $window.FB.init(_.merge({
         xfbml      : true,
         version    : 'v2.4'
       }, params));
