@@ -1,17 +1,25 @@
-<div header-fixed-shrink class="header header-sticky dark-page-header" ng-controller="NavbarCtrl">
-  <div class="container">
-    <!-- Logo -->
-    <a class="logo" href="/">
-      <img src="assets/images/top_images/header_logo.png" alt="Logo">
-      <img src="assets/images/top_images/header_logo-black.png" alt="Logo">
-    </a>
-    <!-- End Logo -->
-    <!--phone
-    <div class="top-contact-block">
-    </div>
-    -->
+<div header-fixed-shrink class="header-v6 header-sticky" ng-controller="NavbarCtrl">
+  <div class="navbar mega-menu" role="navigation">
+    <div class="container">
+      <div class="menu-container">
+        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
+        <!-- Navbar Brand -->
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img class="default-logo" src="assets/images/top_images/header_logo.png" alt="Logo">
+            <img class="shrink-logo" src="assets/images/top_images/header_logo-black.png" alt="Logo">
+          </a>
+        </div>
+        <!-- ENd Navbar Brand -->
+      </div>
     <!-- Topbar -->
+    <!--
     <div class="topbar">
       <ul class="loginbar pull-right">
         <li>
@@ -39,112 +47,106 @@
         </li>
       </ul>
     </div>
+    -->
     <!-- End Topbar -->
 
-    <!-- Toggle get grouped for better mobile display -->
-    <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="fa fa-bars"></span>
-    </button>
-    <!-- End Toggle -->
-  </div><!--/end container-->
+      <div class="collapse navbar-collapse navbar-responsive-collapse" collapse="isCollapsed">
+        <div class="menu-container">
+          <ul class="nav navbar-nav">
+            <!-- Home -->
+            <li ng-class="{active: isActive('/關於我們')}" >
+              <a ui-sref="關於我們">關於我們</a>
+            </li>
+            <!-- END Home -->
+            <!-- New Zealand -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">
+                我愛紐西蘭
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                  <a>2015年 樂遊紐西蘭團體旅遊行程 </a>
+                  <ul class="dropdown-menu">
+                    <li><a ui-sref="紐西蘭南島深度遊12天">2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天</a></li>
+                    <li><a>2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天-阿卡羅瓦賞海豚</a></li>
+                    <li><a>2015-2016 【OFF慢遊】南北島溫泉鄉.峽灣.高山觀湖.庫克山13天</a></li>
+                    <li><a>紐西蘭南北島全覽-首都.冰河.雙峽灣.庫克山16天</a></li>
+                    <li><a>紐西蘭假期 南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a>健行旅遊</a>
+                  <ul class="dropdown-menu">
+                    <li><a>大自然-紐西蘭南島世界遺產秘境健走11天</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a>自行車旅遊</a>
+                  <ul class="dropdown-menu">
+                    <li><a>紐西蘭南島時尚休閒自行車之旅13日</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a>露營車旅遊</a>
+                </li>
+                <li>
+                  <a>觀光巴士自助行</a>
+                </li>
+              </ul>
+            </li>
+            <!-- End New Zealand -->
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse" collapse="isCollapsed">
-    <div class="container">
-      <ul class="nav navbar-nav">
-        <!-- Home -->
-        <li ng-class="{active: isActive('/關於我們')}" >
-          <a ui-sref="關於我們">關於我們</a>
-        </li>
-        <!-- END Home -->
-        <!-- New Zealand -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle">
-            我愛紐西蘭
-          </a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-submenu">
-              <a>2015年 樂遊紐西蘭團體旅遊行程 </a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="紐西蘭南島深度遊12天">2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天</a></li>
-                <li><a>2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天-阿卡羅瓦賞海豚</a></li>
-                <li><a>2015-2016 【OFF慢遊】南北島溫泉鄉.峽灣.高山觀湖.庫克山13天</a></li>
-                <li><a>紐西蘭南北島全覽-首都.冰河.雙峽灣.庫克山16天</a></li>
-                <li><a>紐西蘭假期 南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天</a></li>
-              </ul>
+            <!-- Pages -->
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    映像非洲
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- About Pages -->
+                    <li class="dropdown-submenu">
+                        <a href="javascript:void(0);">About Pages</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="page_about2.html">About Us </a></li>
+                            <li><a href="page_about1.html">About Us 2</a></li>
+                        </ul>
+                    </li>
+                    <!-- End About Pages -->
+
+                    <!-- Service Pages -->
+                    <li class="dropdown-submenu">
+                        <a href="javascript:void(0);">Service Pages</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="page_services.html">Our Services</a></li>
+                            <li><a href="page_services3.html">Our Services 3</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Service Pages -->
+                </ul>
             </li>
-            <li class="dropdown-submenu">
-              <a>健行旅遊</a>
-              <ul class="dropdown-menu">
-                <li><a>大自然-紐西蘭南島世界遺產秘境健走11天</a></li>
-              </ul>
+            <!-- End Pages -->
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    歐洲館
+                </a>
             </li>
-            <li class="dropdown-submenu">
-              <a>自行車旅遊</a>
-              <ul class="dropdown-menu">
-                <li><a>紐西蘭南島時尚休閒自行車之旅13日</a></li>
-              </ul>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    中東館
+                </a>
             </li>
-            <li>
-              <a>露營車旅遊</a>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    南極館
+                </a>
             </li>
-            <li>
-              <a>觀光巴士自助行</a>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    日本館
+                </a>
             </li>
           </ul>
-        </li>
-        <!-- End New Zealand -->
-
-        <!-- Pages -->
-        <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                映像非洲
-            </a>
-            <ul class="dropdown-menu">
-                <!-- About Pages -->
-                <li class="dropdown-submenu">
-                    <a href="javascript:void(0);">About Pages</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="page_about2.html">About Us </a></li>
-                        <li><a href="page_about1.html">About Us 2</a></li>
-                    </ul>
-                </li>
-                <!-- End About Pages -->
-
-                <!-- Service Pages -->
-                <li class="dropdown-submenu">
-                    <a href="javascript:void(0);">Service Pages</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="page_services.html">Our Services</a></li>
-                        <li><a href="page_services3.html">Our Services 3</a></li>
-                    </ul>
-                </li>
-                <!-- End Service Pages -->
-            </ul>
-        </li>
-        <!-- End Pages -->
-        <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                歐洲館
-            </a>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                中東館
-            </a>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                南極館
-            </a>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                日本館
-            </a>
-        </li>
-      </ul>
-    </div><!--/end container-->
-  </div><!--/navbar-collapse-->
+        </div><!--/end container-->
+      </div><!--/navbar-collapse-->
+    </div>
+  </div>
 </div>

@@ -7,6 +7,7 @@
   font-size: 14px;
   line-height: 25px;
 }
+/*
 .dark-page-header {
   border-bottom: none;
   background: rgba(0,0,0,1);
@@ -29,11 +30,13 @@
   border: 50px solid transparent; 
   border-top-color: red;
 }
+*/
 @media (max-width: 360px) {
-  .header .logo img {
+  .header-v6 .navbar-brand img.shrink-logo {
     width: 150px;
   }
 }
+/*
 @media (max-width: 459px) {
   .header .topbar ul.loginbar > li {
     display: block;
@@ -59,6 +62,7 @@
 .header .navbar-collapse.collapse.in .nav.navbar-nav a {
   color: white;
 }
+*/
 /* blue */
 .thumbnails .caption a {
   color: #3498db;
@@ -96,4 +100,130 @@
        url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff2) format('woff2'),
        url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff) format('woff'),
        url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.ttf) format('truetype');
+}
+/* slide */
+@media (min-width: 992px) {
+  .slide-font-50 {
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 60px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-40 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 60px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-32 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 60px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-30 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-25 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 40px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-23 {
+    font-size: 23px;
+    line-height: 30px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-20 {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-padding-20 {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .slide-font-50 {
+    font-size: 40px;
+    line-height: 50px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-40 {
+    font-size: 30px;
+    line-height: 50px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-32 {
+    font-size: 25px;
+    line-height: 50px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-30 {
+    font-size: 23px;
+    line-height: 40px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-25 {
+    font-size: 20px;
+    line-height: 40px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-23 {
+    font-size: 18px;
+    line-height: 20px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-20 {
+    font-size: 15px;
+    line-height: 20px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-padding-20 {
+    padding: 12px 0;
+  }
+}
+@media (max-width: 767px) {
+  .slide-font-50 {
+    font-size: 25px;
+    line-height: 30px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-40 {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-32 {
+    font-size: 16px;
+    line-height: 30px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-30 {
+    font-size: 15px;
+    line-height: 25px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-25 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-23 {
+    font-size: 13px;
+    line-height: 20px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-font-20 {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXHei, serif;
+  }
+  .slide-padding-20 {
+    padding: 5px 0;
+  }
 }

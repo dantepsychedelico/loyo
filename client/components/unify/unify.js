@@ -33,10 +33,14 @@ angular.module('unify', [])
     link: function(scope, element, attrs) {
       element.revolution(angular.extend({
           delay: 9000,
-          startwidth: 1170,
-          startheight: 700,
+          startwidth: 1360,
+          startheight: 760,
           hideThumbs: 10,
-//           fullScreen: 'on',
+          fullScreen: 'on',
+//           startWithSlide: 1,  // design slide
+//           stopAtSlide: 1, // design slide
+//           stopAfterLoops: 0,  // design slide
+          hideAllCaptionAtLimit: 420,
 //           hideTimerBar: 'on',
           navigationStyle:'preview4'
       }, $parse(attrs.revolutionSlider)(scope)));
