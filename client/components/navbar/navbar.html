@@ -8,13 +8,17 @@
     <!-- End Logo -->
     <!--phone
     <div class="top-contact-block">
-      <i class="fa fa-phone fa-1"></i> <a href="tel:02 2518 2323">(02) 2518 2323</a>
     </div>
     -->
 
     <!-- Topbar -->
     <div class="topbar">
       <ul class="loginbar pull-right">
+        <li>
+          <i class="fa fa-phone fa-1"></i>
+          <a href="tel:02 2518 2323">(02) 2518 2323</a>
+        </li>
+        <li class="topbar-devider"></li>
         <li>
           <i class="fa fa-heart"></i>
           <a href="#">特別專題</a>
@@ -50,20 +54,20 @@
     <div class="container">
       <ul class="nav navbar-nav">
         <!-- Home -->
-        <li>
-          <a href="#">關於我們</a>
+        <li ng-class="{active: isActive('/關於我們')}" >
+          <a ui-sref="關於我們">關於我們</a>
         </li>
         <!-- END Home -->
         <!-- New Zealand -->
         <li class="dropdown">
-          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="#" class="dropdown-toggle">
             我愛紐西蘭
           </a>
           <ul class="dropdown-menu">
             <li class="dropdown-submenu">
               <a>2015年 樂遊紐西蘭團體旅遊行程 </a>
               <ul class="dropdown-menu">
-                <li><a>2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天</a></li>
+                <li><a ui-sref="紐西蘭南島深度遊12天">2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天</a></li>
                 <li><a>2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天-阿卡羅瓦賞海豚</a></li>
                 <li><a>2015-2016 【OFF慢遊】南北島溫泉鄉.峽灣.高山觀湖.庫克山13天</a></li>
                 <li><a>紐西蘭南北島全覽-首都.冰河.雙峽灣.庫克山16天</a></li>

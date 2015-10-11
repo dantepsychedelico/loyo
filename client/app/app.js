@@ -9,9 +9,14 @@ angular.module('loyoApp', [
   'unify',
   'FB.Utils'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider
-      .otherwise('/');
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  $urlRouterProvider
+    .otherwise('/');
 
-    $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
+})
+.run(function ($rootScope, $window) {
+  $rootScope.$on('$locationChangeSuccess', function(e) {
+    $window.scrollTo(0,0);
   });
+});
