@@ -11,7 +11,7 @@ RUN apt-get update && \
 # RUN npm install -g mean-cli && \
 RUN npm install -g npm && \
     npm install -g bower && \
-    npm install -g grunt && \
+    npm install -g grunt-cli && \
     useradd -m loyo
 
 RUN unlink /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
