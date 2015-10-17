@@ -317,7 +317,7 @@
 	background: #fff;
 	padding: 0 14% 0 13%;
 	text-transform: uppercase;
-	font-family: 'Open Sans', sans-serif;
+	font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
 }
 
 @media (max-width: 768px) {

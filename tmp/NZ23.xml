@@ -1,0 +1,1565 @@
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+
+<script language="JavaScript" type="text/JavaScript">
+	function func_CHNL_Login(chnl_id){
+		ipopURL = "/eWeb/CHNL/pop_CHNL_Login.asp?CHNL_ID="+chnl_id;
+		RtnValue = showModalDialog(ipopURL ,"Login","dialogWidth=200pt;dialogHeight=150pt;scroll=auto");
+		if(RtnValue){
+			getID_URL="/eWeb/CHNL/pop_CHNL_Login_su.asp?CHNL_USRID="+RtnValue;
+			window.location=getID_URL;
+			//===========================================================
+		}
+	}
+	
+	function order_ChkChnl(url,chnl_id,style_fg){
+		if(chnl_id==""){
+			window.location=url;
+		}
+		else{
+			if(style_fg==true){
+				window.location=url;
+			}
+			else{
+				window.open(url,"OutOrder","location=no,scrollbars=yes,resizable=yes,titlebar=no");
+			}
+		}
+	}
+</script><meta http-equiv="Content-Type" content="text/html; charset=big5">
+
+
+
+<script language="javascript">
+	function gbook_view(iGRUP_CD){alert(iGRUP_CD);window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=" + iGRUP_CD + "','viewhtl','scrollbars=yes,width=450,height=250');}
+	function service_orderGO(igrup_cd,igrup_nm,isub_cd,isite_cd)
+	{
+		window.open("/eWeb/Public/inc_order_service.asp?sub_cd=" + isub_cd + "&grup_nm=" + igrup_nm + "&site_cd=" + isite_cd + "&grup_cd=" + igrup_cd + "","","width=650,height=400");
+	}
+</script>
+<a name="price"></a>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class='go-contant-table-day'>
+	
+	<tr>
+		<td valign="top" class="go-contant-text02">
+			
+<div id="DIV_151080"></div>
+<iframe name="iframe_DIV_151080" style="display:none;" frameborder="0" width="0" height="0" align="center" src="/eWeb_loyo/public/eWeb_Title.asp?div_id=DIV_151080&Title_TP=GO_Detail_SubTitle&Sub_title=出團資訊及報名" scrolling="no"></iframe>
+
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="go-contant-text02">
+			<table class="go-contant-table">
+				<tr align="center" class="go-contant-td03">
+					<td style='display:none'>團號</td>
+					<td>出發日期</td>
+					<td  style='display:none'>回程日期</td>
+					<td  style='display:none'>抵台日期</td>
+					<td>天數</td>
+					<td >產品名稱</td>
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<td width='50' style='display:none'>去程航班</td>
+					<td width='50' style='display:none'>回程航班</td>
+					<td width='20' style='display:none'>飯店</td>
+					<td width='30' style='display:none'>雜支</td>
+					<td width='20' style='display:none'><nobr>航班</nobr></td>
+					<td style="display:none">詳細內容</td>
+					<td  style='display:none'>團費售價</td>
+					<td>
+						團費售價
+					</td>
+					
+					<td  style='display:none'>總機位</td>
+					
+					<td  style='display:none'>可報名</td>
+					
+					<td style='display:none;'>
+						候補
+					</td>
+					<td>報名</td>
+					<td width='20' style='display:none'><nobr>住宿</nobr></td>
+					
+					<td>狀態</td>
+					
+					<td width="66">銷售說明</td>
+					
+					<td width='100'>備註</td>
+					<!--2013-02-08 Jackli 加入當勾選GF參數 需加入優惠方案顯示-->
+					
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151025A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer">
+						10/25(<font color='red'>日</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style='cursor:pointer;display:none;'>
+						11/02(一)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151025A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151025A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer;display:none;">
+						--
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer">
+						--
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23151025A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						0
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						截止
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151025A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status7.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > 額滿&nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151115A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer">
+						11/15(<font color='red'>日</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style='cursor:pointer;display:none;'>
+						11/23(一)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151115A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151115A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23151115A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151115A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151115A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151128A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer">
+						11/28(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style='cursor:pointer;display:none;'>
+						12/06(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151128A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151128A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23151128A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						0
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151128A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status3.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > 額滿&nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151205A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer">
+						12/05(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style='cursor:pointer;display:none;'>
+						12/13(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151205A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151205A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23151205A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151205A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151205A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151212A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer">
+						12/12(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style='cursor:pointer;display:none;'>
+						12/20(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151212A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151212A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23151212A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						6
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151212A&sellamt=6&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151212A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151219A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer">
+						12/19(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style='cursor:pointer;display:none;'>
+						12/27(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151219A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151219A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23151219A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						0
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151219A&sellamt=0&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'>候補</a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151219A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status3.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > 額滿&nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151221A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer">
+						12/21(一)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style='cursor:pointer;display:none;'>
+						12/29(二)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151221A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151221A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer;display:none;">
+						<s>102,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer">
+						102,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23151221A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151221A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151221A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23151226A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer">
+						12/26(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style='cursor:pointer;display:none;'>
+						01/03(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23151226A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151226A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer;display:none;">
+						<s>102,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer">
+						102,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23151226A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23151226A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23151226A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23160101A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer">
+						01/01(五)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style='cursor:pointer;display:none;'>
+						01/09(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23160101A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160101A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23160101A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160101A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23160101A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23160102A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer">
+						01/02(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style='cursor:pointer;display:none;'>
+						01/10(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23160102A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160102A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23160102A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160102A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23160102A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23160109A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer">
+						01/09(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style='cursor:pointer;display:none;'>
+						01/17(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23160109A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160109A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23160109A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160109A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23160109A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23160116A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer">
+						01/16(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style='cursor:pointer;display:none;'>
+						01/24(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23160116A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160116A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23160116A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160116A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23160116A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23160206A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer">
+						02/06(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style='cursor:pointer;display:none;'>
+						02/14(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23160206A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160206A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('NZ23','NZ23160206A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						0
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23160206A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status3.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > 額滿&nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style='cursor:pointer;display:none'>
+						NZ23160213A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer">
+						02/13(<font color='red'>六</font>)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style='cursor:pointer;display:none;'>
+						02/21(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer">
+						10
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer;">
+						紐西蘭南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天《住宿隱士飯店》
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						CI57
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=NZ23160213A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160213A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('NZ23','NZ23160213A','GO','','');" style="cursor:pointer;display:none">
+						16
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						8
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=NZ23&GRUP_CD=NZ23160213A&sellamt=8&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=NZ23160213A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><span						</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+</table>

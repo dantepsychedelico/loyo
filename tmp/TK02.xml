@@ -1,0 +1,2930 @@
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+
+<script language="JavaScript" type="text/JavaScript">
+	function func_CHNL_Login(chnl_id){
+		ipopURL = "/eWeb/CHNL/pop_CHNL_Login.asp?CHNL_ID="+chnl_id;
+		RtnValue = showModalDialog(ipopURL ,"Login","dialogWidth=200pt;dialogHeight=150pt;scroll=auto");
+		if(RtnValue){
+			getID_URL="/eWeb/CHNL/pop_CHNL_Login_su.asp?CHNL_USRID="+RtnValue;
+			window.location=getID_URL;
+			//===========================================================
+		}
+	}
+	
+	function order_ChkChnl(url,chnl_id,style_fg){
+		if(chnl_id==""){
+			window.location=url;
+		}
+		else{
+			if(style_fg==true){
+				window.location=url;
+			}
+			else{
+				window.open(url,"OutOrder","location=no,scrollbars=yes,resizable=yes,titlebar=no");
+			}
+		}
+	}
+</script><meta http-equiv="Content-Type" content="text/html; charset=big5">
+
+
+
+<script language="javascript">
+	function gbook_view(iGRUP_CD){alert(iGRUP_CD);window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=" + iGRUP_CD + "','viewhtl','scrollbars=yes,width=450,height=250');}
+	function service_orderGO(igrup_cd,igrup_nm,isub_cd,isite_cd)
+	{
+		window.open("/eWeb/Public/inc_order_service.asp?sub_cd=" + isub_cd + "&grup_nm=" + igrup_nm + "&site_cd=" + isite_cd + "&grup_cd=" + igrup_cd + "","","width=650,height=400");
+	}
+</script>
+<a name="price"></a>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class='go-contant-table-day'>
+	
+	<tr>
+		<td valign="top" class="go-contant-text02">
+			
+<div id="DIV_101440"></div>
+<iframe name="iframe_DIV_101440" style="display:none;" frameborder="0" width="0" height="0" align="center" src="/eWeb_loyo/public/eWeb_Title.asp?div_id=DIV_101440&Title_TP=GO_Detail_SubTitle&Sub_title=出團資訊及報名" scrolling="no"></iframe>
+
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="go-contant-text02">
+			<table class="go-contant-table">
+				<tr align="center" class="go-contant-td03">
+					<td style='display:none'>團號</td>
+					<td>出發日期</td>
+					<td  style='display:none'>回程日期</td>
+					<td  style='display:none'>抵台日期</td>
+					<td>天數</td>
+					<td >產品名稱</td>
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<td width='50' style='display:none'>去程航班</td>
+					<td width='50' style='display:none'>回程航班</td>
+					<td width='20' style='display:none'>飯店</td>
+					<td width='30' style='display:none'>雜支</td>
+					<td width='20' style='display:none'><nobr>航班</nobr></td>
+					<td style="display:none">詳細內容</td>
+					<td  style='display:none'>團費售價</td>
+					<td>
+						團費售價
+					</td>
+					
+					<td  style='display:none'>總機位</td>
+					
+					<td  style='display:none'>可報名</td>
+					
+					<td style='display:none;'>
+						候補
+					</td>
+					<td>報名</td>
+					<td width='20' style='display:none'><nobr>住宿</nobr></td>
+					
+					<td>狀態</td>
+					
+					<td width="66">銷售說明</td>
+					
+					<td width='100'>備註</td>
+					<!--2013-02-08 Jackli 加入當勾選GF參數 需加入優惠方案顯示-->
+					
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style='cursor:pointer;display:none'>
+						TK02151021A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer">
+						10/21(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style='cursor:pointer;display:none;'>
+						11/01(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02151021A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02151021A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02151021A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02151021A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02151021A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style='cursor:pointer;display:none'>
+						TK02151111A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer">
+						11/11(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style='cursor:pointer;display:none;'>
+						11/22(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02151111A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02151111A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02151111A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02151111A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02151111A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style='cursor:pointer;display:none'>
+						TK02151125A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer">
+						11/25(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style='cursor:pointer;display:none;'>
+						12/06(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02151125A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02151125A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02151125A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02151125A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02151125A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style='cursor:pointer;display:none'>
+						TK02151209A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer">
+						12/09(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style='cursor:pointer;display:none;'>
+						12/20(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02151209A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02151209A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02151209A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02151209A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02151209A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style='cursor:pointer;display:none'>
+						TK02151223A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer">
+						12/23(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style='cursor:pointer;display:none;'>
+						01/03(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02151223A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02151223A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02151223A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02151223A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02151223A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160113A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer">
+						01/13(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style='cursor:pointer;display:none;'>
+						01/24(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160113A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160113A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160113A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02160113A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160113A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160127A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer">
+						01/27(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style='cursor:pointer;display:none;'>
+						02/07(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160127A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160127A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160127A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02160127A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160127A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160203A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer">
+						02/03(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style='cursor:pointer;display:none;'>
+						02/14(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160203A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160203A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160203A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02160203A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160203A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160210A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer">
+						02/10(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style='cursor:pointer;display:none;'>
+						02/21(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160210A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160210A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160210A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02160210A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160210A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160217A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer">
+						02/17(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style='cursor:pointer;display:none;'>
+						02/28(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160217A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160217A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160217A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02160217A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160217A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160316A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer">
+						03/16(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style='cursor:pointer;display:none;'>
+						03/27(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160316A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160316A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer;display:none;">
+						<s>99,800</s>
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer">
+						99,800
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160316A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						<a href='/eWeb/GO/new/N_GO_Order_step1_new.asp?MGRUP_CD=TK02&GRUP_CD=TK02160316A&sellamt=15&SUB_CD=GO&JOIN_TP=1' class='go-contant-link02'><img src='/eWeb_loyo/images/order003.gif' border='0'></a>
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160316A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160329A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer">
+						03/29(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style='cursor:pointer;display:none;'>
+						04/09(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160329A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160329A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160329A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160329A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160330A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer">
+						03/30(三)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style='cursor:pointer;display:none;'>
+						04/10(<font color='red'>日</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160330A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160330A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160330A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160330A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160412A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer">
+						04/12(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style='cursor:pointer;display:none;'>
+						04/23(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160412A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160412A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160412A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160412A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160426A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer">
+						04/26(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style='cursor:pointer;display:none;'>
+						05/07(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160426A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160426A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160426A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160426A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160510A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer">
+						05/10(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style='cursor:pointer;display:none;'>
+						05/21(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160510A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160510A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160510A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160510A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160524A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer">
+						05/24(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style='cursor:pointer;display:none;'>
+						06/04(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160524A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160524A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160524A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160524A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160607A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer">
+						06/07(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style='cursor:pointer;display:none;'>
+						06/18(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160607A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160607A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160607A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160607A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160621A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer">
+						06/21(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style='cursor:pointer;display:none;'>
+						07/02(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160621A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160621A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160621A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160621A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160705A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer">
+						07/05(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style='cursor:pointer;display:none;'>
+						07/16(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160705A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160705A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160705A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160705A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160719A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer">
+						07/19(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style='cursor:pointer;display:none;'>
+						07/30(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160719A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160719A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160719A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160719A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160802A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer">
+						08/02(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style='cursor:pointer;display:none;'>
+						08/13(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160802A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160802A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160802A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160802A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160816A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer">
+						08/16(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style='cursor:pointer;display:none;'>
+						08/27(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160816A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160816A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160816A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160816A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160830A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer">
+						08/30(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style='cursor:pointer;display:none;'>
+						09/10(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160830A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160830A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160830A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160830A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160913A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer">
+						09/13(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style='cursor:pointer;display:none;'>
+						09/24(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160913A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160913A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02160913A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160913A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style='cursor:pointer;display:none'>
+						TK02160927A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer">
+						09/27(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style='cursor:pointer;display:none;'>
+						10/08(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td01" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td01-1" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td01" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td01" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td01" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02160927A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02160927A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td01" align="center" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td01" onClick="godtl('TK02','TK02160927A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td01" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td01" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td01">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td01" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02160927A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td01">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td01" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td01' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+				<tr>
+					<!--[團　　號]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style='cursor:pointer;display:none'>
+						TK02161011A
+					</td>
+					<!--[出發日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer">
+						10/11(二)<img src="/eWeb_loyo/images/set-button10.gif" border="0" align="absmiddle" style="display:none">
+					</td>
+					<!--[回程日期]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style='cursor:pointer;display:none;'>
+						10/22(<font color='red'>六</font>)
+					</td>
+					<!--[抵台日期]-->
+					<td class="go-contant-td02" align="center" style='display:none'>
+						
+					</td>
+					<!--[天　　數]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer">
+						12
+					</td>
+					<!--[產品名稱(團名)]-->
+					<!--2012-12-14[art]改成使用對應的CSS類別(後面多個01)-->
+					<td class="go-contant-td02-1" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer;">
+						土耳其輝煌榮耀鄂圖曼帝國歲月風華12日(3晚伊斯坦堡)<font>入住CCR洞穴飯店升等房</font>
+					</td>
+					<!--[報名截止日]-->
+					<!--2013-03-12 [Aron] 隱藏世邦出團資訊裡的報名截止日-->
+					
+					<!--[去程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK025
+					</td>
+					<!--[回程航班]-->
+					<td class="go-contant-td02" width='50' align='center' style='display:none'>
+						TK024
+					</td>
+					<!--[飯店]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						
+					</td>
+					<!--[雜支]-->
+					<td class="go-contant-td02" width='30' align='center' style='display:none'>
+						<font color='#FF0000'>&nbsp;</font>
+					</td>
+					<!--[航班]-->
+					<td class="go-contant-td02" width='20' align='center' style='display:none'>
+						<img src='/images/gbook.gif' border='0'  onclick="window.open('/eWeb/GO/V_GO_Detail_gbook_dtl.asp?GRUP_CD=TK02161011A','viewhtl','scrollbars=yes,width=650,height=250');"  style='cursor:pointer'>
+					</td>
+					<!--[詳細內容]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer;display:none">
+						<a href="/eWeb/GO/V_GO_Detail.asp?MGRUP_CD=TK02&GRUP_CD=TK02161011A&SUB_CD=GO" class="go-contant-link02">詳細內容</a>
+					</td>
+					<!--[參考價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer;display:none;">
+						請電洽
+					</td>
+					<!--[銷售價]-->
+					<td class="go-contant-td02" align="center" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer">
+						請電洽
+					</td>
+					
+					<!--[總團位]-->
+					<td align="center"  class="go-contant-td02" onClick="godtl('TK02','TK02161011A','GO','','');" style="cursor:pointer;display:none">
+						22
+					</td>
+					
+					<!---[可報名]-->
+					<td align="center" class="go-contant-td02" style='display:none'>
+						15
+					</td>
+					<!---[候補]-->
+					
+					<td align="center" class="go-contant-td02" style="display:none;">
+						0
+					</td>
+					
+					<!--[顯示可否報名]-->
+					
+					<td align="center" class="go-contant-td02">
+						請電洽
+					</td>
+					
+					<!--[住宿]-->
+					<td width='20' align='center' class="go-contant-td02" style='display:none'>
+						<a href='/eWeb/Public/V_GO_Detail_hotel_list.asp?GRUP_CD=TK02161011A' target='_blank'><img src='/images/hotel_grup.gif' border='0'></a>
+					</td>
+					<!--[狀態]-->
+					
+					<td align="center" class="go-contant-td02">
+						<img src='/eWeb_loyo/images/status/status.gif'>
+					</td>
+					
+
+					<!--[銷售說明] -->
+					
+					<TD align="center" CLASS="go-contant-td02" > &nbsp; </td>
+					
+					<!--[優惠方案]-->
+					
+					<!--[備註]-->
+					<td class='go-contant-td02' style='cursor:pointer;' width='100' align="center">
+					<p><stro						</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+</table>

@@ -1,6 +1,6 @@
 'use strict';
 
-var ee;
+var api;
 angular.module('unify', [])
 .factory('Modernizr', function($window) {
   return $window.Modernizr;
@@ -26,7 +26,7 @@ angular.module('unify', [])
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
-      element.revolution(angular.extend({
+      var api = element.revolution(angular.extend({
           delay: 9000,
           startwidth: 1360,
           startheight: 760,
@@ -39,6 +39,9 @@ angular.module('unify', [])
 //           hideTimerBar: 'on',
           navigationStyle:'preview4'
       }, $parse(attrs.revolutionSlider)(scope)));
+      scope.$on('$destroy', function() {
+        api.revpause();
+      });
     }
   };
 })

@@ -14,6 +14,7 @@
     "angular-ui-router": "~0.2.15",
     "animate.css": "~3.4.0",
     "jquery": "~2.1.4",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "owl.carousel": "~2.0.0-beta.3"
   },
   "devDependencies": {

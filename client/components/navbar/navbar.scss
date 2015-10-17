@@ -1,0 +1,68 @@
+.header-v6 .navbar-brand img {
+  width: 142px;
+}
+.menu-icons .search.search-close {
+  & + .search-open {
+    opacity: 0;
+    display: block;
+    background-color: #f6fffe;
+    visibility: hidden;
+    transition: visibility 0s linear 0.5s,opacity 0.5s linear; 
+  }
+  &.fa-times + .search-open {
+    opacity: 1;
+    visibility: visible;
+    transition-delay:0s;
+  }
+  @media (max-width: 992px) {
+    &.fa-times {
+      position: fixed;
+      right: 10px;
+      top: 5px;
+    }
+  }
+}
+.header-v6 .search-open {
+  .form-group {
+    margin-left: 15px;
+    .input-group {
+      margin-bottom: 10px;
+    }
+    button {
+      top: 23px;
+    }
+  }
+  .form-control {
+    font-size: 15px;
+    padding: 0 15px 0 10px;
+    border: 1px solid #ccc;
+    height: 30px;
+    &:hover, &:active, &:focus {
+      border: 1px solid #ccc;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .header-v6 {
+    .bootstrap-datetimepicker-widget {
+      &.dropdown-menu li a {
+        padding: 6px 0;
+      }
+    }
+  }
+  .header-fixed .header-v6.header-fixed-shrink {
+    .search-open {
+      padding-bottom: 0px;
+      .form-group {
+        margin-left: 15px;
+        .input-group {
+          margin-bottom: 10px;
+        }
+      }
+      .form-control {
+        height: 30px;
+        font-size: 15px;
+      }
+    }
+  }
+}
