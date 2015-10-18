@@ -28,11 +28,11 @@ angular.module('loyoApp')
     end: moment().add(6, 'month')
   };
   $scope.startDateOptions = {
-    minDate: $scope.data.start,
+    minDate: moment().add(-1, 'minute'),
     maxDate: moment().add(1, 'year')
   };
   $scope.endDateOptions = {
-    minDate: $scope.data.start,
+    minDate: moment().add(-1, 'minute'),
     maxDate: moment().add(1, 'year')
   };
   $scope.dataFormator = function(date) {
