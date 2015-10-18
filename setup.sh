@@ -7,7 +7,7 @@ case $1 in
         docker build -t loyo:$VERSION .
         ;;
     develop)
-        docker run -d --name "loyo-$VERSION" -p 58080:9000 \
+        docker create --name "loyo-$VERSION" -p 58080:9000 \
             -e DISABLE_LIVERELOAD=true \
             -e NODE_ENV=development \
             --link mongo:db \
