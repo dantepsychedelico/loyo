@@ -45,6 +45,33 @@ angular.module('unify', [])
     }
   };
 })
+.directive('ngMasonry', function($parse) {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element, $attrs) {
+      this.layout = function() {
+        $element.masonry('layout');
+      }
+    },
+    link: function(scope, element, attrs) {
+      element.masonry(angular.merge({
+        itemSelector: '.grid-item',
+        columnWidth: 200
+      }, $parse(attrs.ngMasonry)(scope)));
+    }
+  };
+})
+.directive('ngMasonryLoad', function() {
+  return {
+    require: '^ngMasonry',
+    restrict: 'A',
+    link: function(scope, element, attrs, ngMasonry) {
+      element.bind('load', function() {
+        ngMasonry.layout();
+      });
+    }
+  };
+})
 .run(['$templateCache', function($templateCache) {
   $templateCache.put('template/carousel/carousel-no-chevron.html',
     '<div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" '+

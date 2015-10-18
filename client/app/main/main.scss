@@ -23,3 +23,28 @@
     }
   }
 }
+
+.homepage-container {
+  width: 100%;
+}
+.masonry-3col.grid {
+  margin-left: 15px;
+  .grid-item {
+    padding: 0;
+    margin-bottom: 30px;
+    border: solid 1px #eee;
+    .thumbnail-style {
+      img {
+        width: 100%;
+      } 
+      margin-bottom: 0px;
+    }
+  }
+  .grid-sizer, .grid-item { 
+    width: 31%; 
+  }
+  .grid-item-width2 { 
+    width: 62%; 
+  }
+}
+

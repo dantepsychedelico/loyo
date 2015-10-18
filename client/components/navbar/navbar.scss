@@ -1,6 +1,9 @@
 .header-v6 .navbar-brand img {
   width: 142px;
 }
+.menu-container .nav.navbar-nav li > a {
+  font-size: 15px;
+}
 .menu-icons .search.search-close {
   & + .search-open {
     opacity: 0;

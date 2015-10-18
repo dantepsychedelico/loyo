@@ -6,4 +6,10 @@ angular.module('loyoApp')
     width: $window.innerWidth,
     height: $window.innerHeight
   };
+  $scope.masonryOptions = {
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true,
+    gutter: 10
+  }
 });
