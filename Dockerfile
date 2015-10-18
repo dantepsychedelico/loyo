@@ -6,7 +6,8 @@ MAINTAINER Zac Chung
 # RUN ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
 RUN apt-get update && \
-	apt-get install -y ssh vim gcc make build-essential git
+	apt-get install -y ssh vim gcc make build-essential git ruby-full && \
+    gem install sass
 
 # RUN npm install -g mean-cli && \
 RUN npm install -g npm && \

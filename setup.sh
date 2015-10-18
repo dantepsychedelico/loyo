@@ -8,8 +8,17 @@ case $1 in
         ;;
     develop)
         docker create --name "loyo-$VERSION" -p 58080:9000 \
+            -e DISABLE_LIVERELOAD=true \
             -e NODE_ENV=development \
+            --link mongo:db \
             loyo:$VERSION grunt serve
+        ;;
+    test)
+        docker run -it --rm -u root -p 58080:9000 \
+            -e DISABLE_LIVERELOAD=true \
+            -e NODE_ENV=development \
+            --link mongo:db \
+            loyo:$VERSION bash
         ;;
     production)
         docker run -d --name "loyo-$VERSION" -p 58080:9000 \
