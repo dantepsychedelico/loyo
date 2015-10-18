@@ -11,17 +11,23 @@
     visibility: hidden;
     transition: visibility 0s linear 0.5s,opacity 0.5s linear; 
     height: 94px;
+    @media (max-width: 767px) {
+      height: 250px;
+    }
   }
   &.fa-times + .search-open {
     opacity: 1;
     visibility: visible;
     transition-delay:0s;
   }
-  @media (max-width: 992px) {
-    &.fa-times {
+  &.fa-times {
+    @media (max-width: 992px) {
       position: fixed;
       right: 10px;
       top: 5px;
+    }
+    @media (max-width: 767px) {
+      top: -29px;
     }
   }
 }
@@ -81,5 +87,19 @@
         font-size: 15px;
       }
     }
+  }
+}
+@media (max-width: 350px) {
+  .header-v6 {
+    .header-inner-right {
+      float: inherit;
+      padding-left: 20px;
+      position: absolute;
+      right: 50px;
+      display: block;
+    }
+  }
+  .navbar-brand img.shrink-logo {
+    width: 150px;
   }
 }
