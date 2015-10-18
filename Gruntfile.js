@@ -230,7 +230,23 @@ module.exports = function (grunt) {
       target: {
         src: '<%= yeoman.client %>/index.html',
         ignorePath: '<%= yeoman.client %>/',
-        exclude: [/bootstrap-sass-official/, /bootstrap.js/, '/json3/', '/es5-shim/']
+        exclude: [
+          '/bootstrap-sass-official/', 
+          '/bootstrap.js/', 
+          '/json3/', 
+          '/es5-shim/', 
+          '/moment-timezone/', 
+          'get-style-property',
+          'get-size', 
+          'eventie',
+          'doc-ready',
+          'eventEmitter',
+          'matches-selector',
+          'fizzy-ui-utils',
+          'outlayer',
+          'masonry',
+          'ag-grid'
+        ]
       }
     },
 

@@ -1,4 +1,6 @@
 @import "../components/navbar/navbar.scss";
+@import "main/main.scss";
+@import "NewZealand/NewZealand.scss";
 @font-face {
   font-family: 'cwTeXMing';
   font-style: normal;
@@ -6,13 +8,9 @@
   src: url(/assets/fonts/cwTeXMing-zhonly.ttf);
 }
 /* app.css */
-.twFont {
-  font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
-}
 * {
   font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
   font-size: 14px;
-  line-height: 25px;
 }
 /*
 .dark-page-header {

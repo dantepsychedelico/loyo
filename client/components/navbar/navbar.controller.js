@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('loyoApp')
-.controller('navbarCtrl', function ($scope, $location) {
+.controller('navbarCtrl', function ($scope, $location, $state) {
   $scope.menu = [{
     'title': 'Home',
     'link': '/'
@@ -22,5 +22,30 @@ angular.module('loyoApp')
       'fa-search': !$scope.navbarSearchClass['fa-search'],
       'fa-times': !$scope.navbarSearchClass['fa-times']
     }
+  };
+  $scope.data = {
+    start: moment(),
+    end: moment().add(6, 'month')
+  };
+  $scope.startDateOptions = {
+    minDate: $scope.data.start,
+    maxDate: moment().add(1, 'year')
+  };
+  $scope.endDateOptions = {
+    minDate: $scope.data.start,
+    maxDate: moment().add(1, 'year')
+  };
+  $scope.dataFormator = function(date) {
+    return (angular.isString(date) ? 
+            moment(date, 'YYYY-MM-DD a hh:mm') : 
+            date).format('YYYY-MM-DD/HH:mm');
+  };
+  $scope.search = function() {
+    $state.go('出團資訊', {
+      start: $scope.dataFormator($scope.data.start),
+      end: $scope.dataFormator($scope.data.end),
+      key: $scope.data.key,
+      page: 0
+    })
   };
 });

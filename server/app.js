@@ -18,6 +18,10 @@ mongoose.connection.on('error', function(err) {
 	process.exit(-1);
 	}
 );
+mongoose.connection.on('connected', function() {
+  console.log('\x1b[33m%s\x1b[0m', 'MongoDB connection success: '+config.mongo.uri);
+});
+mongoose.set('debug', true);
 // Setup server
 var app = express();
 var server = require('http').createServer(app);

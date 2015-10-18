@@ -1,24 +1,23 @@
 'use strict';
 
 angular.module('loyoApp')
-.directive('dateTimePicker', function () {
+.directive('dateTimePicker', function ($parse) {
   return {
     require: '^ngModel',
     restrict: 'AE',
     link: function (scope, elem, attrs, ngModelCtrl) {
-      var options = {
-          format: attrs.format || 'YYYY-MM-DD a hh:mm',
-          pick12HourFormat: attrs.pick12HourFormat,
+      var options = angular.merge({
+          format: 'YYYY-MM-DD a hh:mm',
           locale: 'zh-tw',
-          useCurrent: attrs.useCurrent,
+          useCurrent: false
 //           debug: true
-      };
+      }, $parse(attrs.dateTimePicker)(scope));
       elem.datetimepicker(options);
       ngModelCtrl.$formatters.push(function(value) {
         var invalid = value === null || value === '' || value === undefined;
         if (invalid) return value;
-        var date = new Date(value);
-        return _.isNaN(date.valueOf()) ? value : moment(date).format(options.format);
+        var date = angular.isString(value) ? moment(value, options.format) : moment(value);
+        return date.isValid() ? date.format(options.format) : value; 
       });
       elem.on('dp.change', function (event) {
         ngModelCtrl.$setViewValue(event.date ? event.date.format(options.format) : '');
@@ -26,6 +25,7 @@ angular.module('loyoApp')
       elem.on('dp.hide', function(event) {
         scope.$eval(attrs.dpHide);
       });
+      if (attrs.api) $parse(attrs.api).assign(scope, elem.data('DateTimePicker'));
     }
   };
 });

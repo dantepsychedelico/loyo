@@ -5,9 +5,9 @@
   & + .search-open {
     opacity: 0;
     display: block;
-    background-color: #f6fffe;
     visibility: hidden;
     transition: visibility 0s linear 0.5s,opacity 0.5s linear; 
+    height: 94px;
   }
   &.fa-times + .search-open {
     opacity: 1;
@@ -31,6 +31,15 @@
     button {
       top: 23px;
     }
+    .search .input-group-addon {
+      background-color: #e74c3c;
+      color: #fff;
+      border-color: #e74c3c;
+      cursor: pointer;
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
   }
   .form-control {
     font-size: 15px;
@@ -39,6 +48,11 @@
     height: 30px;
     &:hover, &:active, &:focus {
       border: 1px solid #ccc;
+    }
+  }
+  .bootstrap-datetimepicker-widget {
+    table td.disabled, table td.disabled:hover {
+      color: #e9e9e9;
     }
   }
 }

@@ -7,7 +7,8 @@ angular.module('loyoApp', [
   'ui.router',
   'ui.bootstrap',
   'unify',
-  'FB.Utils'
+  'FB.Utils',
+  'agGrid'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider

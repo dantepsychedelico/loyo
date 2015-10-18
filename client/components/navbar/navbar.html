@@ -29,8 +29,10 @@
                     <div class="form-group">
                       <label> 出發日期 </label>
                       <div class='input-group date'>
-                        <input date-time-picker ng-model="gtDate" type="text" class="form-control" placeholder="出發日期">
-                        <span class="input-group-addon">
+                        <input date-time-picker="startDateOptions" api="api.start" ng-model="data.start" 
+                            ng-keyup="$event.keyCode == 13 && search()"
+                            type="text" class="form-control" placeholder="出發日期">
+                        <span class="input-group-addon" ng-click="api.start.show()">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                       </div>
@@ -38,10 +40,12 @@
                   </div>
                   <div class='col-md-3 col-sm-4'>
                     <div class="form-group">
-                      <label> 抵台日期 </label>
+                      <label> 回程日期 </label>
                       <div class='input-group date'>
-                        <input date-time-picker ng-model="ltDate" type="text" class="form-control" placeholder="抵台日期">
-                        <span class="input-group-addon">
+                        <input date-time-picker="upperDateOptions" api="api.end" ng-model="data.end" 
+                            ng-keyup="$event.keyCode == 13 && search()"
+                            type="text" class="form-control" placeholder="回程日期">
+                        <span class="input-group-addon" ng-click="api.end.show()">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                       </div>
@@ -50,9 +54,10 @@
                   <div class='col-md-4 col-sm-3'>
                     <div class="form-group">
                       <label> 關鍵字 </label>
-                      <div class='input-group date'>
-                        <input ng-model="keyWord" type="text" class="form-control" placeholder="關鍵字">
-                        <span class="input-group-addon">
+                      <div class='input-group search'>
+                        <input ng-model="data.key" ng-keyup="$event.keyCode == 13 && search()"
+                            type="text" class="form-control" placeholder="關鍵字">
+                        <span class="input-group-addon" ng-click="search()">
                           <span class="fa fa-search"></span>
                         </span>
                       </div>

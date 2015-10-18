@@ -1,0 +1,25 @@
+
+.header-fixed {
+  .shift-top .container {
+    margin-top: 90px;
+  }
+}
+[ag-grid] {
+  margin: 20px auto 50px auto;
+  max-height: 900px;
+  .ag-body-container .ag-cell {
+    padding-top: 9px;
+  }
+  &.ag-blue {
+    .ag-cell-no-focus,.ag-cell-focus {
+      border-right: 1px dotted #9bc2e6;
+      border-top: 2px solid transparent;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid #9bc2e6;
+      background-color: inherit;
+    }
+    .ag-row-selected {
+      background-color: #afbdff;
+    }
+  }
+}
