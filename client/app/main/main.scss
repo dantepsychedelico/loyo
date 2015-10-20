@@ -29,7 +29,7 @@
 }
 .masonry-3col.grid {
   margin-left: 15px;
-  .grid-item {
+  .grid-item-width, .grid-item-width2 {
     padding: 0;
     margin-bottom: 30px;
     border: solid 1px #eee;
@@ -40,7 +40,7 @@
       margin-bottom: 0px;
     }
   }
-  .grid-sizer, .grid-item { 
+  .grid-sizer, .grid-item, .fb-item-width { 
     @media (min-width: 992px) {
       width: 31%; 
     }
@@ -63,4 +63,33 @@
     }
   }
 }
-
+.thumbnails {
+  .caption {
+    /* blue */
+    a {
+      color: #3498db;
+    }
+    /* red */
+    strong {
+      color: #e74c3c;
+    }
+  }
+  h3.fb {
+    display: inline-block;
+    width: 100%;
+  }
+  .fb-post-time {
+    float: right;
+    color: #949aa5;
+    font-size: 13px;
+  }
+  a.fb-like {
+    background-color: rgba(255, 255, 255, 0);
+    i {
+      background-color: #4e69a2;
+    }
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
