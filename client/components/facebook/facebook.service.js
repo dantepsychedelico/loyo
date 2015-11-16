@@ -1,4 +1,5 @@
 'use strict';
+
 angular.module('FB.Utils', [])
 .factory('FB', function($window, $q) {
   return {

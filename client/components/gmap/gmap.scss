@@ -1,0 +1,11 @@
+
+[gmap-search-box] {
+  margin-top: 10px;
+  display: none;
+}
+[gmap-loyo] {
+  margin-bottom: 10px;
+  [gmap-search-box] {
+    display: block;
+  }
+}

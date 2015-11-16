@@ -9,4 +9,3 @@ angular.module('loyoApp')
         controller: 'NewZealandPage1'
       })
   });
-
