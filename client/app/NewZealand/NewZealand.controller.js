@@ -2,7 +2,7 @@
 
 angular.module('loyoApp')
 .controller('NewZealandPage1', function($scope) {
-  $scope.projectContext = [{
+  $scope.features = [{
     date: '第 1 天',
     title: '台北/(轉機點)/基督城',
     context: ' <p>短暫離開平日生活、工作的空間，整裝待發到紐西蘭來一趟悠閒與樂活、OFF慢遊紐西蘭之旅。今日搭乘中華航空豪華噴射班機往紐西蘭南島一大城－基督城，今晚夜宿機上，班機於隔日下午抵達。</p><p>短暫離開平日生活、工作的空間，整裝待發到紐西蘭來一趟悠閒與樂活、OFF慢遊紐西蘭之旅。今日搭乘中華航空豪華噴射班機往紐西蘭南島一大城－基督城，今晚夜宿機上，班機於隔日下午抵達。</p>',
@@ -69,5 +69,39 @@ angular.module('loyoApp')
     breakfast: '農莊早餐',
     lunch: '日式高級定食',
     dinner: '飯店內高級西式自助餐'
+  }];
+
+  $scope.intro = {
+    title: '2015-2016【OFF慢遊】紐西蘭南島深度精華遊12天',
+    price: 'NT$138,800 起',
+    location: '紐西蘭',
+    city: '奧克蘭/基督城/皇后鎮',
+    days: '12天9夜',
+    airplane: '中華航空'
+  };
+
+  $scope.airplanes = [{
+    day: '第 1 天',
+    from: '台北',
+    to: '奧克蘭',
+    time: '23:00-17:50+1',
+    airplane: '中華航空',
+    flightNo: 'C151',
+    first: true,
+    itemNum: 3,
+    index: 0
+  }, {
+    from: '羅吐魯阿',
+    to: '皇后鎮',
+    time: '09:10-12:35',
+    airplane: '紐西蘭航空',
+    flightNo: 'NZ5863',
+  }, {
+    day: '第 12 天',
+    from: '基督城',
+    to: '台北',
+    time: '19:15-04:30+1',
+    airplane: '中華航空',
+    flightNo: 'C156',
   }];
 });

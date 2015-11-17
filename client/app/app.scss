@@ -188,3 +188,54 @@
 .parallax__layer--back {
   transform: translateZ(-1px);
 }
+
+$red: #e74c3c;
+.color-bg-red {
+  background: $red;
+}
+$orange: #e67e22;
+.color-bg-orange {
+  background: $orange;
+}
+$white: #fff;
+.color-white {
+  color: $white;
+}
+/*Social Contacts v2*/
+.profile .social-contacts-v2 {
+  margin-bottom: 0;
+}
+
+.profile .social-contacts-v2 li {
+  padding: 7px 0;
+  border-top: 1px solid #f0f0f0;
+}
+
+.profile .social-contacts-v2 li:first-child {
+  border-top: none;
+}
+
+.profile .social-contacts-v2 li i {
+  font-size: 16px;
+  min-width: 25px;
+  margin-right: 7px;
+  text-align: center;
+  display: inline-block;
+}
+
+.profile .social-contacts-v2 li i.tw {
+  color: #159ceb;
+}
+.profile .social-contacts-v2 li i.fb {
+  color: #4862a3;
+}
+.profile .social-contacts-v2 li i.sk {
+  color: #00aceb;
+}
+.profile .social-contacts-v2 li i.gp {
+  color: #dc4a38;
+}
+.profile .social-contacts-v2 li i.gm {
+  color: #c6574b;
+}
+

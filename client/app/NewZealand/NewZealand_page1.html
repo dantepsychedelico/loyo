@@ -2,57 +2,73 @@
   <div class="row">
     <!--div gmap-loyo="map"></div-->
     <div class="col-md-12">
+      <div class="panel panel-blue">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>{{::intro.title}}</h3>
+        </div>
+        <div class="panel-body profile">
+          <ul class="list-unstyled social-contacts-v2">
+            <li class="color-red">團費售價：{{::intro.price}}</li>
+            <li>旅遊國家：{{::intro.location}}</li>
+            <li>旅遊城市：{{::intro.city}}</li>
+            <li>旅遊天數：{{::intro.days}}</li>
+            <li>航空公司：{{::intro.airplane}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
       <div class="headline">
         <h2 class="heading-md">行程內容</h2>
       </div>
       <ul class="timeline-v2">
-        <li class="equal-height-columns" ng-repeat="context in projectContext">
+        <li class="equal-height-columns" ng-repeat="feature in features">
           <div class="cbp_tmtime equal-height-column">
-            <span>{{::context.date}}</span>
+            <span>{{::feature.date}}</span>
           </div>
           <i class="cbp_tmicon rounded-x hidden-xs"></i>
           <div class="cbp_tmlabel equal-height-column">
-            <h2>{{::context.title}}</h2>
-            <blockquote class="row" ng-if="!context.slides.length">
+            <h2>{{::feature.title}}</h2>
+            <blockquote class="row" ng-if="!feature.slides.length">
               <div class="col-md-12">
-                <div ng-bind-html="context.context"></div>
-                <div ng-if="context.remarks.length">
+                <div ng-bind-html="feature.context"></div>
+                <div ng-if="feature.remarks.length">
                   <span class="label label-danger" style="font-size: 13px">
                     <i class="fa fa-comment"></i> 備註
                   </span>
-                  <p class="color-red" ng-repeat="remark in context.remarks">
+                  <p class="color-red" ng-repeat="remark in feature.remarks">
                     {{::$index+1}}).{{::remark}}
                   </p>
                 </div>
                 <p>
-                  <i class="fa fa-cutlery"></i> {{::context.breakfast}}, {{::context.lunch}}, {{::context.dinner}}
+                  <i class="fa fa-cutlery"></i> {{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
                 </p>
-                <p> <i class="fa fa-bed"></i>{{::context.hotel}} </p>
+                <p> <i class="fa fa-bed"></i>{{::feature.hotel}} </p>
               </div>
             </blockquote>
-            <blockquote class="row" ng-if="context.slides.length">
+            <blockquote class="row" ng-if="feature.slides.length">
               <div class="col-md-4 funny-boxes-img">
                 <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-chevron.html">
-                  <slide ng-repeat="slide in context.slides">
+                  <slide ng-repeat="slide in feature.slides">
                     <img class="img-responsive" ng-src="{{::slide.src}}">
                   </slide>
                 </carousel>
                 <ul class="list-unstyled">
                   <li>
-                    <i class="fa-fw fa fa-bed"></i> {{::context.hotel}}
+                    <i class="fa-fw fa fa-bed"></i> {{::feature.hotel}}
                   </li>
                   <li>
-                    <i class="fa-fw fa fa-cutlery"></i>{{::context.breakfast}}, {{::context.lunch}}, {{::context.dinner}}
+                    <i class="fa-fw fa fa-cutlery"></i>{{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
                   </li>
                 </ul>
               </div>
               <div class="col-md-8">
-                <div ng-bind-html="context.context"></div>
-                <div ng-if="context.remarks.length">
+                <div ng-bind-html="feature.context"></div>
+                <div ng-if="feature.remarks.length">
                   <span class="label label-danger" style="font-size: 13px">
                     <i class="fa fa-comment"></i> 備註
                   </span>
-                  <p class="color-red" ng-repeat="remark in context.remarks">
+                  <p class="color-red" ng-repeat="remark in feature.remarks">
                     {{::$index+1}}).{{::remark}}
                   </p>
                 </div>
@@ -61,6 +77,37 @@
           </div>
         </li>
       </ul>
+    </div>
+    <div class="col-md-12">
+      <div class="headline">
+        <h2 class="heading-md">航班參考</h2>
+      </div>
+      <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
+      <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
+      <table class="table">
+        <thead class="color-bg-orange color-white">
+          <tr>
+            <th>#</th>
+            <th>天數</th>
+            <th>起飛城市</th>
+            <th>抵達城市</th>
+            <th>出發/抵達時間</th>
+            <th>航空公司</th>
+            <th>航班編號</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="airplane in airplanes">
+            <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+            <td>{{::airplane.day}}</td>
+            <td>{{::airplane.from}}</td>
+            <td>{{::airplane.to}}</td>
+            <td>{{::airplane.time}}</td>
+            <td>{{::airplane.airplane}}</td>
+            <td>{{::airplane.flightNo}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
