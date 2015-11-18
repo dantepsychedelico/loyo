@@ -197,6 +197,14 @@ $orange: #e67e22;
 .color-bg-orange {
   background: $orange;
 }
+$grey: #95a5a6;
+.color-bg-grey {
+  background: $grey;
+}
+$light-grey: #f3f3f3;
+.color-bg-light-grey {
+  background: $light-grey;
+}
 $white: #fff;
 .color-white {
   color: $white;
@@ -239,3 +247,23 @@ $white: #fff;
   color: #c6574b;
 }
 
+.project-feature {
+  .timeline-v2:before {
+    left: 12%;
+  }
+  .timeline-v2 > li .cbp_tmtime {
+    width: 15%;
+  }
+
+  .timeline-v2 > li .cbp_tmicon {
+    left: 12%;
+  }
+
+  .timeline-v2 > li .cbp_tmlabel {
+    margin: 0 0 40px 15%;
+  }
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}

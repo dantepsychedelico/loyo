@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('loyoApp')
-.controller('NewZealandPage1', function($scope) {
+.controller('NewZealandPage1', function($scope, search) {
   $scope.features = [{
     date: '第 1 天',
     title: '台北/(轉機點)/基督城',
@@ -104,4 +104,5 @@ angular.module('loyoApp')
     airplane: '中華航空',
     flightNo: 'C156',
   }];
+  $scope.productions = search.data;
 });

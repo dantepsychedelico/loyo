@@ -10,5 +10,5 @@
 - 航班參考(airplanes)(completed)
 - 簡介(標題、團費售價、...)(intro)(completed)
 - 出團備註
-- 出團資訊及報名
+- 出團資訊及報名(productions)(half)(缺報名狀態、報名頁面)
 - 編輯頁面

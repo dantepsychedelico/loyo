@@ -18,96 +18,145 @@
       </div>
     </div>
     <div class="col-md-12">
-      <div class="headline">
-        <h2 class="heading-md">行程內容</h2>
+      <div class="panel panel-sea project-feature">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>行程內容</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="timeline-v2">
+            <li class="equal-height-columns" ng-repeat="feature in features">
+              <div class="cbp_tmtime equal-height-column">
+                <span>{{::feature.date}}</span>
+              </div>
+              <i class="cbp_tmicon rounded-x hidden-xs"></i>
+              <div class="cbp_tmlabel equal-height-column">
+                <h2>{{::feature.title}}</h2>
+                <blockquote class="row" ng-if="!feature.slides.length">
+                  <div class="col-md-12">
+                    <div ng-bind-html="feature.context"></div>
+                    <div ng-if="feature.remarks.length">
+                      <span class="label label-danger" style="font-size: 13px">
+                        <i class="fa fa-comment"></i> 備註
+                      </span>
+                      <p class="color-red" ng-repeat="remark in feature.remarks">
+                        {{::$index+1}}).{{::remark}}
+                      </p>
+                    </div>
+                    <p>
+                      <i class="fa fa-cutlery"></i> {{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
+                    </p>
+                    <p> <i class="fa fa-bed"></i>{{::feature.hotel}} </p>
+                  </div>
+                </blockquote>
+                <blockquote class="row" ng-if="feature.slides.length">
+                  <div class="col-md-4 funny-boxes-img">
+                    <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-chevron.html">
+                      <slide ng-repeat="slide in feature.slides">
+                        <img class="img-responsive" ng-src="{{::slide.src}}">
+                      </slide>
+                    </carousel>
+                    <ul class="list-unstyled">
+                      <li>
+                        <i class="fa-fw fa fa-bed"></i> {{::feature.hotel}}
+                      </li>
+                      <li>
+                        <i class="fa-fw fa fa-cutlery"></i>{{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-8">
+                    <div ng-bind-html="feature.context"></div>
+                    <div ng-if="feature.remarks.length">
+                      <span class="label label-danger" style="font-size: 13px">
+                        <i class="fa fa-comment"></i> 備註
+                      </span>
+                      <p class="color-red" ng-repeat="remark in feature.remarks">
+                        {{::$index+1}}).{{::remark}}
+                      </p>
+                    </div>
+                  </div>
+                </blockquote>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <ul class="timeline-v2">
-        <li class="equal-height-columns" ng-repeat="feature in features">
-          <div class="cbp_tmtime equal-height-column">
-            <span>{{::feature.date}}</span>
-          </div>
-          <i class="cbp_tmicon rounded-x hidden-xs"></i>
-          <div class="cbp_tmlabel equal-height-column">
-            <h2>{{::feature.title}}</h2>
-            <blockquote class="row" ng-if="!feature.slides.length">
-              <div class="col-md-12">
-                <div ng-bind-html="feature.context"></div>
-                <div ng-if="feature.remarks.length">
-                  <span class="label label-danger" style="font-size: 13px">
-                    <i class="fa fa-comment"></i> 備註
-                  </span>
-                  <p class="color-red" ng-repeat="remark in feature.remarks">
-                    {{::$index+1}}).{{::remark}}
-                  </p>
-                </div>
-                <p>
-                  <i class="fa fa-cutlery"></i> {{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
-                </p>
-                <p> <i class="fa fa-bed"></i>{{::feature.hotel}} </p>
-              </div>
-            </blockquote>
-            <blockquote class="row" ng-if="feature.slides.length">
-              <div class="col-md-4 funny-boxes-img">
-                <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-chevron.html">
-                  <slide ng-repeat="slide in feature.slides">
-                    <img class="img-responsive" ng-src="{{::slide.src}}">
-                  </slide>
-                </carousel>
-                <ul class="list-unstyled">
-                  <li>
-                    <i class="fa-fw fa fa-bed"></i> {{::feature.hotel}}
-                  </li>
-                  <li>
-                    <i class="fa-fw fa fa-cutlery"></i>{{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-8">
-                <div ng-bind-html="feature.context"></div>
-                <div ng-if="feature.remarks.length">
-                  <span class="label label-danger" style="font-size: 13px">
-                    <i class="fa fa-comment"></i> 備註
-                  </span>
-                  <p class="color-red" ng-repeat="remark in feature.remarks">
-                    {{::$index+1}}).{{::remark}}
-                  </p>
-                </div>
-              </div>
-            </blockquote>
-          </div>
-        </li>
-      </ul>
     </div>
     <div class="col-md-12">
-      <div class="headline">
-        <h2 class="heading-md">航班參考</h2>
+      <div class="panel panel-yellow">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>航班參考</h3>
+        </div>
+        <div class="panel-body">
+          <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
+          <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
+          <table class="table">
+            <thead class="color-bg-light-grey">
+              <tr>
+                <th>#</th>
+                <th>天數</th>
+                <th>起飛城市</th>
+                <th>抵達城市</th>
+                <th>出發/抵達時間</th>
+                <th>航空公司</th>
+                <th>航班編號</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="airplane in airplanes">
+                <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+                <td>{{::airplane.day}}</td>
+                <td>{{::airplane.from}}</td>
+                <td>{{::airplane.to}}</td>
+                <td>{{::airplane.time}}</td>
+                <td>{{::airplane.airplane}}</td>
+                <td>{{::airplane.flightNo}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
-      <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
-      <table class="table">
-        <thead class="color-bg-orange color-white">
-          <tr>
-            <th>#</th>
-            <th>天數</th>
-            <th>起飛城市</th>
-            <th>抵達城市</th>
-            <th>出發/抵達時間</th>
-            <th>航空公司</th>
-            <th>航班編號</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="airplane in airplanes">
-            <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
-            <td>{{::airplane.day}}</td>
-            <td>{{::airplane.from}}</td>
-            <td>{{::airplane.to}}</td>
-            <td>{{::airplane.time}}</td>
-            <td>{{::airplane.airplane}}</td>
-            <td>{{::airplane.flightNo}}</td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+    <div class="col-md-12">
+      <div class="panel panel-purple">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead class="color-bg-light-grey">
+              <tr>
+                <th> 出發日期 </th>
+                <th> 天數 </th>
+                <th> 產品名稱 </th>
+                <th> 團費售價 </th>
+                <th> 報名 </th>
+                <th> 狀態 </th>
+                <th> 銷售說明 </th>
+                <th> 備註 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="production in productions">
+                <th> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </th>
+                <th> {{::production['天數']}} </th>
+                <th> {{::production['產品名稱']}} </th>
+                <th> {{::production['團費售價']}} </th>
+                <th> {{::production['報名']}} </th>
+                <th> {{::production['狀態']}} </th>
+                <th> {{::production['銷售說明']}} </th>
+                <th> {{::production['備註']}} </th>
+              </tr>
+            </tbody>
+          </table>
+          <ol class="margin-top-20">
+            <li class="color-blue">團體旅遊中各團價格、航班及行程內容可能會因不同出發日期而有所變動，請先依您所需的出團日期查詢。</li>
+            <li class="color-blue">航空公司於票價中需增收燃油附加費，但因各航空公司徵收的費用不同，以致相同機場之機場稅也會有所差異。</li>
+            <li class="color-blue">本站所提供之各項旅遊產品是否需額外加收燃油附加費，請詳閱各項產品之說明。</li>
+            <li class="color-blue">請務必詳閱各團的各項說明以確保您的權益。</li>
+          </ol>
+        </div>
+      </div>
     </div>
   </div>
 </section>
