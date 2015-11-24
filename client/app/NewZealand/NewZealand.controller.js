@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('loyoApp')
+.run(['$anchorScroll', function($anchorScroll) {
+  $anchorScroll.yOffset = 95;   // always scroll by 50 extra pixels
+}])
 .controller('NewZealandPage1', function($scope, search) {
   $scope.features = [{
     date: '第 1 天',
@@ -69,7 +72,144 @@ angular.module('loyoApp')
     breakfast: '農莊早餐',
     lunch: '日式高級定食',
     dinner: '飯店內高級西式自助餐'
-  }];
+  }, {
+    date: '第 5 天',
+    title: '庫克山國家公園-(胡克山谷健行)-瓦納卡-迷宮世界-水岸渡假飯店(住2晚)',
+    context: '<p>早餐後，前一天如果已順利搭乘冰河船，早上(可)安排胡克山谷◎輕度健行，庫克山國家公園幾條著名及規劃完整的步道，欣賞穿雲峰山頭藹藹白雪及散佈山頭有如放射狀的大小冰川，在離情依依的心情，離開庫克山國家公園。</p><p> 午餐安排紐西蘭BBQ自助式午餐，午餐後經過著名8號景觀公路來到林地隘口觀賞自然風光。下午專車來到★WANAKA迷宮世界，是一處非常值得探訪、老少咸宜的地方，高大的◎瓦納卡斜塔傾斜53度，是最受歡迎拍照留念的地點。這裡有各種不同的精心花樣讓人迷惑于其中，來到WANAKA一定要到此一遊。令人驚奇的幻象房、雕刻錯覺畫廊、最精彩古羅馬風格廁所…置身於這個奇妙的迷宮世界會讓你在驚歎之餘渡過神奇而快樂的時光。</p><p> 隨後來到悠閒愜意氣氛濃厚LAKE WANAKA城鎮，位於湖光山色的瓦那卡湖畔。</p><p> 安排住宿湖瓦納卡水岸湖濱渡假村EDGEWATER RESORT連續數年客戶滿意調查最佳飯店，特別安排住宿兩晚。</p>',
+    slides: [{
+      title: '胡克山谷輕度健行',
+      src: 'app/NewZealand/images/00002032-1.jpg'
+    }, {
+      title: 'WANAKA迷宮世界',
+      src: 'app/NewZealand/images/00002032-2.jpg'
+    }, {
+      title: '水岸湖濱渡假村',
+      src: 'app/NewZealand/images/00002032-3.jpg'
+    }],
+    hotel: '水岸湖濱渡假村',
+    breakfast: '飯店內用',
+    lunch: '紐式BBQ',
+    dinner: '飯店內高級西式套餐'
+  }, {
+    date: '第 6 天',
+    title: '瓦納卡湖自行車輕鬆一日遊',
+    context: '<p>LATE MONING CALL的早晨，今日悠閒、風光明媚的WANAKA湖光山色，海拔約320公尺，面積 192平方公里是紐西蘭第四大湖，深度超過300公尺以上，冰河侵蝕形成一個U型山谷的冰河蝕湖。氣候乾燥少雨，是全紐西蘭陽光最充足的地區之一，此處可以眺望南阿爾卑斯山頭的白雪。 <p>■特別企劃：★自行車輕鬆一日遊，每人提供一輛高級越野自行車，(自行車的大小可依身高安排)，在山明水秀的WANAKA，沿著湖區規劃完整的OFF ROAD自行車道，時速5~10公里的閑情悠閒的在騎乘。</p> <p>早上沿著湖的東側面步道，帆船、沙灘、林地、眺望遠山，看到喜歡的景色可以停下拍照。午餐安排在鎮上，午餐後可在逛逛鎮上著名藝術家的藝廊、品嘗義大利式冰淇淋。(自行車活動在紐西蘭也是一種時尚的活動，深度欣賞WANAKA美景，熱情推薦)</p> <p>【戶外活動選項安排】</p> <p>風光明媚的WANAKA是紐西蘭進行戶外活動休閒、娛樂的最佳地點之一。在不影響團體活動下，下午自由活動時間的選項可自行參加自行車、步道健行等活動，以及悠閒的水上活動，航空娛樂如高空跳傘、自駕飛行體驗、虎娥戰鬥機等活動。連結參考</p>',
+    slides: [{
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002033-1.jpg'
+    }, {
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002033-2.jpg'
+    }, {
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002033-3.jpg'
+    }],
+    hotel: '水岸湖濱渡假村',
+    breakfast: '飯店內用',
+    lunch: '海鮮BBQ',
+    dinner: 'WANAK主題西式套餐'
+  }, {
+    date: '第 7 天',
+    title: '瓦納卡-參觀高空彈跳-探索箭鎮-蒂阿腦-螢火蟲生態之旅',
+    context: '<p>瓦納卡(55KM)-參觀高空彈跳-箭鎮(194KM)-蒂阿瑙</p> <p>早餐後專車前往◎卡瓦勞極吊橋，高空彈跳發源地，觀賞從43米處上縱身而下高空彈跳。(如欲體驗，應視個人健康、安全狀況參加、費用自理)</p> <p>一般旅行團只能在這裡短暫停留45分鐘到1小時，特別安排在鎮上古蹟建築◎馬廄餐廳享用午餐The Stables Restaurant，懷古的歷史建築物，岩石堆疊的外牆，內有發古幽情懷，在之優美閑情雅緻的環境下用餐開心。午餐後您可在鎮上優閒逛街鎮上建築物典雅，琳瑯滿目的精緻商店，在隱秘巷弄內的coffee shop，享用美味咖啡，自在得閑。</p> <p>下午沿南島第二大湖瓦卡蒂普湖（Lake Wakatipu）南下，進入南地省，沿路兩旁盡是綠油油草原及遍地綠意盎的農地、成群白綿羊，到達蒂阿納湖畔小鎮。晚餐後★安排螢火蟲生態之旅，搭船遊湖並參觀紐西蘭最大的◎活性鐘乳石洞，隨後換◎搭乘小舟進入螢火蟲洞，洞內奇境似滿天鑽石閃爍，令人驚歎不已。</p>',
+    slides: [{
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002034-1.jpg'
+    }, {
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002034-2.jpg'
+    }, {
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002034-3.jpg'
+    }],
+    hotel: 'DISTINCTION LUXMORE HOTEL',
+    breakfast: '飯店內用',
+    lunch: '馬廏餐廳西式料理',
+    dinner: '中式合菜+龍蝦'
+  }, {
+    date: '第 8 天',
+    title: '蒂阿瑙-米爾德福峽灣-(峽灣景觀飛機-費用已含)-皇后鎮-皇后鎮西式主題餐廳',
+    context: '<p><span style="font-size: 14px"><span style="color: #ff8c00">蒂阿瑙-119公里-米爾德福峽灣-119公里蒂阿瑙-178公里皇后鎮</span><br><span style="color: #696969">今天進入湖光山景世界遺產</span><span style="color: #0066ff">■米佛峽灣自然保護區(1986年世界遺產)。</span><span style="color: #696969">從蒂阿瑙到米佛峽灣有一條119公里長的◎米佛景觀大道(Mildford Road)，沿途景色優美奇特，抵達米佛峽灣搭乘★米佛峽灣遊船巡遊深谷峽灣中，瀑布潺流、白雲悠悠，如詩如畫的景色令人激賞。在巡弋行程中有機會觀賞到特有的寒帶動物，如海豹、海豚、企鵝等。<br>推薦■搭乘7-11人座景觀飛機在高空中觀賞峽灣美景、高山湖泊、白雪靄靄的高山美景，高空觀賞紐西蘭最高的瀑布薩瑟蘭瀑布 580 米 (1,904 英尺) ，也可在高空欣賞蒂阿瑙、瓦卡蒂普湖的美景，</span><span style="color: #0066ff">景觀飛機米爾德福峽灣-峽灣-皇后鎮</span><span style="color: #696969">，約3點到達 ，專車巴士約5:30分到達皇后鎮，行李專車送往皇后鎮飯店。</span></span></p>'+
+      '<p><span style="font-size: 14px"><span style="color: #ff0000"><strong>【企劃語錄】</strong></span><br><span style="color: #ff00ff">1).&nbsp;景觀飛機的安排目的是呈現峽灣美麗風光，並能省下300公里的拉車距離飛行時間約35分鐘<br>2).&nbsp;景觀飛機晴空才能搭乘，如遇天氣不佳取消退費紐幣NZ375，約台幣NT7800，搭巴士約05:30PM 到達皇后鎮飯店<br>3).&nbsp;如不適高空飛行的貴賓，請於出發前洽業務人員，退費台幣7800，搭巴士約05:30PM 到達皇后鎮飯店</span></span></p>'+
+      '<p><span style="color: #ff8c00"><span style="font-size: 14px">特別安排皇后鎮高級飯店2晚，飯店地點離鬧區只需步行5分鐘，最能感受皇后鎮的美</span></span></p>' + 
+        '<p><span style="font-size: 14px"><span style="color: #696969">今日特別安排★「皇后鎮西式主題餐廳」</span><span style="color: #ff00ff"> (安排每人一杯紅.白葡萄酒或非酒精飲料佐餐)</span><br><span style="color: #696969">特製餐前湯+大蒜麵包+冰淇淋甜點+COFEE or TEA<br>高山烤羊肩排/嫩燉小羊膝/鮮味蜜桃鹿排 /淡菜綠貝海鮮/橄欖油蒜味鮮蝦 (主菜5選一)</span></span></p>',
+    slides: [{
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002035-1.jpg'
+    }, {
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002035-2.jpg'
+    }, {
+      title: 'WANAKA自行車輕鬆一日遊',
+      src: 'app/NewZealand/images/00002035-3.jpg'
+    }],
+    hotel: 'Millennium Queenstown或同級',
+    breakfast: '飯店內用',
+    lunch: '遊艇自助餐',
+    dinner: '皇后鎮主題餐廳西式套餐'
+  }, {
+    date: '第 9 天',
+    title: '皇后鎮悠閒-包伯峰纜車-溜溜車-景觀餐廳-皇后鎮自由活動',
+    context: '<p><span style="font-size: 14px"><span style="color: #696969">今日NO MORNING CALL 的早晨，可以早起在湖邊散步、慢跑或睡到自然醒。早上10:30分集合後前往纜車站，乘坐纜車登上★【包伯峰觀湖+Luge溜溜斜坡車】，纜車登上後，乘第二段纜車，俯瞰瓦卡蒂普湖，並體驗Luge溜溜斜坡車 - 安全又帶著刺激的戶外活動。中午在包伯峰山頂享用豪華自助餐。</span></span></p>'+
+      '<p><span style="font-size: 14px"><span style="color: #ff0000"><strong>【企劃語錄】</strong></span><br><span style="color: #0066ff">市場上多數行緊湊，長途車到達皇后鎮已是傍晚，匆忙搭纜車上山只能安排自助餐晚餐，無法安排Luge溜溜斜坡車，有些可惜，特別企劃白天日照時間纜車登上包伯峰。</span><br><span style="color: #696969">下午自由活動，您可以皇后鎮植物園裡散步、租借鐵馬或獨木舟（費用請自理）或在湖邊悠閒地慢遊；也可以輕鬆地在皇后鎮上的逛街，有許多的商店、藝廊都值得去逛逛。</span><span style="color: #0066ff">推薦您自費安排Jet boat噴射快艇，愛好刺激者的水上活動，在狹窄的山谷河道上快速奔馳，受過專業訓練的駕駛以高超技術能讓您體驗刺激有趣的樂趣。皇后鎮有3家JETBOAT公司，領隊為您說明給您最好的建議及安排。</span><br><span style="color: #696969">晚餐安排當地著名的義大利餐廳，品嚐義大利PIZZA套餐，餐廳位於鎮上，方便晚餐後再到湖邊悠閒逛街或散步。(2015-2016行程，不再安排皇后鎮大漢堡請見諒，如有疑問洽樂遊企畫部)</span></span><br>&nbsp;</p>',
+    slides: [{
+      title: '包伯峰纜車',
+      src: 'app/NewZealand/images/00002036-1.jpg'
+    }, {
+      title: 'Luge溜溜斜坡車',
+      src: 'app/NewZealand/images/00002036-2.jpg'
+    }, {
+      title: '包伯峰山頂豪華自助餐',
+      src: 'app/NewZealand/images/00002036-3.jpg'
+    }],
+    hotel: 'Millennium Queenstown或同級',
+    breakfast: '飯店內用',
+    lunch: '包伯峰豪華自助餐',
+    dinner: '義大利PIZZA套餐'
+  }, {
+    date: '第 10 天',
+    title: '皇后鎮/奧克蘭-凱利達頓海底世界-傳教士灣-高級住宅區-天空之塔觀景',
+    context: '<p><span style="color: #696969"><span style="font-size: 14px">今日搭乘國內班機前往北島奧克蘭，奧克蘭素有〞帆船之都〞美譽，位於奧克蘭半島南端的一條狹窄的地峽上，而被東側的懷特瑪塔和西側瑪努考兩大港灣所懷抱奧克蘭奇特的地形和溫暖的氣候，常被選為全世界前十城市之列。到達後安排市區觀光—高級住宅區、傳教士灣等風景名勝…等等，將奧克蘭港灣城市的風光一覽無遺。安排</span></span><span style="color: #0066ff"><span style="font-size: 14px">★凱利達頓海底世界</span></span><span style="color: #696969"><span style="font-size: 14px">，凱利達頓南極水族館內展出主題分<u>南極大陸及海底世界兩部份</u>。於南極大陸內可以親眼觀賞</span></span><span style="color: #b22222"><span style="font-size: 14px">國王企鵝</span></span><span style="color: #696969"><span style="font-size: 14px">和人造雪花；而海底世界則有一條海底隧道，可以近觀海底世界的景致，欣賞各式各樣當地的海底動物，如鯊魚、魟魚及其他五彩繽紛的魚類從你頭上游過，如在海底般。</span></span></p>'+
+      '<p><span style="color: #696969"><span style="font-size: 14px">安排登上高★328公尺的奧克蘭天空塔─如同台灣的101地標，為全世界12高的建築物之一。由塔頂360度的瞭望台，延伸東西兩岸的全景盡收眼底。</span></span></p>',
+    slides: [{
+      title: '凱利達頓海底世界',
+      src: 'app/NewZealand/images/00002037-1.jpg'
+    }, {
+      title: '傳教士灣',
+      src: 'app/NewZealand/images/00002037-2.jpg'
+    }, {
+      title: '奧克蘭天空塔',
+      src: 'app/NewZealand/images/00002037-3.jpg'
+    }],
+    hotel: 'SKY CITY HOTEL或同級',
+    breakfast: '飯店內用',
+    lunch: '敬請自理',
+    dinner: '飯店內用西式餐'
+  }, {
+    date: '第 11 天',
+    title: '奧克蘭-遊艇港灣巡航-惜別豪華自助午餐-奧克蘭國際機場/(轉機點) /台北',
+    context: '<p><span style="font-size: 14px"><span style="color: #696969">特別企劃搭乘★【遊艇港灣巡航】將奧克蘭港灣城市的風光一覽無遺。遊艇在奧克蘭港灣行駛，也提供MORNING TEA，航程中觀賞南半球最大的帆船、遊艇碼頭、港灣燈塔，近距離觀賞◎Rangitototo火山、達文港金軍事基地，穿過奧克蘭地標◎奧克蘭大橋及市區觀光，飽覽奧克蘭港灣城市的風光。午餐特別安排朗廷五星飯店豪華海鮮自助餐，多樣豐富的海鮮佳餚，享受精湛讚廚藝的美食，隨後前往奧克蘭國際機場搭機經澳洲雪梨梨或布里斯本返回台北。</span></span></p>',
+    slides: [{
+      title: '凱利達頓海底世界',
+      src: 'app/NewZealand/images/00002038-1.jpg'
+    }, {
+      title: '傳教士灣',
+      src: 'app/NewZealand/images/00002038-2.jpg'
+    }, {
+      title: '奧克蘭天空塔',
+      src: 'app/NewZealand/images/00002038-3.jpg'
+    }],
+    hotel: 'SKY CITY HOTEL或同級',
+    breakfast: '飯店內用',
+    lunch: '敬請自理',
+    dinner: '飯店內用西式餐'
+  }, {
+    date: '第 12 天',
+    title: '台北',
+    context: '<p><span style="font-size: 14px"><span style="color: #696969">清晨抵達桃園機場、帶著滿滿的美好回憶返回溫暖的家，結束精采豐富的慢遊紐西蘭南北島之旅！</span></span></p>',
+    hotel: ' SWEEHOME'
+  }
+  ];
 
   $scope.intro = {
     title: '2015-2016【OFF慢遊】紐西蘭南島深度精華遊12天',

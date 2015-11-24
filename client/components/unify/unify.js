@@ -83,4 +83,23 @@ angular.module('unify', [])
     '</ol>' +
     '<div class="carousel-inner" ng-transclude></div>' +
     '</div>');
+}])
+.run(['$templateCache', function($templateCache) {
+  $templateCache.put('template/carousel/carousel-no-indicators.html',
+   '<div class="carousel-v1">' +
+    '<div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" '+
+    'ng-swipe-right="prev()" ng-swipe-left="next()">' +
+    '<div class="carousel-inner" ng-transclude></div>' +
+    '<div class="carousel-arrow">' +
+    '<a class="left carousel-control" ng-click="prev()" ng-show="slides.length > 1">'+
+    '<i class="fa fa-angle-left">' + 
+    '</i>' + 
+    '</a>' +
+    '<a class="right carousel-control" ng-click="next()" ng-show="slides.length > 1">'+
+    '<i class="fa fa-angle-right">' + 
+    '</i>' + 
+    '</a>' +
+    '</div>' +
+    '</div>'+
+    '</div>');
 }]);

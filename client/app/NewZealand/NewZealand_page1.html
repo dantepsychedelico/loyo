@@ -1,10 +1,42 @@
-<section class="container content-lg">
+<div class="breadcrumbs margin-top-95 margin-bottom-20">
+  <div class="container">
+    <h1 class="pull-left">{{::intro.title}}</h1>
+    <ul class="pull-right breadcrumb">
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="">紐西蘭</a></li>
+      <li class="active">南島深度遊12天</li>
+    </ul>
+  </div>
+</div>
+<section class="container production-page">
   <div class="row">
     <!--div gmap-loyo="map"></div-->
-    <div class="col-md-12">
-      <div class="panel panel-blue">
-        <div class="panel-heading">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>{{::intro.title}}</h3>
+    <div class="col-md-3">
+      <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+        <li class="list-group-item color-bg-red-alpha-7">
+          <a href="#intro" class="color-white">簡介</a>
+        </li>
+        <li class="list-group-item color-bg-orange-alpha-7">
+          <a href="" class="color-white">行程特色</a>
+        </li>
+        <li class="list-group-item color-bg-yellow-alpha-7">
+          <a href="" class="color-white">特別安排</a>
+        </li>
+        <li class="list-group-item color-bg-green-alpha-7">
+          <a href="#feature" class="color-white">行程內容</a>
+        </li>
+        <li class="list-group-item color-bg-blue-alpha-7">
+          <a href="#airplane" class="color-white">航班參考</a>
+        </li>
+        <li class="list-group-item color-bg-purple-alpha-7">
+          <a href="#production" class="color-white">出團資訊及報名</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-red">
+        <div class="panel-heading" id="intro">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>簡介</h3>
         </div>
         <div class="panel-body profile">
           <ul class="list-unstyled social-contacts-v2">
@@ -16,45 +48,36 @@
           </ul>
         </div>
       </div>
-    </div>
-    <div class="col-md-12">
-      <div class="panel panel-sea project-feature">
-        <div class="panel-heading">
+      <div class="panel panel-green project-feature">
+        <div class="panel-heading" id="feature">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>行程內容</h3>
         </div>
         <div class="panel-body">
-          <ul class="timeline-v2">
-            <li class="equal-height-columns" ng-repeat="feature in features">
-              <div class="cbp_tmtime equal-height-column">
-                <span>{{::feature.date}}</span>
+          <ul class="timeline-v1">
+            <li ng-repeat="feature in features" ng-class-even="'timeline-inverted'">
+              <div class="timeline-badge primary">
+                <i class="glyphicon glyphicon-record"></i>
               </div>
-              <i class="cbp_tmicon rounded-x hidden-xs"></i>
-              <div class="cbp_tmlabel equal-height-column">
-                <h2>{{::feature.title}}</h2>
-                <blockquote class="row" ng-if="!feature.slides.length">
-                  <div class="col-md-12">
-                    <div ng-bind-html="feature.context"></div>
-                    <div ng-if="feature.remarks.length">
-                      <span class="label label-danger" style="font-size: 13px">
-                        <i class="fa fa-comment"></i> 備註
-                      </span>
-                      <p class="color-red" ng-repeat="remark in feature.remarks">
-                        {{::$index+1}}).{{::remark}}
-                      </p>
-                    </div>
-                    <p>
-                      <i class="fa fa-cutlery"></i> {{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
+              <div class="timeline-panel color-bg-white">
+                <div class="timeline-heading">
+                  <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
+                    <slide ng-repeat="slide in feature.slides">
+                      <img class="img-responsive" ng-src="{{::slide.src}}">
+                    </slide>
+                  </carousel>
+                </div>
+                <div class="timeline-body text-justify">
+                  <h2>{{::feature.title}}</h2>
+                  <div ng-bind-html="feature.context"></div>
+                  <div ng-if="feature.remarks.length">
+                    <span class="label label-danger" style="font-size: 13px">
+                      <i class="fa fa-comment"></i> 備註
+                    </span>
+                    <p class="color-red" ng-repeat="remark in feature.remarks">
+                      {{::$index+1}}).{{::remark}}
                     </p>
-                    <p> <i class="fa fa-bed"></i>{{::feature.hotel}} </p>
                   </div>
-                </blockquote>
-                <blockquote class="row" ng-if="feature.slides.length">
-                  <div class="col-md-4 funny-boxes-img">
-                    <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-chevron.html">
-                      <slide ng-repeat="slide in feature.slides">
-                        <img class="img-responsive" ng-src="{{::slide.src}}">
-                      </slide>
-                    </carousel>
+                  <div class="funny-boxes-img">
                     <ul class="list-unstyled">
                       <li>
                         <i class="fa-fw fa fa-bed"></i> {{::feature.hotel}}
@@ -64,34 +87,28 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col-md-8">
-                    <div ng-bind-html="feature.context"></div>
-                    <div ng-if="feature.remarks.length">
-                      <span class="label label-danger" style="font-size: 13px">
-                        <i class="fa fa-comment"></i> 備註
-                      </span>
-                      <p class="color-red" ng-repeat="remark in feature.remarks">
-                        {{::$index+1}}).{{::remark}}
-                      </p>
-                    </div>
-                  </div>
-                </blockquote>
+                </div>
+                <div class="timeline-footer">
+                  <ul class="list-unstyled list-inline blog-info">
+                    <li><i class="fa fa-clock-o"></i> {{::feature.date}} </li>
+                    <li><i class="fa fa-comments-o"></i> <a href="#">37 Comments</a></li>
+                  </ul>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>121</a>
+                </div>
               </div>
             </li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="col-md-12">
-      <div class="panel panel-yellow">
-        <div class="panel-heading">
+      <div class="panel panel-blue">
+        <div class="panel-heading" id="airplane">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>航班參考</h3>
         </div>
         <div class="panel-body">
           <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
           <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
-          <table class="table">
-            <thead class="color-bg-light-grey">
+          <table class="table table-striped">
+            <thead class="color-bg-grey color-white">
               <tr>
                 <th>#</th>
                 <th>天數</th>
@@ -116,24 +133,22 @@
           </table>
         </div>
       </div>
-    </div>
-    <div class="col-md-12">
       <div class="panel panel-purple">
-        <div class="panel-heading">
+        <div class="panel-heading" id="production">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名</h3>
         </div>
         <div class="panel-body">
           <table class="table table-striped">
-            <thead class="color-bg-light-grey">
+            <thead class="color-bg-grey color-white">
               <tr>
-                <th> 出發日期 </th>
-                <th> 天數 </th>
+                <th style="min-width: 88px;"> 出發日期 </th>
+                <th style="min-width: 42px;"> 天數 </th>
                 <th> 產品名稱 </th>
-                <th> 團費售價 </th>
-                <th> 報名 </th>
-                <th> 狀態 </th>
-                <th> 銷售說明 </th>
-                <th> 備註 </th>
+                <th style="min-width: 68px;"> 團費售價 </th>
+                <th style="min-width: 42px;"> 報名 </th>
+                <th style="min-width: 42px;"> 狀態 </th>
+                <th style="min-width: 68px;"> 銷售說明 </th>
+                <th style="min-width: 42px;"> 備註 </th>
               </tr>
             </thead>
             <tbody>
