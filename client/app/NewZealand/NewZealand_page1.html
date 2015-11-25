@@ -13,23 +13,30 @@
     <!--div gmap-loyo="map"></div-->
     <div class="col-md-3">
       <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
-        <li class="list-group-item color-bg-red-alpha-7">
-          <a href="#intro" class="color-white">簡介</a>
+        <li class="list-group-item">
+          <a href="#intro" class="color-red-hover"><i class="fa fa-tasks color-red"></i> 簡介</a>
         </li>
-        <li class="list-group-item color-bg-orange-alpha-7">
-          <a href="" class="color-white">行程特色</a>
+        <li class="list-group-item">
+          <a href="#feature" class="color-orange-hover"><i class="fa fa-tasks color-orange"></i> 行程特色</a>
         </li>
-        <li class="list-group-item color-bg-yellow-alpha-7">
-          <a href="" class="color-white">特別安排</a>
+        <li class="list-group-item">
+          <a href="#specialize" class="color-yellow-hover"><i class="fa fa-tasks color-yellow"></i> 特別安排</a>
         </li>
-        <li class="list-group-item color-bg-green-alpha-7">
-          <a href="#feature" class="color-white">行程內容</a>
+        <li class="list-group-item">
+          <a href="#detail" ng-click="isCollapsed = !isCollapsed" class="color-green-hover"><i class="fa fa-tasks color-green"></i> 行程內容</a>
+          <ul collapse="isCollapsed" style="height: 0px;">
+            <li ng-repeat="detail in details">
+              <a href="#detail-{{::$index}}">
+                <span style="font-size: 14px; font-weight: bold; margin-right: 7px;">{{::detail.date}}</span> {{::detail.title}} 
+              </a>
+            </li>
+          </ul>
         </li>
-        <li class="list-group-item color-bg-blue-alpha-7">
-          <a href="#airplane" class="color-white">航班參考</a>
+        <li class="list-group-item">
+          <a href="#airplane" class="color-blue-hover"><i class="fa fa-tasks color-blue"></i> 航班參考</a>
         </li>
-        <li class="list-group-item color-bg-purple-alpha-7">
-          <a href="#production" class="color-white">出團資訊及報名</a>
+        <li class="list-group-item">
+          <a href="#production" class="color-purple-hover"><i class="fa fa-tasks color-purple"></i> 出團資訊及報名</a>
         </li>
       </ul>
     </div>
@@ -48,49 +55,62 @@
           </ul>
         </div>
       </div>
-      <div class="panel panel-green project-feature">
+      <div class="panel panel-orange">
         <div class="panel-heading" id="feature">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>行程特色</h3>
+        </div>
+        <div class="panel-body" style="padding: 0px;" ng-bind-html="feature"></div>
+      </div>
+      <div class="panel panel-yellow">
+        <div class="panel-heading" id="specialize">
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>特別安排</h3>
+        </div>
+        <div class="panel-body" style="padding: 0px;" ng-bind-html="specialize">
+        </div>
+      </div>
+      <div class="panel panel-green project-detail">
+        <div class="panel-heading" id="detail">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>行程內容</h3>
         </div>
         <div class="panel-body">
           <ul class="timeline-v1">
-            <li ng-repeat="feature in features" ng-class-even="'timeline-inverted'">
-              <div class="timeline-badge primary">
+            <li ng-repeat="detail in details" ng-class-even="'timeline-inverted'">
+              <div class="timeline-badge primary" id="detail-{{::$index}}">
                 <i class="glyphicon glyphicon-record"></i>
               </div>
               <div class="timeline-panel color-bg-white">
                 <div class="timeline-heading">
                   <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
-                    <slide ng-repeat="slide in feature.slides">
+                    <slide ng-repeat="slide in detail.slides">
                       <img class="img-responsive" ng-src="{{::slide.src}}">
                     </slide>
                   </carousel>
                 </div>
                 <div class="timeline-body text-justify">
-                  <h2>{{::feature.title}}</h2>
-                  <div ng-bind-html="feature.context"></div>
-                  <div ng-if="feature.remarks.length">
+                  <h2>{{::detail.title}}</h2>
+                  <div ng-bind-html="detail.context"></div>
+                  <div ng-if="detail.remarks.length">
                     <span class="label label-danger" style="font-size: 13px">
                       <i class="fa fa-comment"></i> 備註
                     </span>
-                    <p class="color-red" ng-repeat="remark in feature.remarks">
+                    <p class="color-red" ng-repeat="remark in detail.remarks">
                       {{::$index+1}}).{{::remark}}
                     </p>
                   </div>
                   <div class="funny-boxes-img">
                     <ul class="list-unstyled">
                       <li>
-                        <i class="fa-fw fa fa-bed"></i> {{::feature.hotel}}
+                        <i class="fa-fw fa fa-bed"></i> {{::detail.hotel}}
                       </li>
                       <li>
-                        <i class="fa-fw fa fa-cutlery"></i>{{::feature.breakfast}}, {{::feature.lunch}}, {{::feature.dinner}}
+                        <i class="fa-fw fa fa-cutlery"></i>{{::detail.breakfast}}, {{::detail.lunch}}, {{::detail.dinner}}
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> {{::feature.date}} </li>
+                    <li><i class="fa fa-clock-o"></i> {{::detail.date}} </li>
                     <li><i class="fa fa-comments-o"></i> <a href="#">37 Comments</a></li>
                   </ul>
                   <a class="likes" href="#"><i class="fa fa-heart"></i>121</a>

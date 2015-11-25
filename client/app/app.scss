@@ -190,108 +190,38 @@
 }
 
 $red: #e74c3c;
-.color-bg-red {
-  background-color: $red;
-}
-.production-page .panel-red .panel-body {
-  background-color: rgba($red, 0.1);
-}
-.color-bg-red-alpha-7 {
-  background-color: rgba($red, 0.7);
-}
 $orange: #e67e22;
-.color-bg-orange {
-  background-color: $orange;
-}
-.production-page .panel-orange .panel-body {
-  background-color: rgba($orange, 0.1);
-}
-.color-bg-orange-alpha-7 {
-  background-color: rgba($orange, 0.7);
-}
 $yellow: #f1c40f;
-.color-bg-yellow {
-  background-color: $yellow;
-}
-.production-page .panel-yellow .panel-body {
-  background-color: rgba($yellow, 0.1);
-}
-.color-bg-yellow-alpha-7 {
-  background-color: rgba($yellow, 0.7);
-}
 $green: #2ecc71;
-.color-bg-green {
-  background-color: $green;
-}
-.production-page .panel-green .panel-body {
-  background-color: rgba($green, 0.1);
-}
-.color-bg-green-alpha-7 {
-  background-color: rgba($green, 0.7);
-}
 $blue: #3498db;
-.color-bg-blue {
-  background: $blue;
-}
-.production-page .panel-blue .panel-body {
-  background-color: rgba($blue, 0.1);
-}
-.color-bg-blue-alpha-7 {
-  background-color: rgba($blue, 0.7);
-}
 $sea: #1abc9c;
-.color-bg-sea {
-  background-color: $sea;
-}
-.production-page .panel-sea .panel-body {
-  background-color: rgba($sea, 0.1);
-}
-.color-bg-sea-alpha-7 {
-  background-color: rgba($sea, 0.7);
-}
 $purple: #9b6bcc;
-.color-bg-purple {
-  background-color: $purple;
-}
-.production-page .panel-purple .panel-body {
-  background-color: rgba($purple, 0.1);
-}
-.color-bg-purple-alpha-7 {
-  background-color: rgba($purple, 0.7);
-}
 $grey: #95a5a6;
-.color-bg-grey {
-  background-color: $grey;
-}
-.production-page .panel-grey .panel-body {
-  background-color: rgba($grey, 0.1);
-}
-.color-bg-grey-alpha-7 {
-  background-color: rgba($grey, 0.7);
-}
 $light-grey: #f3f3f3;
-.color-bg-light-grey {
-  background-color: $light-grey;
-}
-.production-page .panel-light-grey .panel-body {
-  background-color: rgba($light-grey, 0.1);
-}
-.color-bg-light-grey-alpha-7 {
-  background-color: rgba($light-grey, 0.7);
-}
 $white: #fff;
-.color-white {
-  color: $white;
-}
-.color-bg-white {
-  background-color: $white;
-}
 $black: #000;
-.sidebar-nav-v1 li a.color-white:hover {
-  color: $black;
+@each $name, $color in (red, $red), (orange, $orange), 
+(yellow, $yellow), (green, $green), (blue, $blue), 
+(sea, $sea), (purple, $purple), (grey, $grey),
+(light-grey, $light-grey), (white, $white), (black, $black) {
+  .color-bg-#{$name} {
+    background-color: $color;
+  }
+  .production-page .panel-#{$name} .panel-body {
+    background-color: rgba($color, 0.1);
+  }
+  .color-bg-#{$name}-alpha-7 {
+    background-color: rgba($color, 0.7);
+  }
+  a.color-#{$name}-hover:hover {
+    color: $color;
+  }
+  .sidebar-nav-v1 li a.color-#{$name}-hover:hover {
+    background: rgba($color, 0.1);
+  }
 }
-.sidebar-nav-v1 .list-group-item {
-  border-width: 0px;
+a.color-green-hover i.color-green {
+  color: $green;
 }
 /*Social Contacts v2*/
 .profile .social-contacts-v2 {
@@ -331,7 +261,7 @@ $black: #000;
   color: #c6574b;
 }
 
-.project-feature ul {
+.project-detail ul {
   display: inline-block;
 }
 
