@@ -128,13 +128,14 @@
 		padding-top: 20px;
 	}
 
+/*
 	.header-v6 .navbar-brand img.shrink-logo {
 		display: inherit;
 	}
-
 	.header-v6 .navbar-brand img.default-logo {
 		display: none;
 	}
+*/
 }
 
 /*Navbar Toggle*/
@@ -147,7 +148,8 @@
 	height: 1px;
 	width: 20px;
 	font-size: 20px;
-	background: #555;
+  background: #fff;
+/*	background: #555;*/
 	margin-bottom: 5px;
 }
 
@@ -408,7 +410,8 @@
 
     /*Navbar Nav*/
     .header-v6 .navbar-nav > li > a {
-    	color: #444;
+        color: #fff;
+/*    	color: #444; */
     }
 
     /*Pull Right*/
@@ -1024,9 +1027,11 @@
 	}
 
 	/*Menu Icons*/
+/*
 	.header-v6 li.menu-icons i.menu-icons-style {
 		color: #555;
 	}
+*/
 }
 
 
@@ -1129,9 +1134,11 @@
 
 @media (max-width: 991px) {
 	/*Header*/
+/*
 	.header-fixed .header-v6.header-dark-transparent .navbar {
 		background: #fff;
 	}
+*/
 }
 
 /*Search*/

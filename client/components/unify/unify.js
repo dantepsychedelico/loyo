@@ -1,6 +1,5 @@
 'use strict';
 
-var api;
 angular.module('unify', [])
 .factory('Modernizr', function($window) {
   return $window.Modernizr;
