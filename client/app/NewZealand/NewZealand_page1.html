@@ -1,4 +1,4 @@
-<div class="breadcrumbs margin-top-95 margin-bottom-20">
+<div class="breadcrumbs breadcrumbs-light shift-top">
   <div class="container">
     <h1 class="pull-left">{{::intro.title}}</h1>
     <ul class="pull-right breadcrumb">
@@ -8,7 +8,7 @@
     </ul>
   </div>
 </div>
-<section class="container production-page">
+<section class="container production-page margin-top-20">
   <div class="row">
     <!--div gmap-loyo="map"></div-->
     <div class="col-md-3">
@@ -83,6 +83,7 @@
                   <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
                     <slide ng-repeat="slide in detail.slides">
                       <img class="img-responsive" ng-src="{{::slide.src}}">
+                      <div class="slide-title">{{::slide.title}}</div>
                     </slide>
                   </carousel>
                 </div>
@@ -127,30 +128,32 @@
         <div class="panel-body">
           <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
           <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
-          <table class="table table-striped">
-            <thead class="color-bg-grey color-white">
-              <tr>
-                <th>#</th>
-                <th>天數</th>
-                <th>起飛城市</th>
-                <th>抵達城市</th>
-                <th>出發/抵達時間</th>
-                <th>航空公司</th>
-                <th>航班編號</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="airplane in airplanes">
-                <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
-                <td>{{::airplane.day}}</td>
-                <td>{{::airplane.from}}</td>
-                <td>{{::airplane.to}}</td>
-                <td>{{::airplane.time}}</td>
-                <td>{{::airplane.airplane}}</td>
-                <td>{{::airplane.flightNo}}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class="color-table-header color-white">
+                <tr>
+                  <th>#</th>
+                  <th>天數</th>
+                  <th>起飛城市</th>
+                  <th>抵達城市</th>
+                  <th>出發/抵達時間</th>
+                  <th>航空公司</th>
+                  <th>航班編號</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="airplane in airplanes">
+                  <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+                  <td>{{::airplane.day}}</td>
+                  <td>{{::airplane.from}}</td>
+                  <td>{{::airplane.to}}</td>
+                  <td>{{::airplane.time}}</td>
+                  <td>{{::airplane.airplane}}</td>
+                  <td>{{::airplane.flightNo}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div class="panel panel-purple">
@@ -158,32 +161,34 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名</h3>
         </div>
         <div class="panel-body">
-          <table class="table table-striped">
-            <thead class="color-bg-grey color-white">
-              <tr>
-                <th style="min-width: 88px;"> 出發日期 </th>
-                <th style="min-width: 42px;"> 天數 </th>
-                <th> 產品名稱 </th>
-                <th style="min-width: 68px;"> 團費售價 </th>
-                <th style="min-width: 42px;"> 報名 </th>
-                <th style="min-width: 42px;"> 狀態 </th>
-                <th style="min-width: 68px;"> 銷售說明 </th>
-                <th style="min-width: 42px;"> 備註 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="production in productions">
-                <th> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </th>
-                <th> {{::production['天數']}} </th>
-                <th> {{::production['產品名稱']}} </th>
-                <th> {{::production['團費售價']}} </th>
-                <th> {{::production['報名']}} </th>
-                <th> {{::production['狀態']}} </th>
-                <th> {{::production['銷售說明']}} </th>
-                <th> {{::production['備註']}} </th>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class="color-table-header color-white">
+                <tr>
+                  <th style="min-width: 88px;"> 出發日期 </th>
+                  <th style="min-width: 42px;"> 天數 </th>
+                  <th> 產品名稱 </th>
+                  <th style="min-width: 68px;"> 團費售價 </th>
+                  <th style="min-width: 42px;"> 報名 </th>
+                  <th style="min-width: 42px;"> 狀態 </th>
+                  <th style="min-width: 68px;"> 銷售說明 </th>
+                  <th style="min-width: 42px;"> 備註 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="production in productions">
+                  <th> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </th>
+                  <th> {{::production['天數']}} </th>
+                  <th> {{::production['產品名稱']}} </th>
+                  <th> {{::production['團費售價']}} </th>
+                  <th> {{::production['報名']}} </th>
+                  <th> {{::production['狀態']}} </th>
+                  <th> {{::production['銷售說明']}} </th>
+                  <th> {{::production['備註']}} </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <ol class="margin-top-20">
             <li class="color-blue">團體旅遊中各團價格、航班及行程內容可能會因不同出發日期而有所變動，請先依您所需的出團日期查詢。</li>
             <li class="color-blue">航空公司於票價中需增收燃油附加費，但因各航空公司徵收的費用不同，以致相同機場之機場稅也會有所差異。</li>

@@ -220,8 +220,14 @@ $black: #000;
     background: rgba($color, 0.1);
   }
 }
+.color-table-header {
+  background: linear-gradient(#fff, rgba($orange, 0.5));
+}
 a.color-green-hover i.color-green {
   color: $green;
+}
+.menu-icons .search.search-close.fa-times + .search-open {
+  background: #fffbe9;
 }
 /*Social Contacts v2*/
 .profile .social-contacts-v2 {
@@ -282,4 +288,8 @@ a.color-green-hover i.color-green {
 }
 a.carousel-control:hover {
   cursor: pointer;
+}
+div.slide-title {
+  color: white;
+  margin-top: -25px;
 }
