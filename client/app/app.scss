@@ -228,6 +228,7 @@ a.color-green-hover i.color-green {
 }
 .menu-icons .search.search-close.fa-times + .search-open {
   background: #fffbe9;
+  border-bottom: 1px solid #eee;
 }
 /*Social Contacts v2*/
 .profile .social-contacts-v2 {
@@ -291,4 +292,10 @@ a.carousel-control:hover {
 }
 div.slide-title {
   font-weight: bold;
+}
+
+div.left-slide-bar {
+  position: fixed;
+  overflow-y: scroll;
+  padding-right: 0px;
 }

@@ -1,3 +1,32 @@
+<div class="col-md-3 left-slide-bar">
+  <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+    <li class="list-group-item">
+      <a href="#intro" class="color-red-hover"><i class="fa fa-tasks color-red"></i> 簡介</a>
+    </li>
+    <li class="list-group-item">
+      <a href="#feature" class="color-orange-hover"><i class="fa fa-tasks color-orange"></i> 行程特色</a>
+    </li>
+    <li class="list-group-item">
+      <a href="#specialize" class="color-yellow-hover"><i class="fa fa-tasks color-yellow"></i> 特別安排</a>
+    </li>
+    <li class="list-group-item">
+      <a href="#detail" ng-click="isCollapsed = !isCollapsed" class="color-green-hover"><i class="fa fa-tasks color-green"></i> 行程內容</a>
+      <ul collapse="isCollapsed" style="height: 0px;">
+        <li ng-repeat="detail in details">
+          <a href="#detail-{{::$index}}">
+            <span style="font-size: 14px; font-weight: bold; margin-right: 7px;">{{::detail.date}}</span> {{::detail.title}} 
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="list-group-item">
+      <a href="#airplane" class="color-blue-hover"><i class="fa fa-tasks color-blue"></i> 航班參考</a>
+    </li>
+    <li class="list-group-item">
+      <a href="#production" class="color-purple-hover"><i class="fa fa-tasks color-purple"></i> 出團資訊及報名</a>
+    </li>
+  </ul>
+</div>
 <div class="breadcrumbs breadcrumbs-light shift-top">
   <div class="container">
     <h1 class="pull-left">{{::intro.title}}</h1>
@@ -11,36 +40,7 @@
 <section class="container production-page margin-top-20">
   <div class="row">
     <!--div gmap-loyo="map"></div-->
-    <div class="col-md-3">
-      <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
-        <li class="list-group-item">
-          <a href="#intro" class="color-red-hover"><i class="fa fa-tasks color-red"></i> 簡介</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#feature" class="color-orange-hover"><i class="fa fa-tasks color-orange"></i> 行程特色</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#specialize" class="color-yellow-hover"><i class="fa fa-tasks color-yellow"></i> 特別安排</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#detail" ng-click="isCollapsed = !isCollapsed" class="color-green-hover"><i class="fa fa-tasks color-green"></i> 行程內容</a>
-          <ul collapse="isCollapsed" style="height: 0px;">
-            <li ng-repeat="detail in details">
-              <a href="#detail-{{::$index}}">
-                <span style="font-size: 14px; font-weight: bold; margin-right: 7px;">{{::detail.date}}</span> {{::detail.title}} 
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <a href="#airplane" class="color-blue-hover"><i class="fa fa-tasks color-blue"></i> 航班參考</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#production" class="color-purple-hover"><i class="fa fa-tasks color-purple"></i> 出團資訊及報名</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-offset-3 col-md-9">
       <div class="panel panel-red">
         <div class="panel-heading" id="intro">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>簡介</h3>
@@ -128,32 +128,30 @@
         <div class="panel-body">
           <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
           <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead class="color-table-header color-white">
-                <tr>
-                  <th>#</th>
-                  <th>天數</th>
-                  <th>起飛城市</th>
-                  <th>抵達城市</th>
-                  <th>出發/抵達時間</th>
-                  <th>航空公司</th>
-                  <th>航班編號</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="airplane in airplanes">
-                  <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
-                  <td>{{::airplane.day}}</td>
-                  <td>{{::airplane.from}}</td>
-                  <td>{{::airplane.to}}</td>
-                  <td>{{::airplane.time}}</td>
-                  <td>{{::airplane.airplane}}</td>
-                  <td>{{::airplane.flightNo}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>天數</th>
+                <th>起飛城市</th>
+                <th>抵達城市</th>
+                <th>出發/抵達時間</th>
+                <th>航空公司</th>
+                <th>航班編號</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="airplane in airplanes">
+                <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+                <td>{{::airplane.day}}</td>
+                <td>{{::airplane.from}}</td>
+                <td>{{::airplane.to}}</td>
+                <td>{{::airplane.time}}</td>
+                <td>{{::airplane.airplane}}</td>
+                <td>{{::airplane.flightNo}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="panel panel-purple">
@@ -161,34 +159,32 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名</h3>
         </div>
         <div class="panel-body">
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead class="color-table-header color-white">
-                <tr>
-                  <th style="min-width: 88px;"> 出發日期 </th>
-                  <th style="min-width: 42px;"> 天數 </th>
-                  <th> 產品名稱 </th>
-                  <th style="min-width: 68px;"> 團費售價 </th>
-                  <th style="min-width: 42px;"> 報名 </th>
-                  <th style="min-width: 42px;"> 狀態 </th>
-                  <th style="min-width: 68px;"> 銷售說明 </th>
-                  <th style="min-width: 42px;"> 備註 </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="production in productions">
-                  <th> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </th>
-                  <th> {{::production['天數']}} </th>
-                  <th> {{::production['產品名稱']}} </th>
-                  <th> {{::production['團費售價']}} </th>
-                  <th> {{::production['報名']}} </th>
-                  <th> {{::production['狀態']}} </th>
-                  <th> {{::production['銷售說明']}} </th>
-                  <th> {{::production['備註']}} </th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="min-width: 88px;"> 出發日期 </th>
+                <th style="min-width: 42px;"> 天數 </th>
+                <th> 產品名稱 </th>
+                <th style="min-width: 68px;"> 團費售價 </th>
+                <th style="min-width: 42px;"> 報名 </th>
+                <th style="min-width: 42px;"> 狀態 </th>
+                <th style="min-width: 68px;"> 銷售說明 </th>
+                <th style="min-width: 42px;"> 備註 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="production in productions">
+                <td> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </td>
+                <td> {{::production['天數']}} </td>
+                <td> {{::production['產品名稱']}} </td>
+                <td> {{::production['團費售價']}} </td>
+                <td> {{::production['報名']}} </td>
+                <td> {{::production['狀態']}} </td>
+                <td> {{::production['銷售說明']}} </td>
+                <td> {{::production['備註']}} </td>
+              </tr>
+            </tbody>
+          </table>
           <ol class="margin-top-20">
             <li class="color-blue">團體旅遊中各團價格、航班及行程內容可能會因不同出發日期而有所變動，請先依您所需的出團日期查詢。</li>
             <li class="color-blue">航空公司於票價中需增收燃油附加費，但因各航空公司徵收的費用不同，以致相同機場之機場稅也會有所差異。</li>

@@ -11,11 +11,9 @@ angular.module('unify', [])
       console.log(Modernizr);
       angular.element($window).bind('scroll', function() {
         if ($window.scrollY && attr.class.match(/header-fixed-shrink/)===null) {
-          attr.$addClass('header-fixed-shrink');
-          scope.$apply();
+          element.addClass('header-fixed-shrink');
         } else if ($window.scrollY === 0) {
-          attr.$removeClass('header-fixed-shrink');
-          scope.$apply();
+          element.removeClass('header-fixed-shrink');
         }
       });
     }
@@ -67,6 +65,36 @@ angular.module('unify', [])
     link: function(scope, element, attrs, ngMasonry) {
       element.bind('load', function() {
         ngMasonry.layout();
+      });
+    }
+  };
+})
+.directive('leftSlideBar', function($window) {
+  return {
+    restrict: 'C',
+    link: function(scope, element, attrs) {
+      var footerHeight = angular.element(document.getElementById('footer')).height();
+      angular.element($window).bind('scroll', function() {
+        if (document.body.scrollTop <= 130) {
+          element.css('margin-top', 220-document.body.scrollTop);
+          element.css('max-height', $window.innerHeight - 110);
+          element.css('display', 'block');
+        } else if (document.body.clientHeight - $window.innerHeight - document.body.scrollTop < footerHeight) {
+          var height = document.body.clientHeight - $window.innerHeight - document.body.scrollTop - 170;
+          if (height > 0) {
+            element.css('max-height', height);
+            element.css('margin-top', 90);
+            element.css('display', 'block');
+          } else {
+            element.css('max-height', 0);
+            element.css('margin-top', 90);
+            element.css('display', 'none');
+          }
+        } else {
+          element.css('max-height', $window.innerHeight - 110);
+          element.css('margin-top', 90);
+          element.css('display', 'block');
+        }
       });
     }
   };
