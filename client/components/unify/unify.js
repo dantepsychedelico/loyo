@@ -80,7 +80,7 @@ angular.module('unify', [])
           element.css('max-height', $window.innerHeight - 110);
           element.css('display', 'block');
         } else if (document.body.clientHeight - $window.innerHeight - document.body.scrollTop < footerHeight) {
-          var height = document.body.clientHeight - $window.innerHeight - document.body.scrollTop - 170;
+          var height = document.body.clientHeight - footerHeight - document.body.scrollTop - 110;
           if (height > 0) {
             element.css('max-height', height);
             element.css('margin-top', 90);
