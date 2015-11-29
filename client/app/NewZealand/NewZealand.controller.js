@@ -6,7 +6,7 @@ angular.module('loyoApp')
 }])
 .controller('NewZealandPage1', function($scope, $sce, search) {
   $scope.isCollapsed = true;
-  $scope.feature = $sce.trustAsHtml('<img src="app/NewZealand/images/00002042.png" style="width: 100%;">');
+  $scope.feature = $sce.trustAsHtml('<img src="app/NewZealand/images/00002042.jpg" style="width: 100%;">');
   $scope.specialize = $sce.trustAsHtml('<img src="app/NewZealand/images/00002040.png" style="width: 100%;">'+
                                        '<img src="app/NewZealand/images/00002041.gif" style="width: 100%;">'+
                                        '<div class="col-md-12">'+
