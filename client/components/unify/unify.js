@@ -27,7 +27,7 @@ angular.module('unify', [])
         element.addClass('no-touch');
       } 
     }
-  }
+  };
 })
 .directive('revolutionSlider', function($parse) {
   return {

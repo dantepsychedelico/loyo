@@ -200,19 +200,19 @@ $black: #000;
 (yellow, $yellow), (green, $green), (blue, $blue), 
 (sea, $sea), (purple, $purple), (grey, $grey),
 (light-grey, $light-grey), (white, $white), (black, $black) {
-  .color-bg-#{$name} {
+  .color-bg-#{""+$name} {
     background-color: $color;
   }
-  .production-page .panel-#{$name} .panel-body {
+  .production-page .panel-#{""+$name} .panel-body {
     background-color: rgba($color, 0.1);
   }
-  .color-bg-#{$name}-alpha-7 {
+  .color-bg-#{""+$name}-alpha-7 {
     background-color: rgba($color, 0.7);
   }
-  a.color-#{$name}-hover:hover {
+  a.color-#{""+$name}-hover:hover {
     color: $color;
   }
-  .sidebar-nav-v1 li a.color-#{$name}-hover:hover {
+  .sidebar-nav-v1 li a.color-#{""+$name}-hover:hover {
     background: rgba($color, 0.1);
   }
 }
@@ -301,7 +301,11 @@ div.left-slide-bar {
   border-bottom: 1px solid #ccc;
   margin-top: 0px;
 }
+$font-kai: '標楷體', 'cwTeXKai', serif;
 .font-kai-inner-16 * {
-  font-family: '標楷體', 'cwTeXKai', serif;
+  font-family: $font-kai;
   font-size: 16px;
+}
+.font-kai {
+  font-family: $font-kai;
 }
