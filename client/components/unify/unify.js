@@ -19,6 +19,16 @@ angular.module('unify', [])
     }
   };
 })
+.directive('noTouch', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      if (!/iPad|iPhone|iPod/.test(navigator.platform)) {
+        element.addClass('no-touch');
+      } 
+    }
+  }
+})
 .directive('revolutionSlider', function($parse) {
   return {
     restrict: 'A',
