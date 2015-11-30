@@ -3,12 +3,8 @@
 @import "../components/gmap/gmap.scss";
 @import "main/main.scss";
 @import "NewZealand/NewZealand.scss";
-@font-face {
-  font-family: 'cwTeXMing';
-  font-style: normal;
-  font-weight: 500;
-  src: url(/assets/fonts/cwTeXMing-zhonly.ttf);
-}
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
 /* app.css */
 * {
   font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
@@ -299,4 +295,12 @@ div.left-slide-bar {
   overflow-y: scroll;
   padding-right: 0px;
   margin-top: 220px;
+}
+.timeline-title {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-top: 0px;
+}
+.font-kai-inner * {
+  font-family: '標楷體', 'cwTeXKai', serif;
 }

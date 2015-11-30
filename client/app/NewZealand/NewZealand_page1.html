@@ -79,6 +79,7 @@
                 <i class="glyphicon glyphicon-record"></i>
               </div>
               <div class="timeline-panel color-bg-white">
+                <h4 class="timeline-title"> {{::detail.date}} </h4>
                 <div class="timeline-heading">
                   <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
                     <slide ng-repeat="slide in detail.slides">
@@ -89,32 +90,20 @@
                 </div>
                 <div class="timeline-body text-justify">
                   <h2>{{::detail.title}}</h2>
-                  <div ng-bind-html="detail.context"></div>
-                  <div ng-if="detail.remarks.length">
-                    <span class="label label-danger" style="font-size: 13px">
-                      <i class="fa fa-comment"></i> 備註
-                    </span>
-                    <p class="color-red" ng-repeat="remark in detail.remarks">
-                      {{::$index+1}}).{{::remark}}
-                    </p>
-                  </div>
-                  <div class="funny-boxes-img">
-                    <ul class="list-unstyled">
-                      <li>
-                        <i class="fa-fw fa fa-bed"></i> {{::detail.hotel}}
-                      </li>
-                      <li>
-                        <i class="fa-fw fa fa-cutlery"></i>{{::detail.breakfast}}, {{::detail.lunch}}, {{::detail.dinner}}
-                      </li>
-                    </ul>
-                  </div>
+                  <div class="font-kai-inner" ng-bind-html="detail.context"></div>
                 </div>
                 <div class="timeline-footer">
-                  <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> {{::detail.date}} </li>
-                    <li><i class="fa fa-comments-o"></i> <a href="#">37 Comments</a></li>
+                  <ul class="list-unstyled">
+                    <li>
+                      <i class="fa-fw fa fa-bed"></i> {{::detail.hotel}}
+                    </li>
+                    <li>
+                      <i class="fa fa-cutlery"></i>
+                      <i class="fa fa-sun-o color-yellow"></i> <span>{{::detail.breakfast}}</span> 
+                      <i class="fa fa-sun-o color-red"></i> <span> {{::detail.lunch}} </span>
+                      <i class="fa fa-moon-o color-blue"></i> <span> {{::detail.dinner}} </span>
+                    </li>
                   </ul>
-                  <a class="likes" href="#"><i class="fa fa-heart"></i>121</a>
                 </div>
               </div>
             </li>
@@ -128,30 +117,32 @@
         <div class="panel-body">
           <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
           <p>* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>天數</th>
-                <th>起飛城市</th>
-                <th>抵達城市</th>
-                <th>出發/抵達時間</th>
-                <th>航空公司</th>
-                <th>航班編號</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="airplane in airplanes">
-                <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
-                <td>{{::airplane.day}}</td>
-                <td>{{::airplane.from}}</td>
-                <td>{{::airplane.to}}</td>
-                <td>{{::airplane.time}}</td>
-                <td>{{::airplane.airplane}}</td>
-                <td>{{::airplane.flightNo}}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="font-kai-inner">
+                <tr>
+                  <th>#</th>
+                  <th>天數</th>
+                  <th>起飛城市</th>
+                  <th>抵達城市</th>
+                  <th>出發/抵達時間</th>
+                  <th>航空公司</th>
+                  <th>航班編號</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="airplane in airplanes">
+                  <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+                  <td>{{::airplane.day}}</td>
+                  <td>{{::airplane.from}}</td>
+                  <td>{{::airplane.to}}</td>
+                  <td>{{::airplane.time}}</td>
+                  <td>{{::airplane.airplane}}</td>
+                  <td>{{::airplane.flightNo}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div class="panel panel-purple">
@@ -159,32 +150,34 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名</h3>
         </div>
         <div class="panel-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th style="min-width: 90px;"> 出發日期 </th>
-                <th style="min-width: 45px;"> 天數 </th>
-                <th> 產品名稱 </th>
-                <th style="min-width: 76px;"> 團費售價 </th>
-                <th style="min-width: 45px;"> 報名 </th>
-                <th style="min-width: 45px;"> 狀態 </th>
-                <th style="min-width: 76px;"> 銷售說明 </th>
-                <th style="min-width: 100px;"> 備註 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="production in productions">
-                <td> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </td>
-                <td> {{::production['天數']}} </td>
-                <td> {{::production['產品名稱']}} </td>
-                <td> {{::production['團費售價']}} </td>
-                <td> {{::production['報名']}} </td>
-                <td> {{::production['狀態']}} </td>
-                <td> {{::production['銷售說明']}} </td>
-                <td> {{::production['備註']}} </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="font-kai-inner">
+                <tr>
+                  <th style="min-width: 90px;"> 出發日期 </th>
+                  <th style="min-width: 45px;"> 天數 </th>
+                  <th> 產品名稱 </th>
+                  <th style="min-width: 76px;"> 團費售價 </th>
+                  <th style="min-width: 45px;"> 報名 </th>
+                  <th style="min-width: 45px;"> 狀態 </th>
+                  <th style="min-width: 76px;"> 銷售說明 </th>
+                  <th style="min-width: 100px;"> 備註 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="production in productions">
+                  <td> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </td>
+                  <td> {{::production['天數']}} </td>
+                  <td> {{::production['產品名稱']}} </td>
+                  <td> {{::production['團費售價']}} </td>
+                  <td> {{::production['報名']}} </td>
+                  <td> {{::production['狀態']}} </td>
+                  <td> {{::production['銷售說明']}} </td>
+                  <td> {{::production['備註']}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <ol class="margin-top-20">
             <li class="color-blue">團體旅遊中各團價格、航班及行程內容可能會因不同出發日期而有所變動，請先依您所需的出團日期查詢。</li>
             <li class="color-blue">航空公司於票價中需增收燃油附加費，但因各航空公司徵收的費用不同，以致相同機場之機場稅也會有所差異。</li>
