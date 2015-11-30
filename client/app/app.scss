@@ -309,3 +309,11 @@ $font-kai: '標楷體', 'cwTeXKai', serif;
 .font-kai {
   font-family: $font-kai;
 }
+@page {
+  size: A4;
+}
+@media print {
+  .left-slide-bar, .footer {
+    display: none;
+  }
+}
