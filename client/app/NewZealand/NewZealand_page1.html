@@ -43,7 +43,13 @@
     <div class="col-md-offset-3 col-md-9">
       <div class="panel panel-red">
         <div class="panel-heading" id="intro">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>簡介</h3>
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>簡介
+            <editor bind="intro" class="pull-right" 
+                template-url="components/editor/intro-editor-modal.html"
+                title="簡介"
+                url="api/pages/intro">
+            </editor>
+          </h3>
         </div>
         <div class="panel-body profile">
           <ul class="list-unstyled social-contacts-v2">
@@ -57,20 +63,38 @@
       </div>
       <div class="panel panel-orange">
         <div class="panel-heading" id="feature">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>行程特色</h3>
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>行程特色
+            <editor bind="feature" class="pull-right" 
+                template-url="components/editor/editor-summernote-modal.html"
+                title="行程特色"
+                url="api/pages/feature">
+            </editor>
+          </h3>
         </div>
         <div class="panel-body" style="padding: 0px;" ng-bind-html="feature"></div>
       </div>
       <div class="panel panel-yellow">
         <div class="panel-heading" id="specialize">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>特別安排</h3>
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>特別安排
+            <editor bind="specialize" class="pull-right" 
+                template-url="components/editor/editor-summernote-modal.html"
+                title="特別安排"
+                url="api/pages/specialize">
+            </editor>
+          </h3>
         </div>
         <div class="panel-body" style="padding: 0px;" ng-bind-html="specialize">
         </div>
       </div>
       <div class="panel panel-green project-detail">
         <div class="panel-heading" id="detail">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>行程內容</h3>
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>行程內容
+            <editor bind="detail" class="pull-right" 
+                template-url="components/editor/detail-editor-modal.html"
+                title="行程內容"
+                url="api/pages/detail">
+            </editor>
+          </h3>
         </div>
         <div class="panel-body">
           <ul class="timeline-v1">
@@ -112,7 +136,13 @@
       </div>
       <div class="panel panel-blue">
         <div class="panel-heading" id="airplane">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>航班參考</h3>
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>航班參考
+            <editor bind="airplane" class="pull-right" 
+                template-url="components/editor/airplane-editor-modal.html"
+                title="航班參考"
+                url="api/pages/airplane">
+            </editor>
+          </h3>
         </div>
         <div class="panel-body">
           <p>* 以下為本行程預定的航班時間，實際航班以團體確認的航班編號與飛行時間為準。</p>
