@@ -14,6 +14,7 @@ angular.module('loyoApp')
           templateUrl: attrs.templateUrl,
           controller: 'editorModalCtrl',
           size: 'lg',
+          backdrop: 'static',
           resolve: {
             data: function () {
               return $parse(attrs.bind)(scope);
