@@ -7,7 +7,7 @@ angular.module('loyoApp', [
   'ui.router',
   'ui.bootstrap',
   'unify',
-  'FB.Utils',
+//   'FB.Utils',
   'ngAnimate',
   'agGrid'
 ])

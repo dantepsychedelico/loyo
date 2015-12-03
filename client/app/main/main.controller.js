@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('loyoApp')
-.controller('MainCtrl', function ($scope, $http, $window, $sce, FB) {
+.controller('MainCtrl', function ($scope, $http, $window, $sce) {
   $scope.window = {
     width: $window.innerWidth,
     height: $window.innerHeight

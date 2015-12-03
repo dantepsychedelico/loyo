@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h3 class="modal-title">行程內容</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <tabset>
+      <tab ng-repeat="detail in data">
+        <tab-heading>{{detail.date}}</tab-heading>
+        <div class="col-sm-5">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="title" class="col-sm-2 control-label">日期</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="detail.date" placeholder="日期">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="title" class="col-sm-2 control-label">標題</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="detail.title" placeholder="標題">
+              </div>
+            </div>
+          </form>
+          <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
+            <slide ng-repeat="slide in detail.slides">
+              <img class="img-responsive" ng-src="{{slide.src}}">
+              <div class="carousel-caption">{{slide.title}}</div>
+            </slide>
+          </carousel>
+        </div>
+        <div class="col-sm-7">
+          <summernote bind="detail.context"></summernote>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" type="button" ng-click="save()">存檔</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+</div>
