@@ -7,6 +7,7 @@ angular.module('loyoApp', [
   'ui.router',
   'ui.bootstrap',
   'unify',
+  'ngFileUpload',
 //   'FB.Utils',
   'ngAnimate',
   'agGrid'

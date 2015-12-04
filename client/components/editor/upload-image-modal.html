@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h3 class="modal-title">上傳照片</h3>
+</div>
+<div class="modal-body">
+  <form class="form-inline" name="imageForm" role="form">
+    <div class="form-group">
+      <label for="album">相簿</label>
+      <input type="text" class="form-control" id="album"
+          ng-pattern="/^[a-zA-Z0-9_.-]{1,}$/"
+          placeholder="請使用英文相簿名 eg. NewZealand" ng-model="album"
+          required>
+    </div>
+    <div class="form-group">
+      <label for="filename">檔名</label>
+      <input type="text" class="form-control" id="filename" 
+          ng-pattern="/^[a-zA-Z0-9_.-]{1,}$/"
+          placeholder="eg. 000001.jpg" ng-model="filename"
+          required>
+    </div>
+    <button type="button" class="btn-u btn-u-aqua btn-file">
+      <i class="fa fa-cloud-upload"></i>
+      請選擇檔案 <input type="file" ngf-select ng-model="picFile" name="file"    
+           accept="image/*" ngf-max-size="2MB" required>
+    </button>
+    <button ng-click="remove()" ng-show="picFile" class="btn btn-danger">
+      <i class="fa fa-trash"></i>
+    </button>
+    <button type="submit" class="btn btn-primary"
+        ng-disabled="imageForm.$invalid"
+        ng-click="uploadPic(picFile)">上傳</button>
+    <i ng-show="imageForm.file.$error.required">*required</i>
+    <i ng-show="imageForm.file.$error.maxSize">File too large 
+        {{picFile.size / 1000000|number:1}}MB: max 2M</i>
+    <span class="progress" ng-show="picFile.progress >= 0">
+      <div style="width:{{picFile.progress}}%" 
+          ng-bind="picFile.progress + '%'"></div>
+    </span>
+    <span ng-show="picFile.result">上傳成功</span>
+    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+  </form>
+  <img width="200" ng-show="imageForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> 
+</div>
+<div class="modal-footer">
+  <button class="btn btn-warning" type="button" ng-click="leave()">離開</button>
+</div>
