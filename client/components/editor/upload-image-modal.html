@@ -18,7 +18,10 @@
               ng-pattern="/^[a-zA-Z0-9_.-]{1,}$/"
               placeholder="eg. 000001.jpg" ng-model="picFile.filename"
               required>
-          <img class="img-responsive" ng-show="imageForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> 
+          <img class="img-responsive" 
+              style="margin: 5px 0;"
+              ng-show="imageForm.file.$valid" 
+              ngf-thumbnail="picFile"> 
           <span class="progress" ng-show="picFile.progress >= 0">
             <div style="width:{{picFile.progress}}%" 
                 ng-bind="picFile.progress + '%'"></div>
