@@ -113,6 +113,7 @@ angular.module('loyoApp')
     });
   });
   $scope.uploadPic = function() {
+    var completed = 0;
     _.forEach($scope.picFiles, function(pickFile) {
       pickFile.upload = Upload.upload({
         url: '/api/pages/image/'+$scope.album+'/'+pickFile.filename,
@@ -121,9 +122,12 @@ angular.module('loyoApp')
 
       pickFile.upload
       .then(function (res) {
-        $scope.picFiles = null;
-        getAlbums();
-        if ($scope.album === $scope.currentAlbum) $scope.showAlbumPhotos($scope.currentAlbum);
+        completed +=1;
+        if (completed === $scope.picFiles.length) {
+          $scope.picFiles = null;
+          getAlbums();
+          if ($scope.album === $scope.currentAlbum) $scope.showAlbumPhotos($scope.currentAlbum);
+        }
       }, function (response) {
         if (response.status > 0) {
           $scope.errorMsg = response.status + ': ' + response.data;
