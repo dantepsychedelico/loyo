@@ -109,6 +109,31 @@ angular.module('unify', [])
     }
   };
 })
+.directive('owlCarousel', function($parse) {
+  return {
+    restrict: 'A',
+    controller: function($scope, $element, $attrs, $parse) {
+      this.owlCarousel = function() {
+        if ($element.data('owl.carousel')) {
+          $element.data('owl.carousel').destroy();
+        }
+        $element.owlCarousel($parse($attrs.owlCarousel)($scope));
+      }
+    }
+  };
+})
+.directive('owlCarouselItem', function() {
+  return {
+    restirct: 'A',
+    require: '^owlCarousel',
+    link: function(scope, element, attrs, ctrl) {
+      if (scope.$last) {
+         element.nextAll().remove();
+         ctrl.owlCarousel();
+      }
+    }
+  };
+})
 .run(['$templateCache', function($templateCache) {
   $templateCache.put('template/carousel/carousel-no-chevron.html',
     '<div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" '+

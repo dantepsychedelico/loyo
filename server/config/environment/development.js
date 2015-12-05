@@ -8,5 +8,6 @@ module.exports = {
     uri: 'mongodb://' + ((process.env.DB_PORT_27017_TCP||'').replace('tcp://','') || 'localhost') +
         '/' + (process.env.DB_PORT_27017_NAME || 'loyo'),
   },
-  seedDB: true
+  seedDB: true,
+  mongoDebug: true
 };

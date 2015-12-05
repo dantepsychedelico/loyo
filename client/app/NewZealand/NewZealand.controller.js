@@ -36,10 +36,10 @@ angular.module('loyoApp')
       src: 'app/NewZealand/images/00002029-1.jpg', 
     }, {
       title: '夜晚基督城',
-      src: 'app/NewZealand/images/00002029-2.jpg'
+      src: 'api/images/test/00002029-2.jpg'
     }, {
       title: '夜晚基督城',
-      src: 'app/NewZealand/images/00002029-3.jpg'
+      src: 'api/images/test/00002029-3.jpg'
     }],
     hotel: 'IBISHOTEL或同級',
     breakfast: '機上精緻簡餐',
@@ -67,7 +67,14 @@ angular.module('loyoApp')
   }, {
     date: '第 4 天',
     title: '農莊-蒂卡波湖-庫克山國家公園-冰河船奇之旅-隱士飯店面庫山房-庫克山觀星活動',
-    context: $sce.trustAsHtml('<p>依依不捨的道別農莊主人，今日前往◎蒂卡波湖小鎮，蒂卡波湖獨特的土耳其藍色彩，夢幻般的色澤讓您嘆為觀止，來到湖邊的◎牧羊人教堂及◎牧羊犬紀念雕象拍影留念。午餐特選高級冰河水飼養鮭魚、鯛魚、野鹿、天婦羅日式定食午餐, 觀賞湖景。</p> <p>下午進入◎庫克山國家公園。您可以自費搭乘景觀直昇機觀賞冰河,人驚奇的直昇機高山觀景的飛行體驗。起飛後航道駛向南阿爾卑斯山脈,飛越高山，沿途欣賞壯麗的高山及冰河,降落在冰河源頭,可下飛機觸摸雪、拍照。</p> <p>(如果多雲、下雨、高山風速過強，天氣狀況不佳下影響飛行安全時行程取消)</p> <p>(建議前一天視當日天氣狀況及不影響團體活動時間，領隊代為預定時間、當場付款)</p> <p><a class="color-blue" href=http://www.helicopter.co.nz/mtcook.asp>官網聯結</a></p> <p>晚餐後,安排特別企劃■★【庫克山觀星活動】,第一階段觀賞星空劇場,室內的劇場觀賞南半球的星空及浩瀚太空,讓您難忘。第二階段,搭乘巴士到空曠的地方以觀星高倍望眼鏡星賞賞浩瀚天空 !(如第二階段因天候取消,退費用紐幣NZ20)</p><iframe style="margin: 0px auto" src="https://www.youtube.com/embed/PywR0rTIDAM" frameborder="0" allowfullscreen></iframe><p><strong><span style="color: #ff0000"><span style="font-size: 14px">【企劃語錄】</span></span></strong><br><span style="color: #ff00ff"><span style="font-size: 14px">1).&nbsp;保證入住面庫克山房</span></span><br><span style="color: #0066ff"><span style="font-size: 14px">國寶級飯店 - 庫克山隱士飯店，樂遊旅行社安排保證入住面庫克山房，仿間有同業以較房價便宜的"面山房"魚目混珠，或如住不到以同級飯店代替。庫克山國家公園內，只有一家飯店，別無其他飯店，90-120公里以外才有其他飯店。</span></span><br><span style="color: #ff00ff"><span style="font-size: 14px">2).&nbsp;庫克山山區氣候變化大</span></span><br><span style="color: #0066ff"><span style="font-size: 14px">在下雨及天候不佳的情況下，冰河船活動因此取消，行程企劃抵達當天安排冰河船，如天候不佳取消，隔天早上尚有機會，預設行程安排一定要當天下午抵達庫克山、隔天10:30~11:00離開，有兩個大半天的充裕時間。下午2點左右進入庫克山國家公園、隔天中午離開，停留時間充足最大機率體驗冰河船探險（以應對瞬息萬變的庫克山山區氣候）</span></span><br><span style="color: #ff00ff"><span style="font-size: 14px">3).&nbsp;可能遇到的狀況說明</span></span><br><span style="color: #0066ff"><span style="font-size: 14px">狀況一：<br>當天順利搭乘冰河船，隔天早上不需早起，可安排弧克山谷1.5小時健行，11點鐘離開庫克山國家公園─蒂卡波湖午餐。<br>狀況二：<br>當天因天候不佳不能搭乘冰河船，若可訂隔天08:30或是09:30搭乘。隔天車程短，中、晚餐時間順延。<br>狀況三：<br>當天因天候不佳不能搭乘冰河船，且隔天早上時間的船班已客滿無法訂到。將另外訂四輪驅動車進入塔斯曼山谷觀賞冰河湖，也是一種有趣的體驗（費用同冰河船）。<br>狀況四：<br>如兩天天氣都不佳，無法搭乘冰河船或四輪驅動車。無法體驗敬請見諒，退費用紐幣105元。</span></span></p>'),
+    context: $sce.trustAsHtml('<p>依依不捨的道別農莊主人，今日前往◎蒂卡波湖小鎮，蒂卡波湖獨特的土耳其藍色彩，夢幻般的色澤讓您嘆為觀止，來到湖邊的◎牧羊人教堂及◎牧羊犬紀念雕象拍影留念。午餐特選高級冰河水飼養鮭魚、鯛魚、野鹿、天婦羅日式定食午餐, 觀賞湖景。</p>' + 
+            '<p>下午進入◎庫克山國家公園。您可以自費搭乘景觀直昇機觀賞冰河,人驚奇的直昇機高山觀景的飛行體驗。起飛後航道駛向南阿爾卑斯山脈,飛越高山，沿途欣賞壯麗的高山及冰河,降落在冰河源頭,可下飛機觸摸雪、拍照。</p>' +
+            '<p>(如果多雲、下雨、高山風速過強，天氣狀況不佳下影響飛行安全時行程取消)</p>' + 
+            '<p>(建議前一天視當日天氣狀況及不影響團體活動時間，領隊代為預定時間、當場付款)</p>'+
+            '<p><a class="color-blue" href=http://www.helicopter.co.nz/mtcook.asp>官網聯結</a></p>'+
+            '<p>晚餐後,安排特別企劃■★【庫克山觀星活動】,第一階段觀賞星空劇場,室內的劇場觀賞南半球的星空及浩瀚太空,讓您難忘。第二階段,搭乘巴士到空曠的地方以觀星高倍望眼鏡星賞賞浩瀚天空 !(如第二階段因天候取消,退費用紐幣NZ20)</p>' + 
+            '<div class="responsive-video margin-bottom-30"><iframe width="854" height="480" src="https://www.youtube.com/embed/PywR0rTIDAM" frameborder="0" allowfullscreen></iframe></div>' +
+            '<p><strong><span style="color: #ff0000"><span style="font-size: 14px">【企劃語錄】</span></span></strong><br><span style="color: #ff00ff"><span style="font-size: 14px">1).&nbsp;保證入住面庫克山房</span></span><br><span style="color: #0066ff"><span style="font-size: 14px">國寶級飯店 - 庫克山隱士飯店，樂遊旅行社安排保證入住面庫克山房，仿間有同業以較房價便宜的"面山房"魚目混珠，或如住不到以同級飯店代替。庫克山國家公園內，只有一家飯店，別無其他飯店，90-120公里以外才有其他飯店。</span></span><br><span style="color: #ff00ff"><span style="font-size: 14px">2).&nbsp;庫克山山區氣候變化大</span></span><br><span style="color: #0066ff"><span style="font-size: 14px">在下雨及天候不佳的情況下，冰河船活動因此取消，行程企劃抵達當天安排冰河船，如天候不佳取消，隔天早上尚有機會，預設行程安排一定要當天下午抵達庫克山、隔天10:30~11:00離開，有兩個大半天的充裕時間。下午2點左右進入庫克山國家公園、隔天中午離開，停留時間充足最大機率體驗冰河船探險（以應對瞬息萬變的庫克山山區氣候）</span></span><br><span style="color: #ff00ff"><span style="font-size: 14px">3).&nbsp;可能遇到的狀況說明</span></span><br><span style="color: #0066ff"><span style="font-size: 14px">狀況一：<br>當天順利搭乘冰河船，隔天早上不需早起，可安排弧克山谷1.5小時健行，11點鐘離開庫克山國家公園─蒂卡波湖午餐。<br>狀況二：<br>當天因天候不佳不能搭乘冰河船，若可訂隔天08:30或是09:30搭乘。隔天車程短，中、晚餐時間順延。<br>狀況三：<br>當天因天候不佳不能搭乘冰河船，且隔天早上時間的船班已客滿無法訂到。將另外訂四輪驅動車進入塔斯曼山谷觀賞冰河湖，也是一種有趣的體驗（費用同冰河船）。<br>狀況四：<br>如兩天天氣都不佳，無法搭乘冰河船或四輪驅動車。無法體驗敬請見諒，退費用紐幣105元。</span></span></p>'),
     slides: [{
       title: '蒂卡波湖小鎮',
       src: 'app/NewZealand/images/00002031-1.jpg'
@@ -230,29 +237,43 @@ angular.module('loyoApp')
     airplane: '中華航空'
   };
 
-  $scope.airplanes = [{
-    day: '第 1 天',
-    from: '台北',
-    to: '奧克蘭',
-    time: '23:00-17:50+1',
-    airplane: '中華航空',
-    flightNo: 'C151',
-    first: true,
-    itemNum: 3,
-    index: 0
+  var airplaneRef = [{
+    through: [{
+      day: '第 1 天',
+      from: '台北',
+      to: '奧克蘭',
+      time: '23:00-17:50+1',
+      airplane: '中華航空',
+      flightNo: 'C151',
+    }, {
+      from: '羅吐魯阿',
+      to: '皇后鎮',
+      time: '09:10-12:35',
+      airplane: '紐西蘭航空',
+      flightNo: 'NZ5863'
+    }, {
+      day: '第 12 天',
+      from: '基督城',
+      to: '台北',
+      time: '19:15-04:30+1',
+      airplane: '中華航空',
+      flightNo: 'C156'
+    }]
   }, {
-    from: '羅吐魯阿',
-    to: '皇后鎮',
-    time: '09:10-12:35',
-    airplane: '紐西蘭航空',
-    flightNo: 'NZ5863',
-  }, {
-    day: '第 12 天',
-    from: '基督城',
-    to: '台北',
-    time: '19:15-04:30+1',
-    airplane: '中華航空',
-    flightNo: 'C156',
   }];
+  function transAirplaneRef(airplanRef) {
+    var results = [];
+    _.forEach(airplaneRef, function(ref, i) {
+      _.forEach(ref.through, function(path, j) {
+        if (!j) {
+          path.index = i;
+          path.itemNum = ref.through.length;
+        }
+        results.push(path);
+      });
+    });
+    return results;
+  }
+  $scope.airplanes = transAirplaneRef(airplaneRef);
   $scope.productions = search.data;
 });

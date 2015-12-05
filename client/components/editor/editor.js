@@ -78,7 +78,29 @@ angular.module('loyoApp')
     angular.noop()
   }
 })
-.controller('imageUploadModalCtrl', function($scope, $modalInstance, $timeout, Upload) {
+.controller('imageUploadModalCtrl', function($scope, $modalInstance, $http, Upload) {
+  function getAlbums() {
+    $http.get('/api/pages/albums')
+    .then(function(results) {
+      $scope.albums = results.data;
+    });
+  }
+  getAlbums();
+  $scope.ocOptions = {
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    items : 4,
+    itemsDesktop : [1199,3],
+    itemsDesktopSmall : [979,3]
+  };
+  $scope.showAlbumPhotos = function(album) {
+    $scope.currentAlbum = album;
+    $http.get('/api/pages/albums/'+album)
+    .then(function(result) {
+      $scope.photos = result.data;
+    });
+  };
   $scope.leave = function() {
     $modalInstance.dismiss();
   };
@@ -91,16 +113,15 @@ angular.module('loyoApp')
   });
   $scope.uploadPic = function(file) {
     file.upload = Upload.upload({
-      url: '/api/upload/image/'+$scope.album+'/'+$scope.filename,
+      url: '/api/pages/image/'+$scope.album+'/'+$scope.filename,
       data: {file: file},
     });
 
     file.upload
     .then(function (res) {
-      $timeout(function() {
-        $scope.picFile = null;
-        $scope.filename = null;
-      }, 5000);
+      $scope.filename = null;
+      $scope.picFile = null;
+      getAlbums();
     }, function (response) {
       if (response.status > 0) {
         $scope.errorMsg = response.status + ': ' + response.data;

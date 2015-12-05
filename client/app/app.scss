@@ -340,3 +340,20 @@ $font-kai: '標楷體', 'cwTeXKai', serif;
 form[name=imageForm] input.ng-invalid {
   border: 2px solid $red;
 }
+.upload-image .owl-carousel .item {
+  margin: 3px;
+  & a {
+    display: block;
+  }
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  & span {
+    font-size: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

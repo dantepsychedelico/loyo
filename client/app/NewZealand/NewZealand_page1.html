@@ -160,7 +160,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="airplane in airplanes">
-                  <td ng-if="airplane.first" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+                  <td ng-if="airplane.itemNum" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
                   <td>{{::airplane.day}}</td>
                   <td>{{::airplane.from}}</td>
                   <td>{{::airplane.to}}</td>
