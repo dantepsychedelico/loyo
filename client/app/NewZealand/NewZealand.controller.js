@@ -36,10 +36,10 @@ angular.module('loyoApp')
       src: 'app/NewZealand/images/00002029-1.jpg', 
     }, {
       title: '夜晚基督城',
-      src: 'api/images/test/00002029-2.jpg'
+      src: 'api/images/NewZealand/00002029-2.jpg'
     }, {
       title: '夜晚基督城',
-      src: 'api/images/test/00002029-3.jpg'
+      src: 'api/images/NewZealand/00002029-3.jpg'
     }],
     hotel: 'IBISHOTEL或同級',
     breakfast: '機上精緻簡餐',
