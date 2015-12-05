@@ -12,35 +12,35 @@
               placeholder="請使用英文相簿名 eg. NewZealand" ng-model="album"
               required>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-repeat="picFile in picFiles">
           <label for="filename">檔名</label>
           <input type="text" class="form-control" id="filename" 
               ng-pattern="/^[a-zA-Z0-9_.-]{1,}$/"
-              placeholder="eg. 000001.jpg" ng-model="filename"
+              placeholder="eg. 000001.jpg" ng-model="picFile.filename"
               required>
+          <img class="img-responsive" ng-show="imageForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> 
+          <span class="progress" ng-show="picFile.progress >= 0">
+            <div style="width:{{picFile.progress}}%" 
+                ng-bind="picFile.progress + '%'"></div>
+          </span>
+          <span ng-show="picFile.result">上傳成功</span>
+          <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
         </div>
         <button type="button" class="btn-u btn-u-aqua btn-file">
           <i class="fa fa-cloud-upload"></i>
-          請選擇檔案 <input type="file" ngf-select ng-model="picFile" name="file"    
-               accept="image/*" ngf-max-size="2MB" required>
+          請選擇檔案 <input type="file" ngf-select ng-model="picFiles" name="file"    
+               accept="image/*" ngf-max-size="2MB" required multiple>
         </button>
-        <button ng-click="remove()" ng-show="picFile" class="btn btn-danger">
+        <button ng-click="remove()" ng-show="picFiles.length" class="btn btn-danger">
           <i class="fa fa-trash"></i>
         </button>
         <button type="submit" class="btn btn-primary"
             ng-disabled="imageForm.$invalid"
-            ng-click="uploadPic(picFile)">上傳</button>
+            ng-click="uploadPic()">上傳</button>
         <i ng-show="imageForm.file.$error.required">*required</i>
         <i ng-show="imageForm.file.$error.maxSize">File too large 
             {{picFile.size / 1000000|number:1}}MB: max 2M</i>
-        <span class="progress" ng-show="picFile.progress >= 0">
-          <div style="width:{{picFile.progress}}%" 
-              ng-bind="picFile.progress + '%'"></div>
-        </span>
-        <span ng-show="picFile.result">上傳成功</span>
-        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
       </form>
-      <img class="img-responsive" ng-show="imageForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> 
     </div>
     <div class="col-sm-9">
       <div owl-carousel="ocOptions" class="owl-carousel owl-carousel-them">

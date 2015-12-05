@@ -105,30 +105,33 @@ angular.module('loyoApp')
     $modalInstance.dismiss();
   };
   $scope.remove = function() {
-    $scope.picFile = null;
-    $scope.filename = null;
+    $scope.picFiles = null;
   };
-  $scope.$watch('picFile', function(newVal) {
-    $scope.filename = _.get(newVal, 'name');
-  });
-  $scope.uploadPic = function(file) {
-    file.upload = Upload.upload({
-      url: '/api/pages/image/'+$scope.album+'/'+$scope.filename,
-      data: {file: file},
+  $scope.$watch('picFiles', function(files) {
+    _.forEach(files, function(file) {
+      file.filename = file.name;
     });
+  });
+  $scope.uploadPic = function() {
+    _.forEach($scope.picFiles, function(pickFile) {
+      pickFile.upload = Upload.upload({
+        url: '/api/pages/image/'+$scope.album+'/'+pickFile.filename,
+        data: {file: pickFile},
+      });
 
-    file.upload
-    .then(function (res) {
-      $scope.filename = null;
-      $scope.picFile = null;
-      getAlbums();
-    }, function (response) {
-      if (response.status > 0) {
-        $scope.errorMsg = response.status + ': ' + response.data;
-      }
-    }, function (evt) {
-      // Math.min is to fix IE which reports 200% sometimes
-      file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+      pickFile.upload
+      .then(function (res) {
+        $scope.picFiles = null;
+        getAlbums();
+        if ($scope.album === $scope.currentAlbum) $scope.showAlbumPhotos($scope.currentAlbum);
+      }, function (response) {
+        if (response.status > 0) {
+          $scope.errorMsg = response.status + ': ' + response.data;
+        }
+      }, function (evt) {
+        // Math.min is to fix IE which reports 200% sometimes
+        pickFile.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+      });
     });
   };
 })
