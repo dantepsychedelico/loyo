@@ -104,7 +104,10 @@ exports.getAlbumSrcs = function(req, res, next) {
 exports.updatePage = function(req, res, next) {
   Page.findOne({ _id: req.params.pageid }).exec()
   .then(function(page) {
-    if (!page) res.status(500).send();
+    if (!page) {
+      res.status(500).send();
+      return;
+    }
     var modify = false;
     var field = req.params.field;
     if (req.body[field]) {
