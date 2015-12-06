@@ -5,8 +5,22 @@ var multiparty = require('multiparty'),
     mongoose = require('mongoose'),
     Image = mongoose.model('Image'),
     Album = mongoose.model('Album'),
+    Page = mongoose.model('Page'),
+    History = mongoose.model('History'),
     Q = require('q');
 
+function recordReq(req) {
+  History.collection.insert({ 
+    peername: req.connection._peername,
+    headers: req.headers,
+    url: req.url,
+    method: req.method,
+    cookies: req.cookies,
+    signedCookies: req.signedCookies,
+    startAt: req._startAt,
+    startTime: req.startTime
+  });
+}
 
 exports.saveImage = function(req, res, next) {
   var form = new multiparty.Form(),
@@ -44,6 +58,7 @@ exports.saveImage = function(req, res, next) {
       })
       .then(function(results) {
         res.send();
+        recordReq(req);
       })
       .catch(function(error) {
         console.log(error.stack);
@@ -69,7 +84,7 @@ exports.getAlbumSummary = function(req, res, next) {
     res.send(albums);
   })
   .catch(function(err) {
-    console.log(err);
+    console.log(err.stack);
     res.status(500).send();
   });
 };
@@ -81,7 +96,29 @@ exports.getAlbumSrcs = function(req, res, next) {
     res.json(images);
   })
   .catch(function(err) {
-    console.log(err);
+    console.log(err.stack);
+    res.status(500).send();
+  });
+};
+
+exports.updatePage = function(req, res, next) {
+  Page.findOne({ _id: req.params.pageid }).exec()
+  .then(function(page) {
+    if (!page) res.status(500).send();
+    var modify = false;
+    var field = req.params.field;
+    if (req.body[field]) {
+      page[field] = req.body[field];
+      modify = true;
+    }
+    if (modify) page.ts = new Date();
+    return page.save();
+  })
+  .then(function(results) {
+    res.send();
+  })
+  .catch(function(err) {
+    console.log(err.stack);
     res.status(500).send();
   });
 };

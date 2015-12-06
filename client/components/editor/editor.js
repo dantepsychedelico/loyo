@@ -20,8 +20,11 @@ angular.module('loyoApp')
             data: function () {
               return $parse(attrs.bind)(scope);
             },
-            url: function() {
-              return attrs.url;
+            field: function() {
+              return attrs.bind;
+            },
+            pageid: function() {
+              return $parse(attrs.pageid)(scope);
             },
             title: function() {
               return attrs.title;
@@ -52,24 +55,105 @@ angular.module('loyoApp')
     }
   };
 })
-.directive('summernote', function($window, $parse) {
+.directive('summernote', function($window, $parse, $sce) {
   return {
     restrict: 'EAC',
     link: function(scope, element, attrs) {
       element.summernote({
         height: +attrs.height || $window.innerHeight/3,
-        force: true
-      }).code($parse(attrs.bind)(scope).toString());
+        force: true,
+        onChange: function(contents) {
+          $parse(attrs.bind).assign(scope, $sce.trustAsHtml(contents));
+        },
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'italic', 'underline', 'clear']],
+          ['custom', ['kai', 'ming']],
+          ['fontname', ['fontname']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'hr']],
+          ['view', ['fullscreen', 'codeview']],
+          ['help', ['help']]
+        ]
+      }).code($parse(attrs.bind)(scope).toString()); // bug cannot update
       scope.$on('$destroy', function() {
         element.destroy();
       });
     }
   };
 })
-.controller('editorModalCtrl', function($scope, $modalInstance, data, url, title) {
+.run(function() {
+  var template = angular.element.summernote.renderer.getTemplate();
+
+  // add hello plugin 
+  angular.element.summernote.addPlugin({
+    // plugin's name
+    name: 'customfont',
+
+    init : function(layoutInfo) { // run init method when summernote was initialized
+      var $note = layoutInfo.holder();
+
+      // you can use jquery custom event.
+      $note.on('summernote.update', function(customEvent, nativeEvent) {
+         var $boldButton = angular.element(this).summernote('toolbar.get', 'bold');
+         $boldButton.toggleClass('active').css({
+           color : 'red'
+         });
+      });
+    },
+            
+    buttons: {
+      kai: function () {
+        return template.iconButton('fa fa-kai', {
+          event : 'kai',
+          title: '標楷體',
+          hide: true
+        });
+      },
+      ming: function() {
+        return template.iconButton('fa fa-ming', {
+          event : 'ming',
+          title: '微軟正黑體',
+          hide: true
+        });
+      }
+    },
+
+    events: { // events
+      // run callback when hello button is clicked
+      kai: function (event, editor, layoutInfo, value) {
+        var $editable = layoutInfo.editable();
+        editor.beforeCommand($editable);
+        editor.fontName($editable, '標楷體, cwTeXKai, serif');
+        editor.afterCommand($editable, true);
+      },
+      ming: function (event, editor, layoutInfo, value) {
+        var $editable = layoutInfo.editable();
+        editor.beforeCommand($editable);
+        editor.fontName($editable, '微軟正黑體, Microsoft YaHei, 微软雅黑, メイリオ, 맑은 고딕, Helvetica Neue, Helvetica, Arial, cwTeXMing, serif');
+        editor.afterCommand($editable, true);
+      }
+    }
+  });
+})
+.controller('editorModalCtrl', function($scope, $modalInstance, $http, pageid, data, field, title) {
   $scope.title = title;
   $scope.data = angular.copy(data);
   $scope.save = function() {
+    var oo = {};
+    if ($scope.data.$$unwrapTrustedValue) {
+      oo[field] = $scope.data.$$unwrapTrustedValue();
+    } else {
+      oo[field] = $scope.data;
+    }
+    $http.post('/api/pages/context/'+pageid+'/'+field, oo)
+    .then(function(results) {
+      $modalInstance.close($scope.data);
+    });
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();

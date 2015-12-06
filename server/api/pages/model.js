@@ -89,15 +89,22 @@ var Page = new Schema({
         })
       ]
     })
-  ]
+  ],
+  ts: Date
 });
 
 // var Navbar = new Schema({
 // });
 // 
-var UploadHistory = new Schema({
-  req: Schema.Types.Mixed,
-  cs: String,
+var History = new Schema({
+  peername: String,
+  headers: Object,
+  url: String,
+  method: String,
+  cookies: Object,
+  signedCookies: Object,
+  startAt: Array,
+  startTime: Date,
   ts: {
     type: Date,
     default: Date.now
@@ -107,4 +114,4 @@ var UploadHistory = new Schema({
 mongoose.model('Image', Image);
 mongoose.model('Album', Album);
 mongoose.model('Page', Page);
-mongoose.model('UploadHistory', UploadHistory);
+mongoose.model('History', History);

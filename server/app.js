@@ -10,6 +10,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
+var fs = require('fs');
 
 mongoose.Promise = require('q').Promise;
 
@@ -26,7 +27,15 @@ mongoose.connection.on('connected', function() {
 mongoose.set('debug', config.mongoDebug);
 // Setup server
 var app = express();
-var server = require('http').createServer(app);
+var server;
+if (config.https) {
+  server = require('https').createServer({
+    key: fs.readFileSync(config.https.ssl.key),
+    cert: fs.readFileSync(config.https.ssl.cert)
+  }, app);
+} else {
+  server = require('http').createServer(app);
+}
 require('./config/express')(app);
 require('./routes')(app);
 

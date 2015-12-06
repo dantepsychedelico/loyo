@@ -9,6 +9,10 @@ router.post('/image/:album/:filename', function(req, res, next) {
   pages.saveImage(req, res, next);
 });
 
+router.post('/context/:pageid/:field', function(req, res, next) {
+  pages.updatePage(req, res, next);
+});
+
 router.get('/albums', function(req, res, next) {
   pages.getAlbumSummary(req, res, next);
 });

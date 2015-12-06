@@ -46,7 +46,7 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>簡介
             <editor bind="intro" class="pull-right" 
                 template-url="components/editor/intro-editor-modal.html"
-                title="簡介" url="api/pages/intro">
+                pageid="pageid" title="簡介">
             </editor>
           </h3>
         </div>
@@ -65,7 +65,7 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>行程特色
             <editor bind="feature" class="pull-right" 
                 template-url="components/editor/editor-summernote-modal.html"
-                title="行程特色" url="api/pages/feature">
+                pageid="pageid" title="行程特色">
             </editor>
           </h3>
         </div>
@@ -76,8 +76,7 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>特別安排
             <editor bind="specialize" class="pull-right" 
                 template-url="components/editor/editor-summernote-modal.html"
-                title="特別安排"
-                url="api/pages/specialize">
+                pageid="pageid" title="特別安排">
             </editor>
           </h3>
         </div>
@@ -90,7 +89,7 @@
             <editor bind="details" class="pull-right" 
                 template-url="components/editor/details-editor-modal.html"
                 window-template-url="template/modal/window-fullwidth.html"
-                title="行程內容" url="api/pages/detail">
+                pageid="pageid" title="行程內容">
             </editor>
           </h3>
         </div>
@@ -112,7 +111,7 @@
                 </div>
                 <div class="timeline-body text-justify">
                   <h2>{{::detail.title}}</h2>
-                  <div class="font-kai-inner-16" ng-bind-html="detail.context"></div>
+                  <div class="font-kai-16" ng-bind-html="detail.context"></div>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled">
@@ -137,8 +136,7 @@
           <h3 class="panel-title"><i class="fa fa-tasks"></i>航班參考
             <editor bind="airplane" class="pull-right" 
                 template-url="components/editor/airplane-editor-modal.html"
-                title="航班參考"
-                url="api/pages/airplane">
+                pageid="pageid" title="航班參考">
             </editor>
           </h3>
         </div>

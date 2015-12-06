@@ -7,8 +7,10 @@
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
 /* app.css */
-* {
-  font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+$font-ming: 微軟正黑體, Microsoft YaHei, 微软雅黑, メイリオ, 맑은 고딕, Helvetica Neue, Helvetica, Arial, cwTeXMing, serif;
+
+body {
+  font-family: $font-ming;
   font-size: 14px;
 }
 /*
@@ -39,41 +41,41 @@
     font-size: 50px;
     font-weight: 400;
     line-height: 60px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-40 {
     font-size: 40px;
     font-weight: 400;
     line-height: 60px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-32 {
     font-size: 32px;
     font-weight: 400;
     line-height: 60px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-30 {
     font-size: 30px;
     font-weight: 400;
     line-height: 50px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-25 {
     font-size: 25px;
     font-weight: 400;
     line-height: 40px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-23 {
     font-size: 23px;
     line-height: 30px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-20 {
     font-size: 20px;
     line-height: 30px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-padding-20 {
     padding: 20px 0;
@@ -83,37 +85,37 @@
   .slide-font-50 {
     font-size: 40px;
     line-height: 50px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-40 {
     font-size: 30px;
     line-height: 50px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-32 {
     font-size: 25px;
     line-height: 50px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-30 {
     font-size: 23px;
     line-height: 40px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-25 {
     font-size: 20px;
     line-height: 40px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-23 {
     font-size: 18px;
     line-height: 20px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-20 {
     font-size: 15px;
     line-height: 20px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-padding-20 {
     padding: 12px 0;
@@ -123,37 +125,37 @@
   .slide-font-50 {
     font-size: 25px;
     line-height: 30px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-40 {
     font-size: 20px;
     line-height: 30px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-32 {
     font-size: 16px;
     line-height: 30px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-30 {
     font-size: 15px;
     line-height: 25px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-25 {
     font-size: 14px;
     line-height: 20px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-23 {
     font-size: 13px;
     line-height: 20px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-font-20 {
     font-size: 12px;
     line-height: 15px;
-    font-family: '微軟正黑體', 'Microsoft YaHei', '微软雅黑', 'メイリオ', '맑은 고딕', 'Helvetica Neue', Helvetica, Arial, cwTeXMing, serif;
+    font-family: $font-ming;
   }
   .slide-padding-20 {
     padding: 5px 0;
@@ -302,8 +304,8 @@ div.left-slide-bar {
   border-bottom: 1px solid #ccc;
   margin-top: 0px;
 }
-$font-kai: '標楷體', 'cwTeXKai', serif;
-.font-kai-inner-16 * {
+$font-kai: 標楷體, cwTeXKai, serif;
+.font-kai-16 {
   font-family: $font-kai;
   font-size: 16px;
 }
@@ -356,4 +358,11 @@ form[name=imageForm] input.ng-invalid {
       cursor: pointer;
     }
   }
+}
+
+.fa-kai:before {
+  content: "楷";
+}
+.fa-ming:before {
+  content: "明";
 }

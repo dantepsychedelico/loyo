@@ -44,6 +44,13 @@ var all = {
     }
   },
 
+//   https: {
+//     ssl: {
+//       key: 'loyo-key.pem',
+//       cert: 'loyo-cert.pem'
+//     }
+//   }
+
 };
 
 // Export the config object based on the NODE_ENV
