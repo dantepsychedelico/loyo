@@ -18,7 +18,6 @@ angular.module('loyoApp')
   }
   $http.get('/api/news/facebook/posts')
   .then(function(results) {
-    console.log(results.data);
     $scope.fbData = _.map(results.data, function(data) {
       return {
         created_time: new Date(data.created_time),

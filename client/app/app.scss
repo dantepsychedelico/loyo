@@ -366,3 +366,17 @@ form[name=imageForm] input.ng-invalid {
 .fa-ming:before {
   content: "明";
 }
+
+.summernote-font-kai-16 .note-editing-area {
+  font-family: $font-kai;
+  font-size: 16px;
+}
+
+$screen-width: 1300px, 1400px, 1500px, 1600px, 1700px;
+@each $width in $screen-width {
+  @media (min-width: $width) {
+    .container {
+      width: $width - 30px;
+    }
+  }
+}

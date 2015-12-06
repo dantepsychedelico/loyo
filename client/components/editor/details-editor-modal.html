@@ -22,6 +22,36 @@
                   <input type="text" class="form-control" ng-model="detail.title" placeholder="標題">
                 </div>
               </div>
+              <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">早餐</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" ng-model="detail.breakfast" placeholder="標題">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">住宿</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" ng-model="detail.hotel" placeholder="住宿">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">早餐</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" ng-model="detail.breakfast" placeholder="早餐">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">午餐</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" ng-model="detail.lunch" placeholder="午餐">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">晚餐</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" ng-model="detail.dinner" placeholder="晚餐">
+                </div>
+              </div>
             </form>
             <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
               <slide ng-repeat="slide in detail.slides">
@@ -30,8 +60,8 @@
               </slide>
             </carousel>
           </div>
-          <div class="col-sm-8">
-            <summernote bind="detail.context" height="500"></summernote>
+          <div class="col-sm-8 summernote-font-kai-16">
+            <div class="summernote" bind="detail.context" height="500"></div>
           </div>
         </div>
       </tab>
