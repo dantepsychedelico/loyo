@@ -75,7 +75,7 @@ angular.module('loyoApp')
           ['para', ['ul', 'ol', 'paragraph']],
           ['height', ['height']],
           ['table', ['table']],
-          ['insert', ['link', 'picture', 'hr']],
+          ['insert', ['link', 'album', 'hr']],
           ['view', ['fullscreen', 'codeview']],
           ['help', ['help']]
         ]
@@ -86,24 +86,23 @@ angular.module('loyoApp')
     }
   };
 })
-.run(function() {
+.run(function($modal) {
   var template = angular.element.summernote.renderer.getTemplate();
 
   // add hello plugin 
   angular.element.summernote.addPlugin({
-    // plugin's name
-    name: 'customfont',
+    name: 'custom',
 
     init : function(layoutInfo) { // run init method when summernote was initialized
-      var $note = layoutInfo.holder();
-
-      // you can use jquery custom event.
-      $note.on('summernote.update', function(customEvent, nativeEvent) {
-         var $boldButton = angular.element(this).summernote('toolbar.get', 'bold');
-         $boldButton.toggleClass('active').css({
-           color : 'red'
-         });
-      });
+//       var $note = layoutInfo.holder();
+// 
+//       // you can use jquery custom event.
+//       $note.on('summernote.update', function(customEvent, nativeEvent) {
+//          var $boldButton = angular.element(this).summernote('toolbar.get', 'bold');
+//          $boldButton.toggleClass('active').css({
+//            color : 'red'
+//          });
+//       });
     },
             
     buttons: {
@@ -120,6 +119,13 @@ angular.module('loyoApp')
           title: '微軟正黑體',
           hide: true
         });
+      },
+      album: function() {
+        return template.iconButton('fa fa-picture-o', {
+          event: 'album',
+          title: '相簿',
+          hide: true
+        });
       }
     },
 
@@ -131,11 +137,18 @@ angular.module('loyoApp')
         editor.fontName($editable, '標楷體, cwTeXKai, serif');
         editor.afterCommand($editable, true);
       },
-      ming: function (event, editor, layoutInfo, value) {
+      ming: function (event, editor, layoutInfo) {
         var $editable = layoutInfo.editable();
         editor.beforeCommand($editable);
         editor.fontName($editable, '微軟正黑體, Microsoft YaHei, 微软雅黑, メイリオ, 맑은 고딕, Helvetica Neue, Helvetica, Arial, cwTeXMing, serif');
         editor.afterCommand($editable, true);
+      },
+      album: function(event, editor, layoutInfo) {
+        var modalInstance = $modal.open({
+          templateUrl: 'components/editor/upload-image-modal.html',
+          controller: 'imageUploadModalCtrl',
+          windowTemplateUrl: 'template/modal/window-fullwidth.html'
+        });
       }
     }
   });
@@ -221,6 +234,34 @@ angular.module('loyoApp')
         pickFile.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
       });
     });
+  };
+})
+.directive('naturalWidth', function($parse) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      attrs.$observe('src', function() {
+        element.load(function() {
+          scope.$apply(function() {
+            $parse(attrs.naturalWidth).assign(scope, element[0].naturalWidth);
+          });
+        });
+      });
+    }
+  };
+})
+.directive('naturalHeight', function($parse) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      attrs.$observe('src', function() {
+        element.load(function() {
+          scope.$apply(function() {
+            $parse(attrs.naturalHeight).assign(scope, element[0].naturalHeight);
+          });
+        });
+      });
+    }
   };
 })
 .run(['$templateCache', function($templateCache) {

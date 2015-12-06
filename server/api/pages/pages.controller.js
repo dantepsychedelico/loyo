@@ -35,6 +35,7 @@ exports.saveImage = function(req, res, next) {
     part.on('end', function() {
       Image.findOne({ src: src }).exec()
       .then(function(image) {
+        var deferred = Q.defer();
         if (!image) {
           image = new Image({
             src: src,
@@ -45,7 +46,15 @@ exports.saveImage = function(req, res, next) {
         }
         image.data = Buffer.concat(chunks);
         image.ts = new Date();
-        return image.save();
+        image.save()
+        .then(function() {
+          deferred.resolve();
+        })
+        .catch(function(error) {
+          deferred.resolve();
+          console.log(error.stack);
+        });
+        return deferred.promise;
       })
       .then(function(result) {
         return Album.update({
@@ -79,7 +88,7 @@ exports.saveImage = function(req, res, next) {
 };
 
 exports.getAlbumSummary = function(req, res, next) {
-  Album.find({}, {_id: 0, __v: 0}).exec()
+  Album.find({}, {_id: 0, __v: 0}).sort({ts:-1}).exec()
   .then(function(albums) {
     res.send(albums);
   })
