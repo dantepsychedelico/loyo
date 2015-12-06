@@ -134,3 +134,18 @@ exports.updatePage = function(req, res, next) {
     res.status(500).send();
   });
 };
+
+exports.getPage = function(req, res, next) {
+  Page.findOne({_id: req.params.pageid}).exec()
+  .then(function(page) {
+    if (!page) {
+      res.status(404).send();
+      return;
+    }
+    res.json(page);
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.status(500).send();
+  });
+};
