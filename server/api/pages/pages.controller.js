@@ -128,6 +128,7 @@ exports.updatePage = function(req, res, next) {
   })
   .then(function(results) {
     res.send();
+    recordReq(req);
   })
   .catch(function(err) {
     console.log(err.stack);
