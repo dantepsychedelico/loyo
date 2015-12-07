@@ -60,7 +60,7 @@ var Page = new Schema({
       new Schema({
         title: String,
         src: String 
-    })],
+    }), { _id: false }],
     title: String,
     context: String,
     hotel: String,
@@ -86,9 +86,9 @@ var Page = new Schema({
           time: String,
           airplane: String,
           flightNo: String,
-        })
+        }, {_id: false})
       ]
-    })
+    }, {_id: false})
   ],
   ts: Date
 });

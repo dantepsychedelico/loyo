@@ -158,9 +158,22 @@ angular.module('loyoApp')
   $scope.data = angular.copy(data);
   $scope.save = function() {
     var oo = {};
-    if ($scope.data.$$unwrapTrustedValue) {
+    if (_.has($scope, ['data', '$$unwrapTrustedValue'])) {
       oo[field] = $scope.data.$$unwrapTrustedValue();
-    } else {
+    } else if (angular.isArray($scope.data)) {
+      oo[field] = _.map($scope.data, function(data) {
+        return {
+          breakfast: data.breakfast,
+          context: data.context.$$unwrapTrustedValue(),
+          date: data.date,
+          dinner: data.dinner,
+          hotel: data.hotel,
+          lunch: data.lunch,
+          title: data.title,
+          slides: data.slides
+        };
+      });
+    }else {
       oo[field] = $scope.data;
     }
     $http.post('/api/pages/context/'+pageid+'/'+field, oo)
@@ -171,9 +184,6 @@ angular.module('loyoApp')
   $scope.cancel = function() {
     $modalInstance.dismiss();
   };
-  if (title === '行程內容') {
-    angular.noop()
-  }
 })
 .controller('imageUploadModalCtrl', function($scope, $modalInstance, $http, Upload) {
   function getAlbums() {

@@ -3,7 +3,6 @@
 @import "../components/gmap/gmap.scss";
 @import "../components/editor/editor.scss";
 @import "main/main.scss";
-@import "NewZealand/NewZealand.scss";
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
 /* app.css */
@@ -31,6 +30,12 @@ body {
   }
 }
 */
+
+.carousel-inner > .item {
+  > a >img, >img {
+    width: 100%;
+  }
+}
 .social_line {
   background: url(/assets/images/icons/line.png) no-repeat;
 }
@@ -295,9 +300,11 @@ div.slide-title {
 
 div.left-slide-bar {
   position: fixed;
-  overflow-y: scroll;
   padding-right: 0px;
   margin-top: 220px;
+}
+ul.sub-left-slide-bar {
+  overflow-y: auto;
 }
 .timeline-title {
   text-align: center;

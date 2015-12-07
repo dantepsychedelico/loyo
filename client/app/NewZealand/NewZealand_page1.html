@@ -11,13 +11,15 @@
     </li>
     <li class="list-group-item">
       <a href="#detail" ng-click="isCollapsed = !isCollapsed" class="color-green-hover"><i class="fa fa-tasks color-green"></i> 行程內容</a>
-      <ul collapse="isCollapsed" style="height: 0px;">
-        <li ng-repeat="detail in details">
-          <a href="#detail-{{::$index}}">
-            <span style="font-size: 14px; font-weight: bold; margin-right: 7px;">{{::detail.date}}</span> {{::detail.title}} 
-          </a>
-        </li>
-      </ul>
+      <div collapse="isCollapsed">
+        <ul class="sub-left-slide-bar">
+          <li ng-repeat="detail in details">
+            <a href="#detail-{{::$index}}">
+              <span style="font-size: 14px; font-weight: bold; margin-right: 7px;">{{::detail.date}}</span> {{::detail.title}} 
+            </a>
+          </li>
+        </ul>
+      </div>
     </li>
     <li class="list-group-item">
       <a href="#airplane" class="color-blue-hover"><i class="fa fa-tasks color-blue"></i> 航班參考</a>
@@ -111,7 +113,7 @@
                 </div>
                 <div class="timeline-body text-justify">
                   <h2>{{::detail.title}}</h2>
-                  <div class="font-kai-16" ng-bind-html="detail.context"></div>
+                  <div ng-bind-html="detail.context"></div>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled">

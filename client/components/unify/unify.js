@@ -84,28 +84,38 @@ angular.module('unify', [])
     restrict: 'C',
     link: function(scope, element, attrs) {
       var footerHeight = angular.element(document.getElementById('footer')).height();
-      angular.element($window).bind('scroll', function() {
+      var subLeftSlideBar = element.find('ul.sub-left-slide-bar');
+      function adjustHeight() {
         if (document.body.scrollTop <= 130) {
+          // top
           element.css('margin-top', 220-document.body.scrollTop);
-          element.css('max-height', $window.innerHeight - 110);
+          element.css('max-height', $window.innerHeight - 240 + document.body.scrollTop);
           element.css('display', 'block');
+          subLeftSlideBar.css('max-height', $window.innerHeight - 475 + document.body.scrollTop);
         } else if (document.body.clientHeight - $window.innerHeight - document.body.scrollTop < footerHeight) {
+          // bottom
           var height = document.body.clientHeight - footerHeight - document.body.scrollTop - 110;
           if (height > 0) {
             element.css('max-height', height);
             element.css('margin-top', 90);
             element.css('display', 'block');
+            subLeftSlideBar.css('max-height', height - 235);
           } else {
             element.css('max-height', 0);
             element.css('margin-top', 90);
             element.css('display', 'none');
           }
         } else {
+          // middle
           element.css('max-height', $window.innerHeight - 110);
           element.css('margin-top', 90);
           element.css('display', 'block');
+          subLeftSlideBar.css('max-height', $window.innerHeight - 110 - 235);
         }
-      });
+      }
+      adjustHeight();
+      angular.element($window).bind('scroll', adjustHeight);
+      angular.element($window).bind('resize', adjustHeight);
     }
   };
 })
