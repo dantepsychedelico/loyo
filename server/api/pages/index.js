@@ -13,6 +13,10 @@ router.post('/context/:pageid/:field', function(req, res, next) {
   pages.updatePage(req, res, next);
 });
 
+router.get('/context/:pageid', function(req, res, next) {
+  pages.getPage(req, res, next);
+});
+
 router.get('/albums', function(req, res, next) {
   pages.getAlbumSummary(req, res, next);
 });
