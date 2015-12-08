@@ -55,7 +55,6 @@ var Page = new Schema({
   feature: String,
   specialize: String,
   details: [ new Schema({
-    date: String,
     slides: [
       new Schema({
         title: String,

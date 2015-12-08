@@ -79,7 +79,7 @@ angular.module('loyoApp')
           ['view', ['fullscreen', 'codeview']],
           ['help', ['help']]
         ]
-      }).code($parse(attrs.bind)(scope).toString()); // bug cannot update
+      }).code(($parse(attrs.bind)(scope)||'').toString()); // bug cannot update
       scope.$on('$destroy', function() {
         element.destroy();
       });
@@ -153,9 +153,46 @@ angular.module('loyoApp')
     }
   });
 })
-.controller('editorModalCtrl', function($scope, $modalInstance, $http, pageid, data, field, title) {
+.controller('editorModalCtrl', function($scope, $modal, $modalInstance, $http, pageid, data, field, title) {
   $scope.title = title;
   $scope.data = angular.copy(data);
+  if (field === 'details') {
+    _.set($scope.data, [0, 'active'], true);
+    $scope.addDetail = function() {
+      $scope.data.push({});
+      _.last($scope.data).active = true;
+    };
+    $scope.removeDetail = function(index) {
+      $modal.open({
+        templateUrl: 'template/modal/confirm.html',
+        controller: 'removeDetailConfirmModalCtrl',
+        size: 'sm',
+        resolve: {
+          command: function() {
+            return '第 '+(index+1)+' 天';
+          },
+          title: function() {
+            return '確定刪除此頁';
+          }
+        }
+      }).result
+      .then(function() {
+        _.remove($scope.data, $scope.data[index]);
+      });
+    };
+    $scope.moveRight = function(index, event) {
+      event.stopPropagation()
+      var current = $scope.data[index];
+      $scope.data[index] = $scope.data[index+1];
+      $scope.data[index+1] = current;
+    };
+    $scope.moveLeft = function(index, event) {
+      event.stopPropagation()
+      var current = $scope.data[index];
+      $scope.data[index] = $scope.data[index-1];
+      $scope.data[index-1] = current;
+    };
+  }
   $scope.save = function() {
     var oo = {};
     if (_.has($scope, ['data', '$$unwrapTrustedValue'])) {
@@ -165,7 +202,6 @@ angular.module('loyoApp')
         return {
           breakfast: data.breakfast,
           context: data.context.$$unwrapTrustedValue(),
-          date: data.date,
           dinner: data.dinner,
           hotel: data.hotel,
           lunch: data.lunch,
@@ -180,6 +216,16 @@ angular.module('loyoApp')
     .then(function(results) {
       $modalInstance.close($scope.data);
     });
+  };
+  $scope.cancel = function() {
+    $modalInstance.dismiss();
+  };
+})
+.controller('removeDetailConfirmModalCtrl', function($scope, $modalInstance, command, title) {
+  $scope.command = command;
+  $scope.title = title;
+  $scope.ok = function() {
+    $modalInstance.close();
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();
@@ -280,5 +326,17 @@ angular.module('loyoApp')
     '    modal-animation-class="fade" modal-in-class="in"' +
     '	ng-style="{\'z-index\': 1050 + index*10, display: \'block\'}" ng-click="close($event)">' +
     '    <div class="modal-dialog" style="width: 97%;"><div class="modal-content" modal-transclude></div></div>' +
+    '</div>');
+}])
+.run(['$templateCache', function($templateCache) {
+  $templateCache.put('template/modal/confirm.html',
+    '<div class="modal-header">'+
+    '<h3 class="modal-title" ng-bind="title"></h3>'+
+    '</div>'+
+    '<div class="modal-body" ng-bind="command">'+
+    '</div>'+
+    '<div class="modal-footer">'+
+    '<button class="btn btn-primary" type="button" ng-click="ok()">確定</button>'+
+    '<button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>'+
     '</div>');
 }]);

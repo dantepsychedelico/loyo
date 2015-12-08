@@ -5,17 +5,15 @@
 <div class="modal-body">
   <div class="row">
     <tabset>
-      <tab ng-repeat="detail in data">
-        <tab-heading>{{detail.date}}</tab-heading>
+      <tab ng-repeat="detail in data" active="detail.active">
+        <tab-heading>
+          <a href="" ng-if="!$first && detail.active" ng-click="moveLeft($index, $event)" style="margin-right: 5px;"><i class="fa fa-chevron-left"></i></a>
+          第 {{$index+1}} 天 
+          <a href="" ng-if="!$last && detail.active" ng-click="moveRight($index, $event)" style="margin-left: 5px;"><i class="fa fa-chevron-right"></i></a>
+        </tab-heading>
         <div style="padding-top: 20px;">
           <div class="col-sm-4">
             <form class="form-horizontal" role="form">
-              <div class="form-group">
-                <label for="title" class="col-sm-2 control-label">日期</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" ng-model="detail.date" placeholder="日期">
-                </div>
-              </div>
               <div class="form-group">
                 <label for="title" class="col-sm-2 control-label">標題</label>
                 <div class="col-sm-10">
@@ -59,11 +57,17 @@
                 <div class="carousel-caption">{{slide.title}}</div>
               </slide>
             </carousel>
+            <button class="btn-u btn-u-red" type="button" ng-click="removeDetail($index)">
+              <i class="fa fa-trash-o"></i> 刪除此頁
+            </button>
           </div>
           <div class="col-sm-8">
             <div class="summernote" bind="detail.context" height="500"></div>
           </div>
         </div>
+      </tab>
+      <tab select="addDetail()">
+        <tab-heading><i class="fa fa-plus"></i></tab-heading>
       </tab>
     </tabset>
   </div>

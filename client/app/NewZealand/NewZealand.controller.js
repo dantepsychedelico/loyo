@@ -12,7 +12,6 @@ angular.module('loyoApp')
     $scope.specialize = $sce.trustAsHtml(results.data.specialize);
     $scope.details = _.map(results.data.details, function(data) {
       return {
-        date: data.date,
         title: data.title,
         context: $sce.trustAsHtml(data.context),
         slides: data.slides,

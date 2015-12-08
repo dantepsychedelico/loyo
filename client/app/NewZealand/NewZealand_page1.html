@@ -102,7 +102,7 @@
                 <i class="glyphicon glyphicon-record"></i>
               </div>
               <div class="timeline-panel color-bg-white">
-                <h4 class="timeline-title"> {{::detail.date}} </h4>
+                <h4 class="timeline-title"> 第 {{::$index+1}} 天 </h4>
                 <div class="timeline-heading">
                   <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
                     <slide ng-repeat="slide in detail.slides">
