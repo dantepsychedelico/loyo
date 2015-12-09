@@ -197,12 +197,42 @@ angular.module('loyoApp')
 
   if (field === 'airplanes') {
     $scope.addRow = function(index) {
-      console.log(index);
+      $scope.data.splice(index+1, 0, {});
+      for (; index>=0; index--) {
+        if ($scope.data[index].itemNum) {
+          $scope.data[index].itemNum += 1;
+          return;
+        }
+      }
     };
     $scope.deleteRow = function(index) {
-      console.log(index);
+      if ($scope.data[index].itemNum) {
+        if ($scope.data[index+1]) {
+          $scope.data[index+1].itemNum = $scope.data[index].itemNum-1;
+          $scope.data[index+1].index = $scope.data[index].index;
+        }
+        _.remove($scope.data, $scope.data[index]);
+      } else {
+        _.remove($scope.data, $scope.data[index]);
+        for (; index>=0; index--) {
+          if (_.get($scope.data, [index, 'itemNum'])) {
+            $scope.data[index].itemNum -= 1;
+            return;
+          }
+        }
+      }
     };
     $scope.addThrough = function() {
+      for (var j=$scope.data.length-1; j>=0; j--) {
+        if ($scope.data[j].itemNum) {
+          $scope.data.push({
+            index: $scope.data[j].index+1,
+            itemNum: 1
+          });
+          return;
+        }
+      }
+      $scope.data.push({index: 0, itemNum:1});
     };
   }
 
@@ -210,7 +240,7 @@ angular.module('loyoApp')
     var oo = {};
     if (_.has($scope, ['data', '$$unwrapTrustedValue'])) {
       oo[field] = $scope.data.$$unwrapTrustedValue();
-    } else if (angular.isArray($scope.data)) {
+    } else if (field === 'details') {
       oo[field] = _.map($scope.data, function(data) {
         return {
           breakfast: data.breakfast,
@@ -222,7 +252,32 @@ angular.module('loyoApp')
           slides: data.slides
         };
       });
-    }else {
+    } else if (field==='airplanes') {
+      oo.airplanes = [];
+      var jj;
+      _.forEach($scope.data, function(data) {
+        if (data.itemNum) {
+          jj = {through: [{
+            day: data.day,
+            from: data.from,
+            to: data.to,
+            time: data.time,
+            airplane: data.airplane,
+            flightNo: data.flightNo
+          }]};
+          oo.airplanes.push(jj);
+        }else {
+          jj.through.push({
+            day: data.day,
+            from: data.from,
+            to: data.to,
+            time: data.time,
+            airplane: data.airplane,
+            flightNo: data.flightNo
+          });
+        }
+      });
+    } else {
       oo[field] = $scope.data;
     }
     $http.post('/api/pages/context/'+pageid+'/'+field, oo)

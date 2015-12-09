@@ -4,7 +4,7 @@ angular.module('loyoApp')
 .run(['$anchorScroll', function($anchorScroll) {
   $anchorScroll.yOffset = 95;   // always scroll by 50 extra pixels
 }])
-.controller('NewZealandPage1', function($scope, $sce, $http, search) {
+.controller('NewZealandPage1', function($scope, $sce, $http) {
   $scope.pageid = '56631059febd819fbda81b80';
   $http.get('/api/pages/context/'+$scope.pageid)
   .then(function(results) {
@@ -22,33 +22,12 @@ angular.module('loyoApp')
       };
     });
     $scope.intro = results.data.intro;
+    $scope.airplanes = transAirplaneRef(results.data.airplanes);
+    $scope.productions = results.data.productions;
   });
   $scope.isCollapsed = true;
 
-  var airplaneRef = [{
-    through: [{
-      day: '第 1 天',
-      from: '台北',
-      to: '奧克蘭',
-      time: '23:00-17:50+1',
-      airplane: '中華航空',
-      flightNo: 'C151',
-    }, {
-      from: '羅吐魯阿',
-      to: '皇后鎮',
-      time: '09:10-12:35',
-      airplane: '紐西蘭航空',
-      flightNo: 'NZ5863'
-    }, {
-      day: '第 12 天',
-      from: '基督城',
-      to: '台北',
-      time: '19:15-04:30+1',
-      airplane: '中華航空',
-      flightNo: 'C156'
-    }]
-  }];
-  function transAirplaneRef(airplanRef) {
+  function transAirplaneRef(airplaneRef) {
     var results = [];
     _.forEach(airplaneRef, function(ref, i) {
       _.forEach(ref.through, function(path, j) {
@@ -61,6 +40,4 @@ angular.module('loyoApp')
     });
     return results;
   }
-  $scope.airplanes = transAirplaneRef(airplaneRef);
-  $scope.productions = search.data;
 });

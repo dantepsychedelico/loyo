@@ -22,7 +22,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="airplane in data">
-          <td ng-if="airplane.itemNum" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+          <td ng-if="airplane.itemNum" rowspan="{{airplane.itemNum}}">{{airplane.index+1}}</td>
           <td><input class="form-control" ng-model="airplane.day"></td>
           <td><input class="form-control" ng-model="airplane.from"></td>
           <td><input class="form-control" ng-model="airplane.to"></td>

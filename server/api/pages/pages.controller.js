@@ -6,7 +6,9 @@ var multiparty = require('multiparty'),
     Image = mongoose.model('Image'),
     Album = mongoose.model('Album'),
     Page = mongoose.model('Page'),
+    Airplane = mongoose.model('Airplane'),
     History = mongoose.model('History'),
+    _ = require('lodash'),
     Q = require('q');
 
 function recordReq(req) {
@@ -137,13 +139,35 @@ exports.updatePage = function(req, res, next) {
 };
 
 exports.getPage = function(req, res, next) {
-  Page.findOne({_id: req.params.pageid}).exec()
-  .then(function(page) {
+  Q.all([Page.findOne({_id: req.params.pageid}).exec(),
+    Airplane.find({ 
+      pageid: req.params.pageid,
+      '出發日期': { $gte: new Date() }
+    }, {
+      _id: 0,
+      '出發日期': 1,
+      '天數': 1,
+      '產品名稱': 1,
+      '團費售價': 1,
+      '可報名': 1,
+      '備註': 1,
+      '回程日期': 1
+    }).sort({'出發日期': 1}).exec()])
+  .then(function(results) {
+    var page = results[0];
     if (!page) {
       res.status(404).send();
       return;
     }
-    res.json(page);
+    res.json({
+      pname: page.pname,
+      feature: page.feature,
+      specialize: page.specialize,
+      details: page.details,
+      intro: page.intro,
+      airplanes: page.airplanes,
+      productions: results[1]
+    });
   })
   .catch(function(err) {
     console.log(err.stack);
