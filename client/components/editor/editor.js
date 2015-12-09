@@ -156,6 +156,7 @@ angular.module('loyoApp')
 .controller('editorModalCtrl', function($scope, $modal, $modalInstance, $http, pageid, data, field, title) {
   $scope.title = title;
   $scope.data = angular.copy(data);
+  $scope.field = field;
   if (field === 'details') {
     _.set($scope.data, [0, 'active'], true);
     $scope.addDetail = function() {
@@ -193,6 +194,18 @@ angular.module('loyoApp')
       $scope.data[index-1] = current;
     };
   }
+
+  if (field === 'airplanes') {
+    $scope.addRow = function(index) {
+      console.log(index);
+    };
+    $scope.deleteRow = function(index) {
+      console.log(index);
+    };
+    $scope.addThrough = function() {
+    };
+  }
+
   $scope.save = function() {
     var oo = {};
     if (_.has($scope, ['data', '$$unwrapTrustedValue'])) {

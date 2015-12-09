@@ -11,7 +11,7 @@
           第 {{$index+1}} 天 
           <a href="" ng-if="!$last && detail.active" ng-click="moveRight($index, $event)" style="margin-left: 5px;"><i class="fa fa-chevron-right"></i></a>
         </tab-heading>
-        <div style="padding-top: 20px;">
+        <div style="padding-top: 20px;" ng-if="detail.active">
           <div class="col-sm-4">
             <form class="form-horizontal" role="form">
               <div class="form-group">
@@ -57,7 +57,7 @@
                 <div class="carousel-caption">{{slide.title}}</div>
               </slide>
             </carousel>
-            <button class="btn-u btn-u-red" type="button" ng-click="removeDetail($index)">
+            <button class="btn-u btn-u-red margin-top-20" type="button" ng-click="removeDetail($index)">
               <i class="fa fa-trash-o"></i> 刪除此頁
             </button>
           </div>

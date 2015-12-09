@@ -387,3 +387,12 @@ $screen-width: 1300px, 1400px, 1500px, 1600px, 1700px;
     }
   }
 }
+.modal-body.feature .panel-body {
+  background-color: rgba($orange, 0.1);
+}
+.modal-body.specialize .panel-body {
+  background-color: rgba($yellow, 0.1);
+}
+.modal-body.airplanes {
+  background-color: rgba($blue, 0.1);
+}

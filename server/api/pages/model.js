@@ -68,6 +68,8 @@ var Page = new Schema({
     dinner: String
   })],
   intro: {
+    category: String,
+    subcategory: String,
     title: String,
     price: String,
     location: String,

@@ -47,7 +47,6 @@ angular.module('loyoApp')
       airplane: '中華航空',
       flightNo: 'C156'
     }]
-  }, {
   }];
   function transAirplaneRef(airplanRef) {
     var results = [];
