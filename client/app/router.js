@@ -25,9 +25,14 @@ angular.module('loyoApp')
       }
     })
     .state('紐西蘭南島深度遊12天', {
-      url: '/我愛紐西蘭/南島深度遊12天',
+      url: '/樂遊行程/我愛紐西蘭/南島深度遊12天',
       templateUrl: 'app/NewZealand/NewZealand_page1.html',
-      controller: 'NewZealandPage1'
+      controller: 'PageCtrl',
+      resolve: {
+        pageid: function(navBar) {
+          return '56631059febd819fbda81b80';
+        }
+      }
     });
 });
 

@@ -4,9 +4,9 @@ angular.module('loyoApp')
 .run(['$anchorScroll', function($anchorScroll) {
   $anchorScroll.yOffset = 95;   // always scroll by 50 extra pixels
 }])
-.controller('NewZealandPage1', function($scope, $sce, $http) {
-  $scope.pageid = '56631059febd819fbda81b80';
-  $http.get('/api/pages/context/'+$scope.pageid)
+.controller('PageCtrl', function($scope, $sce, $http, pageid) {
+  $scope.pageid = pageid;
+  $http.get('/api/pages/context/'+pageid)
   .then(function(results) {
     $scope.feature = $sce.trustAsHtml(results.data.feature);
     $scope.specialize = $sce.trustAsHtml(results.data.specialize);

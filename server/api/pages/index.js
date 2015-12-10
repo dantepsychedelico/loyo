@@ -25,5 +25,9 @@ router.get('/albums/:album', function(req, res, next) {
   pages.getAlbumSrcs(req, res, next);
 });
 
+router.get('/navbar', function(req, res, next) {
+  pages.getNavBar(req, res, next);
+});
+
 module.exports = router;
 
