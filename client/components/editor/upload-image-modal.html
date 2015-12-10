@@ -60,8 +60,9 @@
             <tr>
               <th style="width: 120px;">Image</th>
               <th style="width: 400px;">Image Url</th>
-              <th style="width: 200px;">Width x Height</th>
+              <th style="width: 150px;">Width x Height</th>
               <th>Last Modify</th>
+              <th ng-if="insert"></th>
             </tr>
           </thead>
           <tbody>
@@ -74,6 +75,11 @@
               <td>/api/images/{{ photo.src }}</td>
               <td>{{ photo.width }} x {{ photo.height }}</td>
               <td>{{ photo.ts | date: 'yyyy/MM/dd HH:mm:ss' : '+0800' }}</td>
+              <td ng-if="insert">
+                <span class="item" style="font-size: 20px; cursor: pointer;">
+                  <span class="icon-plus" aria-hidden="true" ng-click="insertImage(photo.src)"></span>
+                </span>
+              </td>
             </tr>
           </tbody>
         </table>

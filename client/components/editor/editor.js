@@ -49,7 +49,12 @@ angular.module('loyoApp')
         var modalInstance = $modal.open({
           templateUrl: 'components/editor/upload-image-modal.html',
           controller: 'imageUploadModalCtrl',
-          windowTemplateUrl: 'template/modal/window-fullwidth.html'
+          windowTemplateUrl: 'template/modal/window-fullwidth.html',
+          resolve: {
+            insert: function() {
+              return false;
+            }
+          }
         });
       };
     }
@@ -133,21 +138,31 @@ angular.module('loyoApp')
       // run callback when hello button is clicked
       kai: function (event, editor, layoutInfo, value) {
         var $editable = layoutInfo.editable();
-        editor.beforeCommand($editable);
         editor.fontName($editable, '標楷體, cwTeXKai, serif');
-        editor.afterCommand($editable, true);
       },
       ming: function (event, editor, layoutInfo) {
         var $editable = layoutInfo.editable();
-        editor.beforeCommand($editable);
         editor.fontName($editable, '微軟正黑體, Microsoft YaHei, 微软雅黑, メイリオ, 맑은 고딕, Helvetica Neue, Helvetica, Arial, cwTeXMing, serif');
-        editor.afterCommand($editable, true);
       },
       album: function(event, editor, layoutInfo) {
         var modalInstance = $modal.open({
           templateUrl: 'components/editor/upload-image-modal.html',
           controller: 'imageUploadModalCtrl',
-          windowTemplateUrl: 'template/modal/window-fullwidth.html'
+          windowTemplateUrl: 'template/modal/window-fullwidth.html',
+          resolve: {
+            insert: function() {
+              return true;
+            }
+          }
+        });
+        modalInstance.result
+        .then(function(src) {
+          var $editable = layoutInfo.editable();
+          var $image = angular.element('<img src="'+src+'">');
+          editor.beforeCommand($editable);
+          angular.element.summernote.core.range.create().insertNode($image[0]);
+          angular.element.summernote.core.range.createFromNodeAfter($image[0]).select();
+          editor.afterCommand($editable);
         });
       }
     }
@@ -299,7 +314,8 @@ angular.module('loyoApp')
     $modalInstance.dismiss();
   };
 })
-.controller('imageUploadModalCtrl', function($scope, $modalInstance, $http, Upload) {
+.controller('imageUploadModalCtrl', function($scope, $modalInstance, $http, Upload, insert) {
+  $scope.insert = insert;
   function getAlbums() {
     $http.get('/api/pages/albums')
     .then(function(results) {
@@ -324,6 +340,9 @@ angular.module('loyoApp')
   };
   $scope.leave = function() {
     $modalInstance.dismiss();
+  };
+  $scope.insertImage = function(src) {
+    $modalInstance.close('/api/images/'+src);
   };
   $scope.remove = function() {
     $scope.picFiles = null;

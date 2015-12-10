@@ -75,7 +75,11 @@ var Page = new Schema({
     location: String,
     city: String,
     days: String,
-    airplane: String
+    airplane: String,
+    active: {
+      type: Boolean,
+      index: true
+    },
   },
   airplanes: [
     new Schema({

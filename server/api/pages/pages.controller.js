@@ -92,7 +92,7 @@ exports.saveImage = function(req, res, next) {
 exports.getAlbumSummary = function(req, res, next) {
   Album.find({}, {_id: 0, __v: 0}).sort({ts:-1}).exec()
   .then(function(albums) {
-    res.send(albums);
+    res.json(albums);
   })
   .catch(function(err) {
     console.log(err.stack);
@@ -168,6 +168,20 @@ exports.getPage = function(req, res, next) {
       airplanes: page.airplanes,
       productions: results[1]
     });
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.status(500).send();
+  });
+};
+
+exports.getNavBar = function(req, res, next) {
+  Page.find({}, {
+    'intro.category':1, 
+    'intro.subcategory':1
+  }).exec()
+  .then(function(pages) {
+    res.json(pages);
   })
   .catch(function(err) {
     console.log(err.stack);

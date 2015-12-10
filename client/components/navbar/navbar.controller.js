@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('loyoApp')
-.controller('navbarCtrl', function ($scope, $location, $state) {
+.controller('navbarCtrl', function ($scope, $location, $state, navBar) {
   $scope.menu = [{
     'title': 'Home',
     'link': '/'
@@ -48,4 +48,7 @@ angular.module('loyoApp')
       page: 0
     })
   };
+})
+.factory('navBar', function($http, $q) {
+  return $http.get('/api/pages/navbar')
 });
