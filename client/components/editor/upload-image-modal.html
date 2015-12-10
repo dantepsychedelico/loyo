@@ -76,9 +76,9 @@
               <td>{{ photo.width }} x {{ photo.height }}</td>
               <td>{{ photo.ts | date: 'yyyy/MM/dd HH:mm:ss' : '+0800' }}</td>
               <td ng-if="insert">
-                <span class="item" style="font-size: 20px; cursor: pointer;">
-                  <span class="icon-plus" aria-hidden="true" ng-click="insertImage(photo.src)"></span>
-                </span>
+                <button class="btn btn-success" type="button" ng-click="insertImage(photo.src)">
+                  <i class="fa fa-plus-square-o"></i>
+                </button>
               </td>
             </tr>
           </tbody>
