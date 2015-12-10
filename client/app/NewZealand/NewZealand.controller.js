@@ -5,6 +5,7 @@ angular.module('loyoApp')
   $anchorScroll.yOffset = 95;   // always scroll by 50 extra pixels
 }])
 .controller('PageCtrl', function($scope, $sce, $http, pageid) {
+  $scope.pageid = pageid;
   $http.get('/api/pages/context/'+pageid)
   .then(function(results) {
     $scope.feature = $sce.trustAsHtml(results.data.feature);
