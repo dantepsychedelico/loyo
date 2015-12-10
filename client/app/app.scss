@@ -220,7 +220,7 @@ $black: #000;
   a.color-#{""+$name}-hover:hover {
     color: $color;
   }
-  .sidebar-nav-v1 li a.color-#{""+$name}-hover {
+  .sidebar-nav-v1 li a.color-#{""+$name}-hover:hover {
     background: rgba($color, 0.1);
   }
 }
