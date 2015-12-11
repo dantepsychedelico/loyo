@@ -51,7 +51,7 @@
                 </div>
               </div>
             </form>
-            <carousel interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
+            <carousel ng-if="detail.slides.length" interval="5000" no-wrap="false" template-url="template/carousel/carousel-no-indicators.html">
               <slide ng-repeat="slide in detail.slides">
                 <img class="img-responsive" ng-src="{{slide.src}}">
                 <div class="carousel-caption">{{slide.title}}</div>
@@ -60,6 +60,39 @@
             <button class="btn-u btn-u-red margin-top-20" type="button" ng-click="removeDetail($index)">
               <i class="fa fa-trash-o"></i> 刪除此頁
             </button>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th style="width:30px;">
+                      <a href="" ng-click="addSlide(-1, detail)">
+                        <i class="fa fa-plus"></i>
+                      </a>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="slide in detail.slides">
+                    <td>
+                      <img ng-show="slide.src" ng-src="{{ slide.src }}" width="80">
+                      <image-upload ng-hide="slide.src" insert="slide.src"></image-upload>
+                    </td>
+                    <td><input class="form-control" ng-model="slide.title"></td>
+                    <td>
+
+                      <a href="" ng-click="deleteSlide(slide, detail)">
+                        <i class="fa fa-minus"></i>
+                      </a>
+                      <a href="" ng-click="addSlide($index, detail)">
+                        <i class="fa fa-plus"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="col-sm-8">
             <div class="summernote" bind="detail.context" height="500"></div>

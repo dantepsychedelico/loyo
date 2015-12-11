@@ -2,7 +2,7 @@
 
 angular.module('loyoApp')
 .run(['$anchorScroll', function($anchorScroll) {
-  $anchorScroll.yOffset = 95;   // always scroll by 50 extra pixels
+  $anchorScroll.yOffset = 95;   // always scroll by 95 extra pixels
 }])
 .controller('PageCtrl', function($scope, $sce, $http, pageid) {
   $scope.pageid = pageid;

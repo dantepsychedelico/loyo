@@ -38,7 +38,7 @@ angular.module('loyoApp')
     }
   };
 })
-.directive('imageUpload', function($modal) {
+.directive('imageUpload', function($modal, $parse) {
   return {
     restrict: 'EAC',
     template: '<button class="btn-u btn-u-aqua" type="button" ng-click="open()">'+
@@ -52,9 +52,12 @@ angular.module('loyoApp')
           windowTemplateUrl: 'template/modal/window-fullwidth.html',
           resolve: {
             insert: function() {
-              return false;
+              return attrs.insert;
             }
           }
+        });
+        modalInstance.result.then(function(src) {
+          $parse(attrs.insert).assign(scope, src);
         });
       };
     }
@@ -208,6 +211,15 @@ angular.module('loyoApp')
       $scope.data[index] = $scope.data[index-1];
       $scope.data[index-1] = current;
     };
+    $scope.addSlide = function(index, detail) {
+      detail.slides = detail.slides || [];
+      detail.slides.splice(index+1, 0, {});
+    };
+    $scope.deleteSlide = function(slide, detail) {
+      _.remove(detail.slides, function(ss) {
+        return ss === slide;
+      });
+    };
   }
 
   if (field === 'airplanes') {
@@ -226,9 +238,13 @@ angular.module('loyoApp')
           $scope.data[index+1].itemNum = $scope.data[index].itemNum-1;
           $scope.data[index+1].index = $scope.data[index].index;
         }
-        _.remove($scope.data, $scope.data[index]);
+        _.remove($scope.data, function(data) {
+          return data === $scope.data[index];
+        });
       } else {
-        _.remove($scope.data, $scope.data[index]);
+        _.remove($scope.data, function(data) {
+          return data === $scope.data[index]
+        });
         for (; index>=0; index--) {
           if (_.get($scope.data, [index, 'itemNum'])) {
             $scope.data[index].itemNum -= 1;
