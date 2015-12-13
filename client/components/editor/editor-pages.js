@@ -59,6 +59,9 @@ angular.module('loyoApp')
             return _.merge(results.data, {_id: pageid});
           });
         },
+        pnames: function() {
+          return _.pluck($scope.pages, 'pname');
+        }
       }
     });
     modalInstance.result.then(function(data) {
@@ -94,28 +97,33 @@ angular.module('loyoApp')
     }
   };
 })
-.controller('pageEditorModalCtrl', function($scope, $modalInstance, $http, PageUtils, data) {
+.controller('pageEditorModalCtrl', function($scope, $modalInstance, $http, PageUtils, data, pnames) {
+  $scope.pnames = _.filter(pnames, function(pname) {
+    return pname !== data.pname;
+  });
   $scope.data = data;
   $scope.data.airplanes = PageUtils.transAirplaneRef($scope.data.airplanes);
   $scope.cancel = function() {
     $modalInstance.dismiss();
   };
   $scope.save = function() {
-    $http.post('/api/pages/context/' + data._id, {
-      intro: data.intro,
-      feature: data.feature,
-      specialize: data.specialize,
-      details: data.details,
-      airplanes: PageUtils.invertAirplaneRef(data.airplanes)
-    })
-    .then(function(results) {
-      $modalInstance.close({
-        ts: results.data.ts,
-        category: $scope.data.intro.category,
-        subcategory: $scope.data.intro.subcategory,
-        title: $scope.data.intro.title
+    if ($scope.data.createForm.$valid) {
+      $http.post('/api/pages/context/' + data._id, {
+        intro: data.intro,
+        feature: data.feature,
+        specialize: data.specialize,
+        details: data.details,
+        airplanes: PageUtils.invertAirplaneRef(data.airplanes)
+      })
+      .then(function(results) {
+        $modalInstance.close({
+          ts: results.data.ts,
+          category: $scope.data.intro.category,
+          subcategory: $scope.data.intro.subcategory,
+          title: $scope.data.intro.title
+        });
       });
-    });
+    }
   };
 })
 .directive('modalBody', function($controller) {

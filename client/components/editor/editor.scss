@@ -3,7 +3,7 @@ editor {
   cursor: pointer;
 }
 
-[name=createForm] {
+form[name$=createForm] {
   &.ng-dirty input.ng-invalid {
     border: 2px solid red;
   }
