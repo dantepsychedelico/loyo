@@ -4,7 +4,7 @@ angular.module('loyoApp')
 .run(['$anchorScroll', function($anchorScroll) {
   $anchorScroll.yOffset = 95;   // always scroll by 95 extra pixels
 }])
-.controller('PageCtrl', function($scope, $sce, $http, pageid) {
+.controller('PageCtrl', function($scope, $sce, $http, PageUtils, pageid) {
   $scope.pageid = pageid;
   $http.get('/api/pages/context/'+pageid)
   .then(function(results) {
@@ -22,22 +22,9 @@ angular.module('loyoApp')
       };
     });
     $scope.intro = results.data.intro;
-    $scope.airplanes = transAirplaneRef(results.data.airplanes);
+    $scope.airplanes = PageUtils.transAirplaneRef(results.data.airplanes);
     $scope.productions = results.data.productions;
   });
   $scope.isCollapsed = true;
 
-  function transAirplaneRef(airplaneRef) {
-    var results = [];
-    _.forEach(airplaneRef, function(ref, i) {
-      _.forEach(ref.through, function(path, j) {
-        if (!j) {
-          path.index = i;
-          path.itemNum = ref.through.length;
-        }
-        results.push(path);
-      });
-    });
-    return results;
-  }
 });

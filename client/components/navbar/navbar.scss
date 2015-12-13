@@ -106,3 +106,17 @@
     width: 150px;
   }
 }
+
+$red: #e74c3c;
+@media (min-width: 992px) { 
+  .header-v6.header-fixed-shrink .navbar-nav > li > a:hover,
+  .header-v6.header-fixed-shrink .navbar-nav > .active > a:hover, 
+  .header-v6.header-fixed-shrink .navbar-nav > .active > a {
+    color: $red;
+  }
+  .header-v6 .navbar-nav > li > a:hover,
+  .header-v6 .navbar-nav > .active > a:hover, 
+  .header-v6 .navbar-nav > .active > a {
+    color: #ffadad;
+  }
+}

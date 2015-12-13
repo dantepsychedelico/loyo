@@ -73,18 +73,18 @@ exports.saveImage = function(req, res, next) {
       })
       .catch(function(error) {
         console.log(error.stack);
-        res.status(500).send();
+        res.sendStatus(500);
       });
     });
     part.on('error', function(err) {
       console.log('[Err] part error');
-      res.status(500).send();
+      res.sendStatus(500);
     });
   });
 
   form.on('error', function(err) {
     console.log('[Err] form error' + err.stack);
-    res.status(500).send();
+    res.sendStatus(500);
   });
   form.parse(req);
 };
@@ -96,7 +96,7 @@ exports.getAlbumSummary = function(req, res, next) {
   })
   .catch(function(err) {
     console.log(err.stack);
-    res.status(500).send();
+    res.sendStatus(500);
   });
 };
 
@@ -108,15 +108,15 @@ exports.getAlbumSrcs = function(req, res, next) {
   })
   .catch(function(err) {
     console.log(err.stack);
-    res.status(500).send();
+    res.sendStatus(500);
   });
 };
 
-exports.updatePage = function(req, res, next) {
+exports.updatePageField = function(req, res, next) {
   Page.findOne({ _id: req.params.pageid }).exec()
   .then(function(page) {
     if (!page) {
-      res.status(500).send();
+      res.sendStatus(500);
       return;
     }
     var modify = false;
@@ -134,7 +134,59 @@ exports.updatePage = function(req, res, next) {
   })
   .catch(function(err) {
     console.log(err.stack);
-    res.status(500).send();
+    res.sendStatus(500);
+  });
+};
+
+exports.updatePage = function(req, res, next) {
+  Page.findOne({ _id: req.params.pageid }).exec()
+  .then(function(page) {
+    if (!page) {
+      res.sendStatus(500);
+      return;
+    }
+    var ts = new Date();
+    page.feature = req.body.feature;
+    page.specialize = req.body.specialize;
+    page.details = req.body.details;
+    page.intro = req.body.intro;
+    page.airplanes = req.body.airplanes;
+    page.ts = ts;
+    return page.save()
+      .then(function(results) {
+        res.send({ts: ts});
+        recordReq(req);
+      });
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
+  });
+};
+
+exports.createPage = function(req, res, next) {
+  Page.findOne({ pname: req.body.pname }).exec()
+  .then(function(page) {
+    if (page) {
+      res.sendStatus(500);
+    } else {
+      page = new Page({
+        pname: req.body.pname,
+        ts: new Date()
+      })
+      return page.save()
+        .then(function(result){
+          res.json({
+            _id: page._id, 
+            pname: page.pname,
+            ts: page.ts
+          });
+        });
+    }
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
   });
 };
 
@@ -156,7 +208,7 @@ exports.getPage = function(req, res, next) {
   .then(function(results) {
     var page = results[0];
     if (!page) {
-      res.status(404).send();
+      res.sendStatus(404);
       return;
     }
     res.json({
@@ -166,25 +218,38 @@ exports.getPage = function(req, res, next) {
       details: page.details,
       intro: page.intro,
       airplanes: page.airplanes,
-      productions: results[1]
+      productions: results[1],
+      ts: page.ts
     });
   })
   .catch(function(err) {
     console.log(err.stack);
-    res.status(500).send();
+    res.sendStatus(500);
   });
 };
 
 exports.getNavBar = function(req, res, next) {
   Page.find({}, {
-    'intro.category':1, 
-    'intro.subcategory':1
-  }).exec()
+    'intro.category': 1, 
+    'intro.subcategory': 1,
+    'intro.title': 1,
+    pname: 1,
+    ts: 1
+  }).sort({ts:-1}).exec()
   .then(function(pages) {
-    res.json(pages);
+    res.json(_.map(pages, function(page) {
+      return {
+        _id: page._id,
+        category: page.intro.category,
+        subcategory: page.intro.subcategory,
+        title: page.intro.title,
+        pname: page.pname,
+        ts: page.ts
+      };
+    }));
   })
   .catch(function(err) {
     console.log(err.stack);
-    res.status(500).send();
+    res.sendStatus(500);
   });
 };

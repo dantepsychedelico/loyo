@@ -31,11 +31,11 @@
 </div>
 <div class="breadcrumbs breadcrumbs-light shift-top">
   <div class="container">
-    <h1 class="pull-left">{{::intro.title}}</h1>
+    <h1 class="pull-left">{{intro.title}}</h1>
     <ul class="pull-right breadcrumb">
       <li><a href="index.html">首頁</a></li>
-      <li><a href="">紐西蘭</a></li>
-      <li class="active">南島深度遊12天</li>
+      <li><a href="">{{intro.category}}</a></li>
+      <li><a href="">{{intro.subcategory}}</a></li>
     </ul>
   </div>
 </div>
@@ -54,11 +54,11 @@
         </div>
         <div class="panel-body profile">
           <ul class="list-unstyled social-contacts-v2">
-            <li class="color-red">團費售價：{{::intro.price}}</li>
-            <li>旅遊國家：{{::intro.location}}</li>
-            <li>旅遊城市：{{::intro.city}}</li>
-            <li>旅遊天數：{{::intro.days}}</li>
-            <li>航空公司：{{::intro.airplane}}</li>
+            <li class="color-red">團費售價：{{intro.price}}</li>
+            <li>旅遊國家：{{intro.location}}</li>
+            <li>旅遊城市：{{intro.city}}</li>
+            <li>旅遊天數：{{intro.days}}</li>
+            <li>航空公司：{{intro.airplane}}</li>
           </ul>
         </div>
       </div>
@@ -160,7 +160,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="airplane in airplanes">
-                  <td ng-if="airplane.itemNum" rowspan="{{::airplane.itemNum}}">{{::airplan.index+1}}</td>
+                  <td ng-if="airplane.itemNum" rowspan="{{::airplane.itemNum}}">{{::airplane.index+1}}</td>
                   <td>{{::airplane.day}}</td>
                   <td>{{::airplane.from}}</td>
                   <td>{{::airplane.to}}</td>

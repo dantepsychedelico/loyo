@@ -2,3 +2,17 @@
 editor {
   cursor: pointer;
 }
+
+[name=createForm] {
+  &.ng-dirty input.ng-invalid {
+    border: 2px solid red;
+  }
+  input ~ p {
+    display: none;
+  }
+  @each $name in unique, required {
+    &.ng-dirty input.ng-invalid-#{$name} ~ p.invalid-#{$name} {
+      display: block;
+    }
+  }
+}

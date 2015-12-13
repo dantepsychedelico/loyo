@@ -1,0 +1,47 @@
+<div class="breadcrumbs breadcrumbs-light shift-top">
+  <div class="container">
+    <h1 class="pull-left">產品列表</h1>
+    <ul class="pull-right breadcrumb">
+      <li><a href="index.html">首頁</a></li>
+      <li class="active">產品列表</li>
+    </ul>
+  </div>
+</div>
+<section class="container content-lg" style="padding-top: 50px;">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="font-kai-inner-16">
+          <tr>
+            <th style="width: 100px;"> 類別 </th>
+            <th style="width: 200px;"> 子類別 </th>
+            <th> 產品名稱 </th>
+            <th> 標題 </th>
+            <th style="width: 60px;"> 公開 </th>
+            <th> 最後更新時間 </th>
+            <th style="width: 30px;">
+              <a href="" ng-click="addPage()">
+                <i class="fa fa-plus"></i>
+              </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="page in pages">
+            <td> {{ page.category }} </td>
+            <td> {{ page.subcategory }} </td>
+            <td> {{ page.pname }} </td>
+            <td> {{ page.title }} </td>
+            <td> {{ page.active }} </td>
+            <td> {{ page.ts | date: 'yyyy/MM/dd HH:mm' }} </td>
+            <td>
+              <a href="" ng-click="settingPage($index)">
+                <i class="fa fa-cog"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

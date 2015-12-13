@@ -9,9 +9,6 @@ angular.module('loyoApp')
 
   $scope.isCollapsed = true;
 
-  $scope.isActive = function(route) {
-    return route === $location.path();
-  };
   // init navbar search class
   $scope.navbarSearchClass = {
     'fa-search': true,

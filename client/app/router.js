@@ -8,6 +8,11 @@ angular.module('loyoApp')
       templateUrl: 'app/main/main.html',
       controller: 'MainCtrl'
     })
+    .state('editorPage', {
+      url: '/產品頁面', 
+      templateUrl: 'components/editor/editor-pages.html',
+      controller: 'editorPageCtrl'
+    })
     .state('關於我們', {
       url: '/關於我們',
       templateUrl: 'app/main/about_loyo.html'

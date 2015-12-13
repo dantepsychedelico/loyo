@@ -54,4 +54,32 @@ angular.module('loyoApp')
       if (attrs.api) $parse(attrs.api).assign(scope, elem.data('DateTimePicker'));
     }
   };
+})
+.directive('naturalWidth', function($parse) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      attrs.$observe('src', function() {
+        element.load(function() {
+          scope.$apply(function() {
+            $parse(attrs.naturalWidth).assign(scope, element[0].naturalWidth);
+          });
+        });
+      });
+    }
+  };
+})
+.directive('naturalHeight', function($parse) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      attrs.$observe('src', function() {
+        element.load(function() {
+          scope.$apply(function() {
+            $parse(attrs.naturalHeight).assign(scope, element[0].naturalHeight);
+          });
+        });
+      });
+    }
+  };
 });

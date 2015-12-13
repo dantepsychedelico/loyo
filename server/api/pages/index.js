@@ -10,7 +10,15 @@ router.post('/image/:album/:filename', function(req, res, next) {
 });
 
 router.post('/context/:pageid/:field', function(req, res, next) {
+  pages.updatePageField(req, res, next);
+});
+
+router.post('/context/:pageid', function(req, res, next) {
   pages.updatePage(req, res, next);
+});
+
+router.post('/context', function(req, res, next) {
+  pages.createPage(req, res, next);
 });
 
 router.get('/context/:pageid', function(req, res, next) {

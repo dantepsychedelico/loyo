@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    編輯頁面: {{ data.pname }}
+    <div class="pull-right sky-form" style="border: 0px solid #eee;">
+      <label class="checkbox state-success">
+        <input type="checkbox" name="checkbox"><i></i>公開
+      </label>
+    </div>
+  </h3>
+  </div>
+</div>
+<div class="modal-body row">
+  <tabset>
+    <tab heading="編輯簡介">
+      <modal-body class="col-sm-6" 
+          template-url="components/editor/intro-editor-modal.html"
+          bind="data.intro" ></modal-body>
+    </tab>
+    <tab heading="行程特色">
+      <modal-body template-url="components/editor/editor-summernote-modal.html"
+          bind="data.feature" ></modal-body>
+    </tab>
+    <tab heading="特別安排">
+      <modal-body template-url="components/editor/editor-summernote-modal.html"
+          bind="data.specialize" ></modal-body>
+    </tab>
+    <tab heading="行程內容">
+      <modal-body template-url="components/editor/details-editor-modal.html"
+          bind="data.details" ></modal-body>
+    </tab>
+    <tab heading="航班參考">
+      <modal-body template-url="components/editor/airplane-editor-modal.html"
+          bind="data.airplanes" ></modal-body>
+    </tab>
+  </tabset>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="save()">存檔</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+</div>
+
