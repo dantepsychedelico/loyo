@@ -66,7 +66,7 @@ var Page = new Schema({
     breakfast: String,
     lunch: String,
     dinner: String
-  })],
+  }, { _id: false})],
   intro: {
     category: String,
     subcategory: String,
@@ -95,6 +95,7 @@ var Page = new Schema({
       ]
     }, {_id: false})
   ],
+  priority: Number,
   ts: Date
 });
 

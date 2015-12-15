@@ -23,8 +23,9 @@ angular.module('loyoApp')
           ['table', ['table']],
           ['insert', ['link', 'album', 'hr']],
           ['view', ['fullscreen', 'codeview']],
-          ['help', ['help']]
-        ]
+          ['help', ['undo', 'redo', 'help']]
+        ],
+        disableDragAndDrop: true
       }).code(($parse(attrs.bind)(scope)||'').toString()); // bug cannot update
       scope.$on('$destroy', function() {
         element.destroy();

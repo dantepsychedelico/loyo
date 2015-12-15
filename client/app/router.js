@@ -39,15 +39,18 @@ angular.module('loyoApp')
     })
     .state('produnctions', {
       url: '/:category/:subcategory/:pname',
-      templateUrl: 'app/NewZealand/NewZealand_page1.html',
+      templateUrl: '/app/pages/pages.html',
       controller: 'PageCtrl',
       resolve: {
-        pageid: function(navBar, $stateParams) {
+        page: function(navBar, $stateParams) {
           return navBar.promise
             .then(function() {
-              return navBar.getId($stateParams.category, 
-                                  $stateParams.subcategory, 
-                                  $stateParams.pname);
+              return {
+                type: 'page',
+                id: navBar.getId($stateParams.category, 
+                                     $stateParams.subcategory, 
+                                     $stateParams.pname)
+              };
             });
         }
       }

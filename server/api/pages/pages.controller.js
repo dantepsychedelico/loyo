@@ -119,13 +119,17 @@ exports.updatePageField = function(req, res, next) {
       res.sendStatus(500);
       return;
     }
-    var modify = false;
     var field = req.params.field;
-    if (req.body[field]) {
-      page[field] = req.body[field];
-      modify = true;
+    switch (field) {
+      case 'airplanes':
+      case 'details':
+      case 'feature':
+      case 'intro':
+      case 'specialize':
+          page[field] = req.body[field];
+          page.ts = new Date();
+          break;
     }
-    if (modify) page.ts = new Date();
     return page.save();
   })
   .then(function(results) {
@@ -152,6 +156,7 @@ exports.updatePage = function(req, res, next) {
         $set: { '產品名稱': req.body.pname }
       }, {multi: true}).exec();
     }
+    page.priority = req.body.priority;
     page.feature = req.body.feature;
     page.specialize = req.body.specialize;
     page.details = req.body.details;
@@ -219,6 +224,7 @@ exports.getPage = function(req, res, next) {
     }
     res.json({
       pname: page.pname,
+      priority: page.priority,
       feature: page.feature,
       specialize: page.specialize,
       details: page.details,
@@ -240,6 +246,7 @@ exports.getNavBar = function(req, res, next) {
     'intro.subcategory': 1,
     'intro.title': 1,
     pname: 1,
+    priority: 1,
     ts: 1
   }).sort({ts:-1}).exec()
   .then(function(pages) {
@@ -250,6 +257,7 @@ exports.getNavBar = function(req, res, next) {
         subcategory: page.intro.subcategory,
         title: page.intro.title,
         pname: page.pname,
+        priority: page.priority,
         ts: page.ts
       };
     }));

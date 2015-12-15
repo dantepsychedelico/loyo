@@ -11,7 +11,7 @@
 
         <!-- Navbar Brand -->
         <div class="navbar-brand">
-          <a href="index.html">
+          <a ui-sref="main">
             <img class="default-logo" src="assets/images/top_images/header_logo.png" alt="Logo">
             <img class="shrink-logo" src="assets/images/top_images/header_logo-black.png" alt="Logo">
           </a>
@@ -91,7 +91,7 @@
                   </ul>
                 </li>
                 <li ng-repeat="pname in category.pnames">
-                  <a href="/{{::category.href}}/{{::pname.href}}">{{::pname.href}}</a>
+                  <a href="/{{::category.href}}//{{::pname.href}}">{{::pname.href}}</a>
                 </li>
               </ul>
             </li>

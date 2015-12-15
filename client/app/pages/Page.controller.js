@@ -4,9 +4,9 @@ angular.module('loyoApp')
 .run(['$anchorScroll', function($anchorScroll) {
   $anchorScroll.yOffset = 95;   // always scroll by 95 extra pixels
 }])
-.controller('PageCtrl', function($scope, $sce, $http, PageUtils, pageid) {
-  $scope.pageid = pageid;
-  $http.get('/api/pages/context/'+pageid)
+.controller('PageCtrl', function($scope, $sce, $http, PageUtils, page) {
+  $scope.pageid = page.id;
+  $http.get('/api/pages/context/'+page.id)
   .then(function(results) {
     $scope.feature = $sce.trustAsHtml(results.data.feature);
     $scope.specialize = $sce.trustAsHtml(results.data.specialize);
@@ -26,5 +26,7 @@ angular.module('loyoApp')
     $scope.productions = results.data.productions;
   });
   $scope.isCollapsed = true;
-
+})
+.controller('SubCategoryCtrl', function($scope, $controller, page) {
+  console.log(page);
 });

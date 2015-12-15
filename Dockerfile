@@ -1,5 +1,5 @@
-FROM node:0.12
-# FROM node:4.0
+FROM node:0.12.9
+# FROM node:4.2.3
 
 MAINTAINER Zac Chung
 

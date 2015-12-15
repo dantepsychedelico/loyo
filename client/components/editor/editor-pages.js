@@ -114,11 +114,13 @@ angular.module('loyoApp')
         feature: $scope.data.feature,
         specialize: $scope.data.specialize,
         details: $scope.data.details,
+        priority: $scope.data.priority,
         airplanes: PageUtils.invertAirplaneRef($scope.data.airplanes)
       })
       .then(function(results) {
         $modalInstance.close({
           pname: $scope.data.pname,
+          priority: $scope.data.priority,
           ts: results.data.ts,
           category: $scope.data.intro.category,
           subcategory: $scope.data.intro.subcategory,
