@@ -27,6 +27,7 @@ angular.module('loyoApp')
   });
   $scope.isCollapsed = true;
 })
-.controller('SubCategoryCtrl', function($scope, $controller, page) {
-  console.log(page);
+.controller('SubCategoryCtrl', function($scope) {
+})
+.controller('CategoryCtrl', function($scope) {
 });

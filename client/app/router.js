@@ -31,11 +31,13 @@ angular.module('loyoApp')
     })
     .state('categories', {
       url: '/:category',
-      controller: 'CategoryCtrl'
+      controller: 'CategoryCtrl',
+      templateUrl: '/app/pages/coming-soon.html'
     })
     .state('subcategories', {
       url: '/:category/:subcategory',
-      controller: 'SubCategoryCtrl'
+      controller: 'SubCategoryCtrl',
+      templateUrl: '/app/pages/coming-soon.html'
     })
     .state('produnctions', {
       url: '/:category/:subcategory/:pname',

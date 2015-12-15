@@ -9,7 +9,9 @@ angular.module('loyoApp')
   $scope.categories = [];
   navBar.promise
   .then(function() {
-    _.forEach(_.sortBy(navBar.getData(), 'priority').reverse(), function(data) {
+    _.forEach(_.sortBy(navBar.getData(), function(d) {
+      return angular.isUndefined(d.priority) ? 0 : d.priority;
+    }).reverse(), function(data) {
       var category = data.category;
       var subcategory = data.subcategory;
       var pname = data.pname;
