@@ -109,14 +109,16 @@ angular.module('loyoApp')
   $scope.save = function() {
     if ($scope.data.createForm.$valid) {
       $http.post('/api/pages/context/' + data._id, {
-        intro: data.intro,
-        feature: data.feature,
-        specialize: data.specialize,
-        details: data.details,
-        airplanes: PageUtils.invertAirplaneRef(data.airplanes)
+        pname: $scope.data.pname,
+        intro: $scope.data.intro,
+        feature: $scope.data.feature,
+        specialize: $scope.data.specialize,
+        details: $scope.data.details,
+        airplanes: PageUtils.invertAirplaneRef($scope.data.airplanes)
       })
       .then(function(results) {
         $modalInstance.close({
+          pname: $scope.data.pname,
           ts: results.data.ts,
           category: $scope.data.intro.category,
           subcategory: $scope.data.intro.subcategory,

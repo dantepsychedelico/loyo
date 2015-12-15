@@ -29,13 +29,26 @@ angular.module('loyoApp')
         }
       }
     })
-    .state('紐西蘭南島深度遊12天', {
-      url: '/樂遊行程/我愛紐西蘭/南島深度遊12天',
+    .state('categories', {
+      url: '/:category',
+      controller: 'CategoryCtrl'
+    })
+    .state('subcategories', {
+      url: '/:category/:subcategory',
+      controller: 'SubCategoryCtrl'
+    })
+    .state('produnctions', {
+      url: '/:category/:subcategory/:pname',
       templateUrl: 'app/NewZealand/NewZealand_page1.html',
       controller: 'PageCtrl',
       resolve: {
-        pageid: function(navBar) {
-          return '56631059febd819fbda81b80';
+        pageid: function(navBar, $stateParams) {
+          return navBar.promise
+            .then(function() {
+              return navBar.getId($stateParams.category, 
+                                  $stateParams.subcategory, 
+                                  $stateParams.pname);
+            });
         }
       }
     });

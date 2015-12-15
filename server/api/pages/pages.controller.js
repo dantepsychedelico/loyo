@@ -146,6 +146,12 @@ exports.updatePage = function(req, res, next) {
       return;
     }
     var ts = new Date();
+    if (page.pname !== req.body.pname) {
+      page.pname = req.body.pname;
+      Airplane.update({pageid: req.params.pageid}, {
+        $set: { '產品名稱': req.body.pname }
+      }, {multi: true}).exec();
+    }
     page.feature = req.body.feature;
     page.specialize = req.body.specialize;
     page.details = req.body.details;

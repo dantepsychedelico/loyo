@@ -79,70 +79,21 @@
               <a ui-sref="關於我們">關於我們</a>
             </li>
             <!-- END Home -->
-            <!-- New Zealand -->
-            <li class="dropdown">
-              <a ui-sref="紐西蘭南島深度遊12天" class="dropdown-toggle">
-                我愛紐西蘭
-              </a>
+            <li class="dropdown" ng-repeat="category in categories">
+              <a href="/{{::category.href}}">{{::category.href}}</a>
               <ul class="dropdown-menu">
-                <li class="dropdown-submenu">
-                  <a>2015年 樂遊紐西蘭團體旅遊行程 </a>
+                <li class="dropdown-submenu" ng-repeat="subcategory in category.subcategories">
+                  <a href="/{{::category.href}}/{{::subcategory.href}}">{{::subcategory.href}}</a>
                   <ul class="dropdown-menu">
-                    <li><a ui-sref="紐西蘭南島深度遊12天">2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天</a></li>
-                    <li><a>2015-2016 【OFF慢遊】紐西蘭南島深度精華遊12天-阿卡羅瓦賞海豚</a></li>
-                    <li><a>2015-2016 【OFF慢遊】南北島溫泉鄉.峽灣.高山觀湖.庫克山13天</a></li>
-                    <li><a>紐西蘭南北島全覽-首都.冰河.雙峽灣.庫克山16天</a></li>
-                    <li><a>紐西蘭假期 南島.莫拉奇圓石.旦尼丁.皇家信天翁.峽灣10天</a></li>
+                    <li ng-repeat="pname in subcategory.pnames">
+                      <a href="/{{::category.href}}/{{::subcategory.href}}/{{::pname.href}}">{{::pname.href}}</a>
+                    </li>
                   </ul>
                 </li>
-                <li class="dropdown-submenu">
-                  <a>健行旅遊</a>
-                  <ul class="dropdown-menu">
-                    <li><a>大自然-紐西蘭南島世界遺產秘境健走11天</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown-submenu">
-                  <a>自行車旅遊</a>
-                  <ul class="dropdown-menu">
-                    <li><a>紐西蘭南島時尚休閒自行車之旅13日</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a>露營車旅遊</a>
-                </li>
-                <li>
-                  <a>觀光巴士自助行</a>
+                <li ng-repeat="pname in category.pnames">
+                  <a href="/{{::category.href}}/{{::pname.href}}">{{::pname.href}}</a>
                 </li>
               </ul>
-            </li>
-            <!-- End New Zealand -->
-
-            <!-- Pages -->
-            <li class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    映像非洲
-                </a>
-            </li>
-            <!-- End Pages -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    歐洲館
-                </a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    中東館
-                </a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    南極館
-                </a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    日本館
-                </a>
             </li>
           </ul>
         </div><!--/end container-->
