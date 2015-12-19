@@ -12,7 +12,7 @@ angular.module('loyoApp')
       .assign(scope, function() {
         var modalInstance = $modal.open({
           templateUrl: attrs.templateUrl,
-          controller: 'editorModalCtrl',
+          controller: attrs.controller || 'editorModalCtrl',
           size: 'lg',
           backdrop: 'static',
           windowTemplateUrl: attrs.windowTemplateUrl || 'template/modal/window.html',
@@ -230,6 +230,15 @@ angular.module('loyoApp')
     .then(function(results) {
       $modalInstance.close($scope.data);
     });
+  };
+  $scope.cancel = function() {
+    $modalInstance.dismiss();
+  };
+})
+.controller('editorProductionsModalCtrl', function($scope, $modalInstance, $http, pageid, data, field, title) {
+  $scope.data = angular.copy(data);
+  $scope.field = field;
+  $scope.save = function() {
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();

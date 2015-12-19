@@ -120,3 +120,8 @@ $red: #e74c3c;
     color: #ffadad;
   }
 }
+.navbar {
+  & .dropdown-submenu, & .dropdown-item {
+    padding: 6px 25px;
+  }
+}

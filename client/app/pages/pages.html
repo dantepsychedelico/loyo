@@ -175,7 +175,14 @@
       </div>
       <div class="panel panel-purple">
         <div class="panel-heading" id="production">
-          <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名</h3>
+          <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名
+            <editor bind="productions" class="pull-right"
+                controller="editorProductionsModalCtrl"
+                template-url="components/editor/productions-editor-modal.html"
+                window-template-url="template/modal/window-fullwidth.html"
+                pageid="pageid">
+            </editor>
+          </h3>
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -184,7 +191,6 @@
                 <tr>
                   <th style="min-width: 90px;"> 出發日期 </th>
                   <th style="min-width: 50px;"> 天數 </th>
-                  <th> 產品名稱 </th>
                   <th style="min-width: 76px;"> 團費售價 </th>
                   <th style="min-width: 50px;"> 報名 </th>
                   <th style="min-width: 50px;"> 狀態 </th>
@@ -196,7 +202,6 @@
                 <tr ng-repeat="production in productions">
                   <td> {{::production['出發日期'] | date: 'yyyy-MM-dd'}} </td>
                   <td> {{::production['天數']}} </td>
-                  <td> {{::production['產品名稱']}} </td>
                   <td> {{::production['團費售價']}} </td>
                   <td> {{::production['報名']}} </td>
                   <td> {{::production['狀態']}} </td>

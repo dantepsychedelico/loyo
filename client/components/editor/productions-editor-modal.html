@@ -1,0 +1,45 @@
+<div class="modal-header {{::field}}">
+  <h3 class="modal-title">出團資訊及報名</h3>
+</div>
+<div class="modal-body {{::field}}">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 140px;">出發日期</th>
+          <th style="width: 120px;">團費售價</th>
+          <th>報名</th>
+          <th style="width: 120px;">狀態</th>
+          <th>銷售說明</th>
+          <th>備註</th>
+          <th>
+            <a href="" ng-click="addRow()">
+              <i class="fa fa-plus"></i>
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="production in data">
+          <td><input date-time-picker format="YYYY/MM/DD" class="form-control" ng-model="production['出發日期']"></td>
+          <td><input class="form-control" ng-model="production['團費售價']"></td>
+          <td><input class="form-control" ng-model="production['報名']"></td>
+          <td><input class="form-control" ng-model="production['狀態']"></td>
+          <td><input class="form-control" ng-model="production['銷售說明']"></td>
+          <td><input class="form-control" ng-model="production['備註']"></td>
+          <td>                                      
+            <a href="" ng-click="deleteRow($index)">
+              <i class="fa fa-minus"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal-footer {{::field}}">
+  <button class="btn btn-primary" type="button" ng-click="save()">存檔</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+</div>
+
+

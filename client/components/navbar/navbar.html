@@ -81,19 +81,19 @@
             <!-- END Home -->
             <li class="dropdown" ng-repeat="category in categories">
               <a href="/{{::category.href}}">{{::category.href}}</a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-submenu" ng-repeat="subcategory in category.subcategories">
+              <div class="dropdown-menu">
+                <div class="dropdown-submenu" ng-repeat="subcategory in category.subcategories">
                   <a href="/{{::category.href}}/{{::subcategory.href}}">{{::subcategory.href}}</a>
-                  <ul class="dropdown-menu">
-                    <li ng-repeat="pname in subcategory.pnames">
+                  <div class="dropdown-menu">
+                    <div class="dropdown-item" ng-repeat="pname in subcategory.pnames">
                       <a href="/{{::category.href}}/{{::subcategory.href}}/{{::pname.href}}">{{::pname.href}}</a>
-                    </li>
-                  </ul>
-                </li>
-                <li ng-repeat="pname in category.pnames">
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown-item" ng-repeat="pname in category.pnames">
                   <a href="/{{::category.href}}//{{::pname.href}}">{{::pname.href}}</a>
-                </li>
-              </ul>
+                </div>
+              </div>
             </li>
           </ul>
         </div><!--/end container-->
