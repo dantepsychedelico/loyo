@@ -30,17 +30,17 @@ angular.module('loyoApp')
       }
     })
     .state('categories', {
-      url: '/:category',
+      url: '/樂遊行程/:category',
       controller: 'CategoryCtrl',
       templateUrl: '/app/pages/coming-soon.html'
     })
     .state('subcategories', {
-      url: '/:category/:subcategory',
+      url: '/樂遊行程/:category/:subcategory',
       controller: 'SubCategoryCtrl',
       templateUrl: '/app/pages/coming-soon.html'
     })
     .state('produnctions', {
-      url: '/:category/:subcategory/:pname',
+      url: '/樂遊行程/:category/:subcategory/:pname',
       templateUrl: '/app/pages/pages.html',
       controller: 'PageCtrl',
       resolve: {

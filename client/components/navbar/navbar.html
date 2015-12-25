@@ -73,6 +73,8 @@
       <div class="collapse navbar-collapse navbar-responsive-collapse" collapse="isCollapsed">
         <div class="menu-container">
           <ul class="nav navbar-nav">
+            <li editor-slider="navbar"></li>
+            <li image-upload="navbar"></li>
             <li editor-page></li>
             <!-- Home -->
             <li ui-sref-active="active">
@@ -80,18 +82,18 @@
             </li>
             <!-- END Home -->
             <li class="dropdown" ng-repeat="category in categories">
-              <a href="/{{::category.href}}">{{::category.href}}</a>
+              <a href="/樂遊行程/{{::category.href}}">{{::category.href}}</a>
               <div class="dropdown-menu">
                 <div class="dropdown-submenu" ng-repeat="subcategory in category.subcategories">
-                  <a href="/{{::category.href}}/{{::subcategory.href}}">{{::subcategory.href}}</a>
+                  <a href="/樂遊行程/{{::category.href}}/{{::subcategory.href}}">{{::subcategory.href}}</a>
                   <div class="dropdown-menu">
                     <div class="dropdown-item" ng-repeat="pname in subcategory.pnames">
-                      <a href="/{{::category.href}}/{{::subcategory.href}}/{{::pname.href}}">{{::pname.href}}</a>
+                      <a href="/樂遊行程/{{::category.href}}/{{::subcategory.href}}/{{::pname.href}}">{{::pname.href}}</a>
                     </div>
                   </div>
                 </div>
                 <div class="dropdown-item" ng-repeat="pname in category.pnames">
-                  <a href="/{{::category.href}}//{{::pname.href}}">{{::pname.href}}</a>
+                  <a href="/樂遊行程/{{::category.href}}//{{::pname.href}}">{{::pname.href}}</a>
                 </div>
               </div>
             </li>

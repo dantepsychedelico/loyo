@@ -29,25 +29,79 @@ angular.module('unify', [])
     }
   };
 })
-.directive('revolutionSlider', function($parse) {
+.directive('revolution', function($q, $parse) {
   return {
     restrict: 'A',
-    link: function(scope, element, attrs) {
-      var api = element.revolution(angular.extend({
-          delay: 9000,
-          startwidth: 1360,
-          startheight: 760,
-          hideThumbs: 10,
-          fullScreen: 'on',
-//           startWithSlide: 1,  // design slide
-//           stopAtSlide: 1, // design slide
-//           stopAfterLoops: 0,  // design slide
-          hideAllCaptionAtLimit: 420,
-//           hideTimerBar: 'on',
-          navigationStyle:'preview4'
-      }, $parse(attrs.revolutionSlider)(scope)));
-      scope.$on('$destroy', function() {
-        api.revpause();
+    controller: function($scope, $element, $attrs) {
+      var promises = [];
+      $element.data('promises', promises);
+      this.addPromise = function(promise) {
+        promises.push(promise);
+      };
+      this.start = function() {
+        $q.all(promises)
+        .then(function() {
+          var api = $element.revolution($parse($attrs.revolution)($scope));
+        });
+      };
+    },
+    compile: function(tElement, tAttrs) {
+      var wait = tElement.find('[revolution-slide]').length;
+      return function(scope, element, attrs) {
+        if (!wait) {
+          var api = element.revolution(angular.extend({
+              delay: 9000,
+              startwidth: 1360,
+              startheight: 760,
+              hideThumbs: 10,
+              fullScreen: 'on',
+              hideAllCaptionAtLimit: 420,
+//             hideTimerBar: 'on',
+              navigationStyle:'preview4'
+          }, $parse(attrs.revolution)(scope)));
+        }
+        scope.$on('$destroy', function() {
+          element.revkill();
+        });
+      };
+    }
+  };
+})
+.directive('revolutionSlide', function($parse, $q) {
+  return {
+    restrict: 'A',
+    require: '?^revolution',
+    link: function(scope, element, attrs, ctrl) {
+      var deferred = $q.defer();
+      if (ctrl) ctrl.addPromise(deferred.promise);
+      if (scope.$last && ctrl) ctrl.start(); 
+      var watch = scope.$watch(attrs.revolutionSlide, function(options) {
+        if (options) {
+          var elems = options.elems;
+          element.addClass(options.class);
+          delete options.elems;
+          delete options.class;
+          element.data(options);
+          _.forEach(elems, function(elem) {
+            var $elem;
+            if (elem.tag === 'img') {
+              $elem = angular.element('<img>');
+              $elem.attr('src', elem.src);
+            }
+            if (elem.tag === 'div') {
+              $elem = angular.element('<div>');
+            }
+            $elem.addClass(elem.class);
+            $elem.html(elem.html);
+            delete elem.tag
+            delete elem.src;
+            delete elem.class;
+            delete elem.html;
+            $elem.data(elem);
+            element.append($elem);
+          });
+          deferred.resolve();
+        }
       });
     }
   };
@@ -58,7 +112,7 @@ angular.module('unify', [])
     controller: function($scope, $element, $attrs) {
       this.layout = function() {
         $element.masonry('layout');
-      }
+      };
     },
     link: function(scope, element, attrs) {
       element.masonry(angular.merge({

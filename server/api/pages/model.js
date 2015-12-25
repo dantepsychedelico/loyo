@@ -99,9 +99,6 @@ var Page = new Schema({
   ts: Date
 });
 
-// var Navbar = new Schema({
-// });
-// 
 var History = new Schema({
   peername: String,
   headers: Object,
@@ -117,7 +114,32 @@ var History = new Schema({
   }
 });
 
+var Slides = new Schema({
+  name: String,
+  transition: String,
+  slotamount: Number,
+  masterspeed: Number,
+  delay: String,
+  link: String,
+  target: String,
+  slideIndex: String,
+  thumb: String,
+  title: String,
+  elems: [{
+    tag: String,
+    lazyload: String,
+    bgrepeat: String,
+    bgfit: Number,
+    bgfitend: Number,
+    positionend: String,
+    kenburns: String,
+    duration: Number,
+    ease: String
+  }]
+});
+
 mongoose.model('Image', Image);
 mongoose.model('Album', Album);
 mongoose.model('Page', Page);
 mongoose.model('History', History);
+mongoose.model('Slides', Slides);

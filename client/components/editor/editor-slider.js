@@ -1,29 +1,35 @@
 'use strict';
 
 angular.module('loyoApp')
-.controller('MainCtrl', function ($scope, $http, $window, $sce) {
-//   $scope.window = {
-//     width: $window.innerWidth,
-//     height: $window.innerHeight
-//   };
-  $scope.masonryOptions = {
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true,
-    gutter: 10
+.directive('editorSlider', function($modal) {
+  return {
+    restrict: 'EAC',
+    template: function(tElement, tAttrs) {
+      if (tAttrs.editorSlider === 'navbar') {
+        return '<a href="" ng-click="open()"><span class="fa fa-slideshare"></span></a>'
+      }
+    },
+    scope: true,
+    link: function(scope, element, attrs) {
+      scope.open = function() {
+        var modalInstance = $modal.open({
+          templateUrl: 'components/editor/editor-slider-modal.html',
+          controller: 'editorSliderModalCtrl',
+          windowTemplateUrl: 'template/modal/window-fullwidth.html',
+//           resolve: {
+//             insert: function() {
+//               return attrs.insert;
+//             }
+//           }
+        });
+//         modalInstance.result.then(function(src) {
+//           $parse(attrs.insert).assign(scope, src);
+//         });
+      };
+    }
   };
-
-  $scope.rsOptions = {
-    delay: 9000,
-    startwidth: 1360,
-    startheight: 760,
-    hideThumbs: 10,
-    fullScreen: 'on',
-    hideAllCaptionAtLimit: 420,
-//  hideTimerBar: 'on',
-    navigationStyle:'preview4'
-  };
-
+})
+.controller('editorSliderModalCtrl', function($scope, $modalInstance) {
   $scope.sliders = [{
     transition: 'fade',
     slotamount: 5,
@@ -170,22 +176,4 @@ angular.module('loyoApp')
       bgrepeat: 'no-repeat'
     }]
   }];
-
-  function parseHtml(ss) {
-    return ss.replace(/(https?:\/\/[^ $]*)/g, '<a href="$1" target="_blank">連接</a>')
-      .replace(/\n/g, '<br>');
-  }
-  $http.get('/api/news/facebook/posts')
-  .then(function(results) {
-    $scope.fbData = _.map(results.data, function(data) {
-      return {
-        created_time: new Date(data.created_time),
-        description: $sce.trustAsHtml(parseHtml(data.description || data.message || '')),
-        full_picture: data.full_picture,
-        link: data.link,
-        name: data.name,
-        story: data.story
-      };
-    });
-  });
 });

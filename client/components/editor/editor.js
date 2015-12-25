@@ -87,8 +87,16 @@ angular.module('loyoApp')
 .directive('imageUpload', function($modal, $parse) {
   return {
     restrict: 'EAC',
-    template: '<button class="btn-u btn-u-aqua" type="button" ng-click="open()">'+
-      '<i class="fa fa-cloud-upload"></i> Upload Image</button>',
+    template: function(tElement, tAttrs) {
+      if (tAttrs.imageUpload === 'short') {
+        return '<span class="fa fa-cloud-upload" ng-click="open()"></span>'
+      }
+      if (tAttrs.imageUpload === 'navbar') {
+        return '<a href="" ng-click="open()"><span class="fa fa-cloud-upload"></span></a>'
+      }
+      return '<button class="btn-u btn-u-aqua" type="button" ng-click="open()">'+
+        '<i class="fa fa-cloud-upload"></i> Upload Image</button>';
+    },
     scope: true,
     link: function(scope, element, attrs) {
       scope.open = function() {

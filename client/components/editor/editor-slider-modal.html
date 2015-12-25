@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h3 class="modal-title">編輯投影片
+  </h3>
+</div>
+<div class="modal-body">
+  <tabset>
+    <tab heading="全部投影片">
+      <!--
+      <div class="row">
+        <div class="col-sm-2" ng-repeat="slider in sliders">
+          <div class="tp-banner">
+            <div revolution-slide="slider"></div>
+          </div>
+        </div>
+      </div>
+      -->
+    </tab>
+    <tab heading="編輯簡介"></tab>
+    <tab heading="編輯簡介">
+      <div class="summernote" bind="data"></div>
+    </tab>
+  </tabset>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="save()">存檔</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+</div>
