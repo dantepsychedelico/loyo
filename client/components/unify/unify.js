@@ -4,6 +4,9 @@ angular.module('unify', [])
 .factory('Modernizr', function($window) {
   return $window.Modernizr;
 })
+.factory('Waypoint', function($window) {
+  return $window.Waypoint;
+})
 .directive('headerFixedShrink', function($window, $timeout, Modernizr) {
   return {
     restirct: 'A',
@@ -75,6 +78,7 @@ angular.module('unify', [])
       var deferred = $q.defer();
       if (ctrl) ctrl.addPromise(deferred.promise);
       if (scope.$last && ctrl) ctrl.start(); 
+      if (attrs.oneSlide) ctrl.start();
       var watch = scope.$watch(attrs.revolutionSlide, function(options) {
         if (options) {
           var elems = options.elems;

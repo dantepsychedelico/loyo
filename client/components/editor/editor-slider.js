@@ -30,6 +30,22 @@ angular.module('loyoApp')
   };
 })
 .controller('editorSliderModalCtrl', function($scope, $modalInstance) {
+  $scope.rsOptions = {
+    delay: 9000,
+    startwidth: 1360,
+    startheight: 760,
+    hideThumbs: 10,
+//     fullScreen: 'on',
+    hideAllCaptionAtLimit: 420,
+//  hideTimerBar: 'on',
+    navigationStyle:'preview4'
+  };
+  $scope.select = function(slider) {
+    console.log(slider);
+  };
+  $scope.cancel = function() {
+    $modalInstance.dismiss();
+  };
   $scope.sliders = [{
     transition: 'fade',
     slotamount: 5,
@@ -44,7 +60,7 @@ angular.module('loyoApp')
       bgrepeat: 'no-repeat'
     }, {
       tag: 'div',
-      class: 'tp-caption sft',
+      class: 'tp-caption revolution-ch1 sft font-ming',
       x: 'center',
       hoffset: 0,
       y: 'top',
@@ -54,10 +70,10 @@ angular.module('loyoApp')
       easing: 'Power3.easeIn',
       endeasing: 'Power1.easeIn',
       endspeed: 300,
-      html: '<div class="revolution-ch1"><p class="slide-font-50 color-light font-kai"> OFF 漫遊純淨紐西蘭 </p></div>'
+      html: '<p class="color-light"> OFF 漫遊純淨紐西蘭 </p>'
     }, {
       tag: 'div',
-      class: 'tp-caption sft',
+      class: 'tp-caption sft slide-font-32 font-ming',
       x: 'right',
       hoffset: 0,
       y: 'center',
@@ -67,10 +83,10 @@ angular.module('loyoApp')
       endspeed: 300,
       endeasing: 'Power1.easeIn',
       captionhidden: 'off',
-      html: '<div class="slide-font-32 color-light" style="z-index: 6; border-color: white; border: solid 1px; padding: 5px;"> 蜜月佳偶及現場報名<br> 即可獲得神祕小禮！ </div>'
+      html: '<div class="color-light" style="border-color: white; border: solid 1px; padding: 5px;"> 蜜月佳偶及現場報名<br> 即可獲得神祕小禮！ </div>'
     }, {
       tag: 'div',
-      class: 'tp-caption lfl',
+      class: 'tp-caption lfl revolution-ch1 font-ming',
       x: 0,
       hoffset: 0,
       y: 'center',
@@ -81,10 +97,10 @@ angular.module('loyoApp')
       endspeed: 100,
       endeasing: 'Power1.easeIn',
       captionhidden: 'off',
-      html: '<div class="revolution-ch1" style="z-index: 6; border-color: white; border-top: solid 1px; border-bottom: solid 3px; padding: 5px;"> <p class="color-light slide-font-25"> 2015-2016年 </p> <strong class="color-light slide-font-30 font-kai"> 【OFF慢遊】系列 紐西蘭行程發表會 </strong> </div>'
+      html: '<div style="border-color: white; border-top: solid 1px; border-bottom: solid 3px; padding: 5px;"> <p class="color-light"> 2015-2016年 </p> <strong class="color-light" style="font-size: 80%;"> 【OFF慢遊】系列 紐西蘭行程發表會 </strong> </div>'
     }, {
       tag: 'div',
-      class: 'tp-caption lfb',
+      class: 'tp-caption lfb revolution-ch1 font-ming',
       x: 0,
       hoffset: 0,
       y: 'center',
@@ -95,7 +111,7 @@ angular.module('loyoApp')
       endspeed: 100,
       endeasing: 'Power1.easeIn',
       captionhidden: 'off',
-      html: '<div class="revolution-ch1" style="z-index: 6; border-color: white; border-top: solid 3px; border-bottom: solid 1px; padding: 5px;"> <p class="color-light slide-font-30"> 時間：2015/10/17 下午2:00PM </p> <p class="color-light slide-font-25"> 地點：樂遊旅行社2樓 會議室 </p> </div>'
+      html: '<div style="border-color: white; border-top: solid 3px; border-bottom: solid 1px; padding: 5px;"> <p class="color-light"> 時間：2015/10/17 下午2:00PM </p> <p class="color-light"> 地點：樂遊旅行社2樓 會議室 </p> </div>'
     }]
   }, {
     class: 'revolution-mch-1',
@@ -111,7 +127,7 @@ angular.module('loyoApp')
       bgrepeat: 'no-repeat'
     }, {
       tag: 'div',
-      class: 'tp-caption lft',
+      class: 'tp-caption lft slide-font-50',
       x: 'center',
       hoffset: 0,
       y: 'top',
@@ -121,10 +137,10 @@ angular.module('loyoApp')
       easing: 'Power4.easeIn',
       endeasing: 'Power1.easeIn',
       endspeed: 300,
-      html: '<div class="revolution-ch1"><p class="color-light slide-font-50 font-kai"> 戶外活動深度紐西蘭 </p></div>'
+      html: '<p class="color-light"> 戶外活動深度紐西蘭 </p>'
     }, {
       tag: 'div',
-      class: 'tp-caption lfr',
+      class: 'tp-caption revolution-ch1 lfr font-ming',
       x: 'right',
       hoffset: 0,
       y: 'bottom',
@@ -134,7 +150,7 @@ angular.module('loyoApp')
       easing: 'Power1.easeIn',
       endeasing: 'Power1.easeIn',
       endspeed: 300,
-      html: '<div class="tag-box revolution-ch1 tag-box-v2" style="background-color: rgba(250,250,250,0.45)"> <p class="color-black slide-font-23"> 2015-2016 年 </p> <p class="slide-font-30 slide-padding-20 font-kai" style="color: #b63629;"> 戶外活動系列紐西蘭行程發表會 </p> <p class="color-black slide-font-20"> 時間: 2015/10/7 下午 2:00 PM </p> <p class="color-black slide-font-20"> 地點: 樂遊旅行社2樓 會議室 </p> </div>'
+      html: '<div class="tag-box tag-box-v2" style="background-color: rgba(250,250,250,0.45)"> <p class="color-black"> 2015-2016 年 </p> <p style="color: #b63629; font-size: 120%; padding-bottom: 20px;"> 戶外活動系列紐西蘭行程發表會 </p> <p class="color-black"> 時間: 2015/10/7 下午 2:00 PM </p> <p class="color-black"> 地點: 樂遊旅行社2樓 會議室 </p> </div>'
     }]
   }, {
     class: 'revolution-mch-1',
