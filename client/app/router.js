@@ -13,6 +13,11 @@ angular.module('loyoApp')
       templateUrl: 'components/editor/editor-pages.html',
       controller: 'editorPageCtrl'
     })
+    .state('editorSlider', {
+      url: '/editor-slider', 
+      templateUrl: 'components/editor/editor-slider.html',
+      controller: 'editorSliderCtrl'
+    })
     .state('關於我們', {
       url: '/關於我們',
       templateUrl: 'app/main/about_loyo.html'

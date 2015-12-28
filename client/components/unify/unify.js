@@ -83,8 +83,6 @@ angular.module('unify', [])
         if (options) {
           var elems = options.elems;
           element.addClass(options.class);
-          delete options.elems;
-          delete options.class;
           element.data(options);
           _.forEach(elems, function(elem) {
             var $elem;
@@ -97,10 +95,6 @@ angular.module('unify', [])
             }
             $elem.addClass(elem.class);
             $elem.html(elem.html);
-            delete elem.tag
-            delete elem.src;
-            delete elem.class;
-            delete elem.html;
             $elem.data(elem);
             element.append($elem);
           });
