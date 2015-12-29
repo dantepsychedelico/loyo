@@ -35,18 +35,30 @@ angular.module('unify', [])
 .directive('revolution', function($q, $parse) {
   return {
     restrict: 'A',
-    controller: function($scope, $element, $attrs) {
+    controller: function($scope, $element, $attrs, $compile) {
       var promises = [];
-      $element.data('promises', promises);
+      var html = $element.html();
       this.addPromise = function(promise) {
         promises.push(promise);
       };
-      this.start = function() {
+      var start = this.start = function() {
         $q.all(promises)
         .then(function() {
           var api = $element.revolution($parse($attrs.revolution)($scope));
+          promises = [];
         });
       };
+      var restart = this.restart = function() {
+        $element.removeClass('revslider-initialised tp-simpleresponsive');
+        $element.html(html);
+        $compile($element)($scope);
+      };
+      if ($attrs.revolutionApi) {
+        $parse($attrs.revolutionApi).assign($scope, {
+          start: start,
+          restart: restart
+        });
+      }
     },
     compile: function(tElement, tAttrs) {
       var wait = tElement.find('[revolution-slide]').length;
@@ -79,7 +91,8 @@ angular.module('unify', [])
       if (ctrl) ctrl.addPromise(deferred.promise);
       if (scope.$last && ctrl) ctrl.start(); 
       if (attrs.oneSlide) ctrl.start();
-      var watch = scope.$watch(attrs.revolutionSlide, function(options) {
+      var watch = angular.noop;
+      function generateElem(options) {
         if (options) {
           var elems = options.elems;
           element.addClass(options.class);
@@ -99,8 +112,14 @@ angular.module('unify', [])
             element.append($elem);
           });
           deferred.resolve();
+          watch();
         }
-      });
+      }
+      if ($parse(attrs.revolutionSlide)(scope)) {
+        generateElem($parse(attrs.revolutionSlide)(scope));
+      } else {
+        watch = scope.$watch(attrs.revolutionSlide, generateElem);
+      }
     }
   };
 })

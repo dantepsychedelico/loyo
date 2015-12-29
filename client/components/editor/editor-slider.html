@@ -6,32 +6,32 @@
 <section class="container content-lg" style="padding-top: 50px;">
   <div class="row">
     <tabset>
-      <tab heading="編輯投影片">
-        <div class="row margin-top-20">
+      <tab heading="編輯投影片" active="tabs[1].active">
+        <div class="row margin-top-20" ng-if="tabs[1].active">
           <div class="col-sm-5">
             <form class="form-horizontal">
               <div class="form-group">
                 <label class="col-sm-4 control-label">Delay</label>
                 <div class="col-sm-8">
-                  <input class="form-control" type="number" ng-model="rsOptions.delay">
+                  <input class="form-control" type="number" ng-model="rsOptions.delay" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-4 control-label">Start Height</label>
                 <div class="col-sm-8">
-                  <input class="form-control" type="number" ng-model="rsOptions.startheight">
+                  <input class="form-control" type="number" ng-model="rsOptions.startheight" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-4 control-label">Start Width</label>
                 <div class="col-sm-8">
-                  <input class="form-control" type="number" ng-model="rsOptions.startwidth">
+                  <input class="form-control" type="number" ng-model="rsOptions.startwidth" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-4 control-label">transition</label>
                 <div class="col-sm-8">
-                  <select class="form-control" ng-model="eslider.transition">
+                  <select class="form-control" ng-model="eslider.transition" ng-change="rsApi.restart()">
                     <option>slideup</option>
                     <option>slidedown</option>
                     <option>slideright</option>
@@ -85,10 +85,49 @@
                   </select>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">slotamount</label>
+                <div class="col-sm-8">
+                  <input class="form-control" type="number" ng-model="eslider.slotamount" ng-change="rsApi.restart()">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">masterspeed(ms)</label>
+                <div class="col-sm-8">
+                  <input class="form-control" type="number" ng-model="eslider.masterspeed" ng-change="rsApi.restart()">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">delay</label>
+                <div class="col-sm-8">
+                  <input class="form-control" type="number" ng-model="eslider.delay" ng-change="rsApi.restart()">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">link</label>
+                <div class="col-sm-8">
+                  <input class="form-control" ng-model="eslider.link" ng-change="rsApi.restart()">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">target</label>
+                <div class="col-sm-8">
+                  <select class="form-control" ng-model="eslider.target" ng-change="rsApi.restart()">
+                    <option>_blank</option>
+                    <option>_self</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">title</label>
+                <div class="col-sm-8">
+                  <input class="form-control" ng-model="eslider.title" ng-change="rsApi.restart()">
+                </div>
+              </div>
             </form>
           </div>
           <div class="tp-banner-container col-sm-6">
-            <div revolution="rsOptions" class="tp-banner">
+            <div revolution="rsOptions" class="tp-banner" revolution-api="rsApi">
               <ul>
                 <li revolution-slide="eslider" one-slide="true"></li>
               </ul>
@@ -96,8 +135,8 @@
           </div>
         </div>
       </tab>
-      <tab heading="全部投影片" active="active">
-        <div class="row margin-top-20" ng-if="active">
+      <tab heading="全部投影片" active="tabs[0].active">
+        <div class="row margin-top-20" ng-if="tabs[0].active">
           <div class="tp-banner-container col-sm-5" 
               ng-repeat="slider in sliders" ng-class-odd="'col-sm-offset-1'"
               ng-click="select(slider)" style="cursor: pointer;">

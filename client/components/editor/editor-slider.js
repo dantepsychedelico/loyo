@@ -39,13 +39,10 @@ angular.module('loyoApp')
 //     fullScreen: 'on',
     hideAllCaptionAtLimit: 420,
 //  hideTimerBar: 'on',
-    navigationStyle:'preview4'
+    navigationStyle: 'preview4'
   };
   $scope.select = function(slider) {
     console.log(slider);
-  };
-  $scope.cancel = function() {
-    $modalInstance.dismiss();
   };
   $scope.sliders = [{
     transition: 'fade',
