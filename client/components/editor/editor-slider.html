@@ -8,29 +8,40 @@
     <tabset>
       <tab heading="編輯投影片" active="tabs[1].active">
         <div class="row margin-top-20" ng-if="tabs[1].active">
-          <div class="col-sm-5">
+          <div class="col-sm-2">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="">Global Settings</a></li>
+              <li class=""><a href="">Navigation Settings</a></li>
+              <li class=""><a href="">Loops</a></li>
+              <li class=""><a href="">Mobile Visibility</a></li>
+              <li class=""><a href="">Layout Styles</a></li>
+              <li class=""><a href="">Parallax Settings</a></li>
+              <li class=""><a href="">Slide Options</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
             <form class="form-horizontal">
               <div class="form-group">
-                <label class="col-sm-4 control-label">Delay</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">Delay</label>
+                <div class="col-sm-7">
                   <input class="form-control" type="number" ng-model="rsOptions.delay" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Start Height</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">Start Height</label>
+                <div class="col-sm-7">
                   <input class="form-control" type="number" ng-model="rsOptions.startheight" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Start Width</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">Start Width</label>
+                <div class="col-sm-7">
                   <input class="form-control" type="number" ng-model="rsOptions.startwidth" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">transition</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">transition</label>
+                <div class="col-sm-7">
                   <select class="form-control" ng-model="eslider.transition" ng-change="rsApi.restart()">
                     <option>slideup</option>
                     <option>slidedown</option>
@@ -86,32 +97,32 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">slotamount</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">slotamount</label>
+                <div class="col-sm-7">
                   <input class="form-control" type="number" ng-model="eslider.slotamount" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">masterspeed(ms)</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">masterspeed(ms)</label>
+                <div class="col-sm-7">
                   <input class="form-control" type="number" ng-model="eslider.masterspeed" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">delay</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">delay</label>
+                <div class="col-sm-7">
                   <input class="form-control" type="number" ng-model="eslider.delay" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">link</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">link</label>
+                <div class="col-sm-7">
                   <input class="form-control" ng-model="eslider.link" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">target</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">target</label>
+                <div class="col-sm-7">
                   <select class="form-control" ng-model="eslider.target" ng-change="rsApi.restart()">
                     <option>_blank</option>
                     <option>_self</option>
@@ -119,8 +130,8 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">title</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 control-label">title</label>
+                <div class="col-sm-7">
                   <input class="form-control" ng-model="eslider.title" ng-change="rsApi.restart()">
                 </div>
               </div>
