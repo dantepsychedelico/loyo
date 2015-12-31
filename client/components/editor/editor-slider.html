@@ -10,129 +10,359 @@
         <div class="row margin-top-20" ng-if="tabs[1].active">
           <div class="col-sm-2">
             <ul class="nav nav-pills nav-stacked">
-              <li class="active"><a href="">Global Settings</a></li>
-              <li class=""><a href="">Navigation Settings</a></li>
-              <li class=""><a href="">Loops</a></li>
-              <li class=""><a href="">Mobile Visibility</a></li>
-              <li class=""><a href="">Layout Styles</a></li>
-              <li class=""><a href="">Parallax Settings</a></li>
-              <li class=""><a href="">Slide Options</a></li>
+              <li class="{{nav[0]}}"><a href="" ng-click="navClick(0)">Global Settings</a></li>
+              <li class="{{nav[1]}}"><a href="" ng-click="navClick(1)">Navigation Settings</a></li>
+              <li class="{{nav[2]}}"><a href="" ng-click="navClick(2)">Loops</a></li>
+              <li class="{{nav[3]}}"><a href="" ng-click="navClick(3)">Mobile Visibility</a></li>
+              <li class="{{nav[4]}}"><a href="" ng-click="navClick(4)">Layout Styles</a></li>
+              <li class="{{nav[5]}}"><a href="" ng-click="navClick(5)">Parallax Settings</a></li>
+              <li class="{{nav[6]}}"><a href="" ng-click="navClick(6)">Slide Options</a></li>
+              <li class="{{nav[7]}}"><a href="" ng-click="navClick(7)">Main Image</a></li>
             </ul>
           </div>
           <div class="col-sm-3">
             <form class="form-horizontal">
-              <div class="form-group">
-                <label class="col-sm-5 control-label">Delay</label>
-                <div class="col-sm-7">
-                  <input class="form-control" type="number" ng-model="rsOptions.delay" ng-change="rsApi.restart()">
+              <!--Global Settings-->
+              <div ng-show="nav[0]">
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">Delay</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" type="number" ng-model="rsOptions.delay" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">Start Height</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" type="number" ng-model="rsOptions.startheight" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">Start Width</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" type="number" ng-model="rsOptions.startwidth" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+              </div>
+              <!--Slide Options-->
+              <div ng-show="nav[6]">
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">transition</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.transition" ng-change="rsApi.restart()">
+                      <option>slideup</option>
+                      <option>slidedown</option>
+                      <option>slideright</option>
+                      <option>slideleft</option>
+                      <option>slidehorizontal</option>
+                      <option>slidevertical</option>
+                      <option>boxslide</option>
+                      <option>slotslide-horizontal</option>
+                      <option>slotslide-vertical</option>
+                      <option>boxfade</option>
+                      <option>slotfade-horizontal</option>
+                      <option>slotfade-vertical</option>
+                      <option>fadefromright</option>
+                      <option>fadefromleft</option>
+                      <option>fadefromtop</option>
+                      <option>fadefrombottom</option>
+                      <option>fadetoleftfadefromright</option>
+                      <option>fadetorightfadefromleft</option>
+                      <option>fadetotopfadefrombottom</option>
+                      <option>fadetobottomfadefromtop</option>
+                      <option>parallaxtoright</option>
+                      <option>parallaxtoleft</option>
+                      <option>parallaxtotop</option>
+                      <option>parallaxtobottom</option>
+                      <option>scaledownfromright</option>
+                      <option>scaledownfromleft</option>
+                      <option>scaledownfromtop</option>
+                      <option>scaledownfrombottom</option>
+                      <option>zoomout</option>
+                      <option>zoomin</option>
+                      <option>slotzoom-horizontal</option>
+                      <option>slotzoom-vertical</option>
+                      <option>fade</option>
+                      <option>random-static</option>
+                      <option>random</option>
+                      <option>curtain-1</option>
+                      <option>curtain-2</option>
+                      <option>curtain-3</option>
+                      <option>3dcurtain-horizontal</option>
+                      <option>3dcurtain-vertical</option>
+                      <option>cube</option>
+                      <option>cube-horizontal</option>
+                      <option>incube</option>
+                      <option>incube-horizontal</option>
+                      <option>turnoff</option>
+                      <option>turnoff-vertical</option>
+                      <option>papercut</option>
+                      <option>flyin</option>
+                      <option>random-premium</option>
+                      <option>random</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">slotamount</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" type="number" ng-model="eslider.slotamount" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">masterspeed(ms)</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" type="number" ng-model="eslider.masterspeed" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">delay</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" type="number" ng-model="eslider.delay" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">link</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" ng-model="eslider.link" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">target</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.target" ng-change="rsApi.restart()">
+                      <option>_blank</option>
+                      <option>_self</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">title</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" ng-model="eslider.title" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+              </div>
+              <!--Main Image-->
+              <div ng-show="nav[7]">
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">lazyload</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" ng-model="eslider.elems[0].lazyload" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">bgrepeat</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.elems[0].bgrepeat" ng-change="rsApi.restart()">
+                      <option>no-repeat</option>
+                      <option>repeat</option>
+                      <option>repeat-x</option>
+                      <option>repeat-y</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">bgfit</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" ng-model="eslider.elems[0].bgfit" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">bgfitend</label>
+                  <div class="col-sm-7">
+                    <input type="number" class="form-control" ng-model="eslider.elems[0].bgfitend" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">bgposition</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.elems[0].bgposition" ng-change="rsApi.restart()">
+                      <option>left top</option>
+                      <option>left center</option>
+                      <option>left bottom</option>
+                      <option>center top</option>
+                      <option>center center</option>
+                      <option>center bottom</option>
+                      <option>right top</option>
+                      <option>right center</option>
+                      <option>right bottom</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">bgpositionend</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.elems[0].bgpositionend" ng-change="rsApi.restart()">
+                      <option>left top</option>
+                      <option>left center</option>
+                      <option>left bottom</option>
+                      <option>center top</option>
+                      <option>center center</option>
+                      <option>center bottom</option>
+                      <option>right top</option>
+                      <option>right center</option>
+                      <option>right bottom</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">kenburns</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.elems[0].kenburns" ng-change="rsApi.restart()">
+                      <option>on</option>
+                      <option>off</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">duration</label>
+                  <div class="col-sm-7">
+                    <input type="number" class="form-control" ng-model="eslider.elems[0].duration" ng-change="rsApi.restart()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">ease</label>
+                  <div class="col-sm-7">
+                    <select class="form-control" ng-model="eslider.elems[0].ease" ng-change="rsApi.restart()">
+                      <option>Linear.easeNone</option>
+                      <option>Power0.easeIn</option>
+                      <option>Power0.easeInOut</option>
+                      <option>Power0.easeOut</option>
+                      <option>Power1.easeIn</option>
+                      <option>Power1.easeInOut</option>
+                      <option>Power1.easeOut</option>
+                      <option>Power2.easeIn</option>
+                      <option>Power2.easeInOut</option>
+                      <option>Power2.easeOut</option>
+                      <option>Power3.easeIn</option>
+                      <option>Power3.easeInOut</option>
+                      <option>Power3.easeOut</option>
+                      <option>Power4.easeIn</option>
+                      <option>Power4.easeInOut</option>
+                      <option>Power4.easeOut</option>
+                      <option>Quad.easeIn</option>
+                      <option>Quad.easeInOut</option>
+                      <option>Quad.easeOut</option>
+                      <option>Cubic.easeIn</option>
+                      <option>Cubic.easeInOut</option>
+                      <option>Cubic.easeOut</option>
+                      <option>Quart.easeIn</option>
+                      <option>Quart.easeInOut</option>
+                      <option>Quart.easeOut</option>
+                      <option>Quint.easeIn</option>
+                      <option>Quint.easeInOut</option>
+                      <option>Quint.easeOut</option>
+                      <option>Strong.easeIn</option>
+                      <option>Strong.easeInOut</option>
+                      <option>Strong.easeOut</option>
+                      <option>Back.easeIn</option>
+                      <option>Back.easeInOut</option>
+                      <option>Back.easeOut</option>
+                      <option>Bounce.easeIn</option>
+                      <option>Bounce.easeInOut</option>
+                      <option>Bounce.easeOut</option>
+                      <option>Circ.easeIn</option>
+                      <option>Circ.easeInOut</option>
+                      <option>Circ.easeOut</option>
+                      <option>Elastic.easeIn</option>
+                      <option>Elastic.easeInOut</option>
+                      <option>Elastic.easeOut</option>
+                      <option>Expo.easeIn</option>
+                      <option>Expo.easeInOut</option>
+                      <option>Expo.easeOut</option>
+                      <option>Sine.easeIn</option>
+                      <option>Sine.easeInOut</option>
+                      <option>Sine.easeOut</option>
+                      <option>SlowMo.ease</option>
+                      <option>easeOutBack</option>
+                      <option>easeInQuad</option>
+                      <option>easeOutQuad</option>
+                      <option>easeInOutQuad</option>
+                      <option>easeInCubic</option>
+                      <option>easeOutCubic</option>
+                      <option>easeInOutCubic</option>
+                      <option>easeInQuart</option>
+                      <option>easeOutQuart</option>
+                      <option>easeInOutQuart</option>
+                      <option>easeInQuint</option>
+                      <option>easeOutQuint</option>
+                      <option>easeInOutQuint</option>
+                      <option>easeInSine</option>
+                      <option>easeOutSine</option>
+                      <option>easeInOutSine</option>
+                      <option>easeInExpo</option>
+                      <option>easeOutExpo</option>
+                      <option>easeInOutExpo</option>
+                      <option>easeInCirc</option>
+                      <option>easeOutCirc</option>
+                      <option>easeInOutCirc</option>
+                      <option>easeInElastic</option>
+                      <option>easeOutElastic</option>
+                      <option>easeInOutElastic</option>
+                      <option>easeInBack</option>
+                      <option>easeOutBack</option>
+                      <option>easeInOutBack</option>
+                      <option>easeInBounce</option>
+                      <option>easeOutBounce</option>
+                      <option>easeInOutBounce</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-5 control-label">Start Height</label>
+                <label class="col-sm-5 control-label">Incoming Animation</label>
                 <div class="col-sm-7">
-                  <input class="form-control" type="number" ng-model="rsOptions.startheight" ng-change="rsApi.restart()">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">Start Width</label>
-                <div class="col-sm-7">
-                  <input class="form-control" type="number" ng-model="rsOptions.startwidth" ng-change="rsApi.restart()">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">transition</label>
-                <div class="col-sm-7">
-                  <select class="form-control" ng-model="eslider.transition" ng-change="rsApi.restart()">
-                    <option>slideup</option>
-                    <option>slidedown</option>
-                    <option>slideright</option>
-                    <option>slideleft</option>
-                    <option>slidehorizontal</option>
-                    <option>slidevertical</option>
-                    <option>boxslide</option>
-                    <option>slotslide-horizontal</option>
-                    <option>slotslide-vertical</option>
-                    <option>boxfade</option>
-                    <option>slotfade-horizontal</option>
-                    <option>slotfade-vertical</option>
-                    <option>fadefromright</option>
-                    <option>fadefromleft</option>
-                    <option>fadefromtop</option>
-                    <option>fadefrombottom</option>
-                    <option>fadetoleftfadefromright</option>
-                    <option>fadetorightfadefromleft</option>
-                    <option>fadetotopfadefrombottom</option>
-                    <option>fadetobottomfadefromtop</option>
-                    <option>parallaxtoright</option>
-                    <option>parallaxtoleft</option>
-                    <option>parallaxtotop</option>
-                    <option>parallaxtobottom</option>
-                    <option>scaledownfromright</option>
-                    <option>scaledownfromleft</option>
-                    <option>scaledownfromtop</option>
-                    <option>scaledownfrombottom</option>
-                    <option>zoomout</option>
-                    <option>zoomin</option>
-                    <option>slotzoom-horizontal</option>
-                    <option>slotzoom-vertical</option>
+                  <select class="form-control" ng-model="eslider.elems[1]._iac" ng-change="rsApi.restart()">
+                    <option>sft</option>
+                    <option>sfb</option>
+                    <option>sfr</option>
+                    <option>sfl</option>
+                    <option>lft</option>
+                    <option>lfb</option>
+                    <option>lfr</option>
+                    <option>lfl</option>
+                    <option>skewfromleft</option>
+                    <option>skewfromright</option>
+                    <option>skewfromleftshort</option>
+                    <option>skewfromrightshort</option>
                     <option>fade</option>
-                    <option>random-static</option>
-                    <option>random</option>
-                    <option>curtain-1</option>
-                    <option>curtain-2</option>
-                    <option>curtain-3</option>
-                    <option>3dcurtain-horizontal</option>
-                    <option>3dcurtain-vertical</option>
-                    <option>cube</option>
-                    <option>cube-horizontal</option>
-                    <option>incube</option>
-                    <option>incube-horizontal</option>
-                    <option>turnoff</option>
-                    <option>turnoff-vertical</option>
-                    <option>papercut</option>
-                    <option>flyin</option>
-                    <option>random-premium</option>
-                    <option>random</option>
+                    <option>randomrotate</option>
+                    <option>customin</option>
                   </select>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">slotamount</label>
+              <div class="form-group" ng-if="eslider.elems[1]._iac==='customin'">
+                <label class="col-sm-5 control-label">Custom Incoming</label>
                 <div class="col-sm-7">
-                  <input class="form-control" type="number" ng-model="eslider.slotamount" ng-change="rsApi.restart()">
+                  <input class="form-control" ng-model="eslider.elems[1].customin" ng-change="rsApi.restart()">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-5 control-label">masterspeed(ms)</label>
+                <label class="col-sm-5 control-label">Outgoing Animation</label>
                 <div class="col-sm-7">
-                  <input class="form-control" type="number" ng-model="eslider.masterspeed" ng-change="rsApi.restart()">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">delay</label>
-                <div class="col-sm-7">
-                  <input class="form-control" type="number" ng-model="eslider.delay" ng-change="rsApi.restart()">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">link</label>
-                <div class="col-sm-7">
-                  <input class="form-control" ng-model="eslider.link" ng-change="rsApi.restart()">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">target</label>
-                <div class="col-sm-7">
-                  <select class="form-control" ng-model="eslider.target" ng-change="rsApi.restart()">
-                    <option>_blank</option>
-                    <option>_self</option>
+                  <select class="form-control" ng-model="eslider.elems[1]._oac" ng-change="rsApi.restart()">
+                    <option>stt</option>
+                    <option>stb</option>
+                    <option>str</option>
+                    <option>stl</option>
+                    <option>ltt</option>
+                    <option>ltb</option>
+                    <option>ltr</option>
+                    <option>ltl</option>
+                    <option>skewtoleft</option>
+                    <option>skewtoright</option>
+                    <option>skewtoleftshort</option>
+                    <option>skewtorightshort</option>
+                    <option>fadeout</option>
+                    <option>randomrotateout</option>
+                    <option>customout</option>
                   </select>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-5 control-label">title</label>
+              <div class="form-group" ng-if="eslider.elems[1]._oac==='customout'">
+                <label class="col-sm-5 control-label">Custom Outgoing</label>
                 <div class="col-sm-7">
-                  <input class="form-control" ng-model="eslider.title" ng-change="rsApi.restart()">
+                  <input class="form-control" ng-model="eslider.elems[1].customout" ng-change="rsApi.restart()">
                 </div>
               </div>
             </form>

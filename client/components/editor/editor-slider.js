@@ -44,6 +44,11 @@ angular.module('loyoApp')
   $scope.select = function(slider) {
     console.log(slider);
   };
+  $scope.nav = ['active'];
+  $scope.navClick = function(index) {
+    $scope.nav = [];
+    $scope.nav[index] = 'active';
+  };
   $scope.sliders = [{
     transition: 'fade',
     slotamount: 5,
@@ -58,7 +63,8 @@ angular.module('loyoApp')
       bgrepeat: 'no-repeat'
     }, {
       tag: 'div',
-      class: 'tp-caption revolution-ch1 sft font-ming',
+      class: 'tp-caption revolution-ch1 font-ming',
+      _iac: 'sft',
       x: 'center',
       hoffset: 0,
       y: 'top',
@@ -71,7 +77,8 @@ angular.module('loyoApp')
       html: '<p class="color-light"> OFF 漫遊純淨紐西蘭 </p>'
     }, {
       tag: 'div',
-      class: 'tp-caption sft slide-font-32 font-ming',
+      class: 'tp-caption slide-font-32 font-ming',
+      _iac: 'sft',
       x: 'right',
       hoffset: 0,
       y: 'center',

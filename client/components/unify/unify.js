@@ -107,6 +107,8 @@ angular.module('unify', [])
               $elem = angular.element('<div>');
             }
             $elem.addClass(elem.class);
+            if (elem._iac) $elem.addClass(elem._iac);
+            if (elem._oac) $elem.addClass(elem._oac);
             $elem.html(elem.html);
             $elem.data(elem);
             element.append($elem);
