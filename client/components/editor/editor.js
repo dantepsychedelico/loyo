@@ -94,6 +94,10 @@ angular.module('loyoApp')
       if (tAttrs.imageUpload === 'navbar') {
         return '<a href="" ng-click="open()"><span class="fa fa-cloud-upload"></span></a>'
       }
+      if (tAttrs.imageUpload === 'select') {
+        return '<button class="btn-u btn-u-aqua" type="button" ng-click="open()">'+
+          '<i class="fa fa-cloud-upload"></i>Choose Image</button>';
+      }
       return '<button class="btn-u btn-u-aqua" type="button" ng-click="open()">'+
         '<i class="fa fa-cloud-upload"></i> Upload Image</button>';
     },
@@ -112,6 +116,7 @@ angular.module('loyoApp')
         });
         modalInstance.result.then(function(src) {
           $parse(attrs.insert).assign(scope, src);
+          scope.$eval(attrs.postInsert);
         });
       };
     }

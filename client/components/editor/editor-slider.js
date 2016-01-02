@@ -45,9 +45,32 @@ angular.module('loyoApp')
     console.log(slider);
   };
   $scope.nav = ['active'];
+  $scope.currentNav = 0;
   $scope.navClick = function(index) {
     $scope.nav = [];
     $scope.nav[index] = 'active';
+    $scope.currentNav = index;
+  };
+  $scope.summernoteOptions = {
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'italic', 'underline', 'clear']],
+      ['custom', ['kai', 'ming']],
+      ['fontname', ['fontname']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['table', ['table']],
+      ['insert', ['link', 'album', 'hr']],
+      ['view', ['fullscreen', 'codeview']],
+    ]
+  };
+  $scope.addText = function() {
+    $scope.eslider.elems.push({
+      tag: 'div',
+      class: 'tp-caption revolution-ch1'
+    });
   };
   $scope.sliders = [{
     transition: 'fade',
@@ -362,4 +385,22 @@ angular.module('loyoApp')
       bgrepeat: 'no-repeat'
     }]
   }];
+})
+.directive('rvPosition', function() {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ngModel) {
+      ngModel.$validators.rvPosition = function(modelVal, viewVal) {
+        if (modelVal === undefined) return true;
+        if (attrs.rvPosition === 'x') {
+          return _.isNaN(+modelVal) ? /(left|right|center)/.test(modelVal) : +modelVal <= 2500 && modelVal >= -2500;
+        }
+        if (attrs.rvPosition === 'y') {
+          return _.isNaN(+modelVal) ? /(top|bottom|center)/.test(modelVal) : +modelVal <= 2500 && modelVal >= -2500;
+        }
+        return true;
+      };
+    }
+  };
 });

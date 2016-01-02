@@ -5,11 +5,13 @@ angular.module('loyoApp')
   return {
     restrict: 'EAC',
     link: function(scope, element, attrs) {
-      element.summernote({
+      var api = element.summernote(angular.extend({
         height: +attrs.height || $window.innerHeight/3,
         force: true,
         onChange: function(contents) {
-          $parse(attrs.bind).assign(scope, $sce.trustAsHtml(contents));
+          $parse(attrs.bind).assign(scope, angular.isDefined(attrs.nonTrust) ? 
+                                    contents : $sce.trustAsHtml(contents));
+          scope.$eval(attrs.postChange);
         },
         toolbar: [
           ['style', ['style']],
@@ -26,8 +28,10 @@ angular.module('loyoApp')
           ['help', ['undo', 'redo', 'help']]
         ],
         disableDragAndDrop: true
-      }).code(($parse(attrs.bind)(scope)||'').toString()); // bug cannot update
+      }, $parse(attrs.summernote)(scope)))
+      .code(($parse(attrs.bind)(scope)||'').toString()); // bug cannot update
       scope.$on('$destroy', function() {
+//         $parse(attrs.bind).assign(scope, $sce.trustAsHtml(api.code()));
         element.destroy();
       });
     }

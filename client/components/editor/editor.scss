@@ -16,3 +16,12 @@ form[name$=createForm] {
     }
   }
 }
+
+.form-control.ng-invalid {
+  border-width: 1px;
+  border-color: red;
+}
+
+.summernote-slider .note-editor .note-editing-area .note-editable {
+  background-color: #555;
+}
