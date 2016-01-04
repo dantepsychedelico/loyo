@@ -6,20 +6,36 @@
 <section class="container content-lg" style="padding-top: 50px;">
   <div class="row">
     <tabset>
-      <tab heading="編輯投影片" active="tabs[1].active">
-        <div class="row margin-top-20" ng-if="tabs[1].active">
+      <tab heading="全部投影片" active="tabs[0].active">
+        <div class="row margin-top-20" ng-if="tabs[0].active">
+          <div class="tp-banner-container col-sm-5" 
+              ng-repeat="slider in sliders" ng-class-odd="'col-sm-offset-1'"
+              ng-click="selectSlider(slider)" style="cursor: pointer;">
+            <div revolution="rsOptions" class="tp-banner">
+              <ul>
+                <li revolution-slide="slider" one-slide="true"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab ng-repeat="eslider in editSliders" active="tabs[$index+1].active">
+        <tab-heading> {{eslider.title}} </tab-heading>
+        <div class="row margin-top-20" ng-if="tabs[$index+1].active">
           <div class="col-sm-2">
             <ul class="nav nav-pills nav-stacked">
+              <!--
               <li class="{{nav[0]}}"><a href="" ng-click="navClick(0)">Global Settings</a></li>
               <li class="{{nav[1]}}"><a href="" ng-click="navClick(1)">Navigation Settings</a></li>
               <li class="{{nav[2]}}"><a href="" ng-click="navClick(2)">Loops</a></li>
               <li class="{{nav[3]}}"><a href="" ng-click="navClick(3)">Mobile Visibility</a></li>
               <li class="{{nav[4]}}"><a href="" ng-click="navClick(4)">Layout Styles</a></li>
               <li class="{{nav[5]}}"><a href="" ng-click="navClick(5)">Parallax Settings</a></li>
-              <li class="{{nav[6]}}"><a href="" ng-click="navClick(6)">Slide Options</a></li>
-              <li class="{{nav[7]}}"><a href="" ng-click="navClick(7)">Main Image</a></li>
-              <li class="{{nav[$index+8]}}" ng-repeat="elem in eslider.elems | filter:{tag:'div'} ">
-                <a href="" ng-click="navClick($index+8)">Text</a>
+              -->
+              <li class="{{nav[0]}}"><a href="" ng-click="navClick(0)">Slide Options</a></li>
+              <li class="{{nav[1]}}"><a href="" ng-click="navClick(1)">Main Image</a></li>
+              <li class="{{nav[$index+2]}}" ng-repeat="elem in eslider.elems | filter:{tag:'div'} ">
+                <a href="" ng-click="navClick($index+2)">Text</a>
               </li>
               <li><a href="" ng-click="addText()"><span class="fa fa-plus"> Add Text </span></a></li>
             </ul>
@@ -27,6 +43,7 @@
           <div class="col-sm-3">
             <form class="form-horizontal">
               <!--Global Settings-->
+              <!--
               <div ng-if="nav[0]">
                 <div class="form-group">
                   <label class="col-sm-5 control-label">Delay</label>
@@ -47,8 +64,15 @@
                   </div>
                 </div>
               </div>
+              -->
               <!--Slide Options-->
-              <div ng-if="nav[6]">
+              <div ng-if="nav[0]">
+                <div class="form-group">
+                  <label class="col-sm-5 control-label">title</label>
+                  <div class="col-sm-7">
+                    <input class="form-control" ng-model="eslider.title" ng-change="rsApi.restart()" required>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label class="col-sm-5 control-label">transition</label>
                   <div class="col-sm-7">
@@ -139,15 +163,9 @@
                     </select>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">title</label>
-                  <div class="col-sm-7">
-                    <input class="form-control" ng-model="eslider.title" ng-change="rsApi.restart()">
-                  </div>
-                </div>
               </div>
               <!--Main Image-->
-              <div ng-if="nav[7]">
+              <div ng-if="nav[1]">
                 <div class="form-group">
                   <label class="col-sm-5 control-label">src</label>
                   <div class="col-sm-7">
@@ -320,7 +338,7 @@
                 </div>
               </div>
               <!--Text-->
-              <div ng-repeat="elem in eslider.elems | filter:{tag:'div'} " ng-if="nav[$index+8]">
+              <div ng-repeat="elem in eslider.elems | filter:{tag:'div'} " ng-if="nav[$index+2]">
                 <div class="form-group">
                   <label class="col-sm-5 control-label">Incoming Animation</label>
                   <div class="col-sm-7">
@@ -657,28 +675,12 @@
           </div>
           <div class="col-sm-6 margin-top-20 summernote-slider" 
               ng-repeat="elem in eslider.elems | filter:{tag:'div'} " 
-              ng-if="nav[$index+8]">
+              ng-if="nav[$index+2]">
             <div summernote="summernoteOptions" 
                 bind="elem.html" post-change="rsApi.restart()"
                 non-trust height="200"></div>
           </div>
         </div>
-      </tab>
-      <tab heading="全部投影片" active="tabs[0].active">
-        <div class="row margin-top-20" ng-if="tabs[0].active">
-          <div class="tp-banner-container col-sm-5" 
-              ng-repeat="slider in sliders" ng-class-odd="'col-sm-offset-1'"
-              ng-click="select(slider)" style="cursor: pointer;">
-            <div revolution="rsOptions" class="tp-banner">
-              <ul>
-                <li revolution-slide="slider" one-slide="true"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </tab>
-      <tab heading="編輯簡介">
-        <div class="summernote" bind="data"></div>
       </tab>
     </tabset>
   </div>

@@ -41,8 +41,14 @@ angular.module('loyoApp')
 //  hideTimerBar: 'on',
     navigationStyle: 'preview4'
   };
-  $scope.select = function(slider) {
-    console.log(slider);
+  $scope.tabs = [{active: true}, {active: false}, {active: false}, {active: false}];
+  $scope.selectSlider = function(slider) {
+    var index = _.indexOf($scope.editSliders, slider);
+    if (index === -1) {
+      $scope.editSliders.push(slider);
+      index = $scope.editSliders.length-1;
+    }
+    $scope.tabs[index+1].active = true;
   };
   $scope.nav = ['active'];
   $scope.currentNav = 0;
@@ -72,12 +78,13 @@ angular.module('loyoApp')
       class: 'tp-caption revolution-ch1'
     });
   };
+  $scope.editSliders = [];
   $scope.sliders = [{
     transition: 'fade',
     slotamount: 5,
     masterspeed: 1000,
     class: 'revolution-mch-1',
-    title: 'Slide 1',
+    title: 'OFF 漫遊純淨紐西蘭',
     elems: [{
       tag: 'img',
       src: '/api/images/slide/slide1_720x270.jpg',
@@ -146,7 +153,7 @@ angular.module('loyoApp')
     transition: 'fade',
     slotamount: 5,
     masterspeed: 1000,
-    title: 'Slide 2',
+    title: '戶外活動深度紐西蘭',
     elems: [{
       tag: 'img',
       src: '/api/images/slide/slide2_1280x547.jpg',
@@ -220,7 +227,12 @@ angular.module('loyoApp')
       bgrepeat: 'no-repeat'
     }]
   }];
-  $scope.eslider = $scope.sliders[0]
+//   $scope.eslider = $scope.sliders[0]
+//   $scope.remove = function(slider, event) {
+//     _.remove($scope.editSliders, function(editSlider) {
+//       return slider === editSlider;
+//     });
+//   };
 })
 .controller('editorSliderModalCtrl', function($scope, $modalInstance) {
   $scope.rsOptions = {
@@ -232,9 +244,6 @@ angular.module('loyoApp')
     hideAllCaptionAtLimit: 420,
 //  hideTimerBar: 'on',
     navigationStyle:'preview4'
-  };
-  $scope.select = function(slider) {
-    console.log(slider);
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();
