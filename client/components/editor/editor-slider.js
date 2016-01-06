@@ -125,21 +125,30 @@ angular.module('loyoApp')
     });
   };
 })
-.controller('editorSliderModalCtrl', function($scope, $modalInstance, sliders) {
+.controller('editorSliderModalCtrl', function($scope, $window, $modalInstance, sliders) {
   $scope.rsOptions = {
     delay: 9000,
     startwidth: 1360,
     startheight: 760,
     hideThumbs: 10,
 //     fullScreen: 'on',
-    hideAllCaptionAtLimit: 420,
+//     hideAllCaptionAtLimit: 420,
 //  hideTimerBar: 'on',
-    navigationStyle:'preview4'
+//     navigationStyle:'preview4'
+  };
+  $scope.allRsOptions = {
+    startwidth: 1360,
+    startheight: 760,
+    hideThumbs: 10,
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();
   };
   $scope.sliders = sliders;
+  $scope.height = {
+    height: ($window.innerHeight-250)+'px',
+    'overflow-y': 'auto'
+  };
 })
 .directive('rvPosition', function() {
   return {

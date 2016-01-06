@@ -1,27 +1,384 @@
 <div class="modal-header">
-  <h3 class="modal-title">編輯投影片
-  </h3>
+  <h3 class="modal-title">選擇投影片</h3>
 </div>
 <div class="modal-body">
-  <tabset>
-    <tab heading="全部投影片">
-      <div class="row margin-top-20">
-        <div class="tp-banner-container col-sm-5" 
-            ng-repeat="slider in sliders" ng-class-odd="'col-sm-offset-1'"
-            ng-click="select(slider)" style="cursor: pointer;">
-          <div revolution="rsOptions" class="tp-banner">
-            <ul>
-              <li revolution-slide="slider" one-slide="true"></li>
-            </ul>
-          </div>
+  <div class="row margin-top-20">
+    <div class="col-sm-2" ng-style="height">
+      <div class="tp-banner-container margin-top-20" 
+          ng-repeat="slider in sliders"
+          ng-click="selectSlider(slider)" style="cursor: pointer;">
+        <div revolution="allRsOptions" class="tp-banner">
+          <ul>
+            <li revolution-slide="slider" one-slide="true"></li>
+          </ul>
         </div>
       </div>
-    </tab>
-    <tab heading="編輯簡介"></tab>
-    <tab heading="編輯簡介">
-      <div class="summernote" bind="data"></div>
-    </tab>
-  </tabset>
+    </div>
+    <div class="col-sm-4 form-horizontal" ng-style="height">
+      <!--Global Settings-->
+      <div class="form-group">
+        <label class="col-sm-6 control-label">Delay</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.delay" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">Start Height</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.startheight" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">Start Width</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.startwidth" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">Keyboard Navigation</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.keyboardNavigation" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">On Hover Stop</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.onHoverStop" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">thumbWidth</label>
+        <div class="col-sm-6">
+          <input class="form-control" ng-model="rsOptions.thumbWidth" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">thumbWidth</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.thumbWidth" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">thumbHeight</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.thumbHeight" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">thumbAmount</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.thumbAmount" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideThumbs(ms)</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" ng-model="rsOptions.hideThumbs" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">navigationType</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.navigationType" ng-change="rsApi.restart()">
+            <option>bullet</option>
+            <option>thumb</option>
+            <option>none</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">navigationArrows</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.navigationArrows" ng-change="rsApi.restart()">
+            <option>nexttobullets</option>
+            <option>solo</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" ng-show="rsOptions.navigationType==='bullet'">
+        <label class="col-sm-6 control-label">navigationStyle</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.navigationStyle" ng-change="rsApi.restart()">
+            <option>preview1</option>
+            <option>preview2</option>
+            <option>preview3</option>
+            <option>preview4</option>
+            <option>round</option>
+            <option>square</option>
+            <option>round-old</option>
+            <option>square-old</option>
+            <option>navbar-old</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">navigationHAlign</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.navigationHAlign" ng-change="rsApi.restart()">
+            <option>left</option>
+            <option>center</option>
+            <option>right</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">navigationVAlign</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.navigationVAlign" ng-change="rsApi.restart()">
+            <option>top</option>
+            <option>center</option>
+            <option>bottom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">navigationHOffset</label>
+        <div class="col-sm-6">
+          <input type="number" max="1000" min="-1000" class="form-control" ng-model="rsOptions.navigationHOffset" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">navigationVOffset</label>
+        <div class="col-sm-6">
+          <input type="number" max="1000" min="-1000" class="form-control" ng-model="rsOptions.navigationVOffset" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowLeftHaling, soloArrowRightHalign, , </label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.soloArrowLeftHaling" ng-change="rsApi.restart()">
+            <option>left</option>
+            <option>center</option>
+            <option>right</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowRightHalign</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.soloArrowRightHalign" ng-change="rsApi.restart()">
+            <option>left</option>
+            <option>center</option>
+            <option>right</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowLeftHalign</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.soloArrowLeftHalign" ng-change="rsApi.restart()">
+            <option>top</option>
+            <option>center</option>
+            <option>bottom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowLeftValign</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.soloArrowLeftValign" ng-change="rsApi.restart()">
+            <option>top</option>
+            <option>center</option>
+            <option>bottom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowRightValign</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.soloArrowRightValign" ng-change="rsApi.restart()">
+            <option>top</option>
+            <option>center</option>
+            <option>bottom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowLeftHOffset</label>
+        <div class="col-sm-6">
+          <input type="number" max="1000" min="-1000" class="form-control" ng-model="rsOptions.soloArrowLeftHOffset" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowRightHOffset</label>
+        <div class="col-sm-6">
+          <input type="number" max="1000" min="-1000" class="form-control" ng-model="rsOptions.soloArrowRightHOffset" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowLeftVOffset</label>
+        <div class="col-sm-6">
+          <input type="number" max="1000" min="-1000" class="form-control" ng-model="rsOptions.soloArrowLeftVOffset" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">soloArrowRightVOffset</label>
+        <div class="col-sm-6">
+          <input type="number" max="1000" min="-1000" class="form-control" ng-model="rsOptions.soloArrowRightVOffset" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">touchenabled</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.touchenabled" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">swipe_velocity</label>
+        <div class="col-sm-6">
+          <input type="number" max="1" min="0" step="0.01" class="form-control" ng-model="rsOptions.swipe_velocity" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">swipe_max_touches</label>
+        <div class="col-sm-6">
+          <input type="number" max="5" min="1" class="form-control" ng-model="rsOptions.swipe_max_touches " ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">swipe_min_touches</label>
+        <div class="col-sm-6">
+          <input type="number" max="5" min="1" class="form-control" ng-model="rsOptions.swipe_min_touches " ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">drag_block_vertical</label>
+        <div class="col-sm-6">
+          <input type="checkbox" style="height: 20px;" class="form-control" ng-model="rsOptions.drag_block_vertical" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <!--Loops Settings-->
+      <div class="form-group">
+        <label class="col-sm-6 control-label">startWithSlide</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="0" type="number" ng-model="rsOptions.startWithSlide" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">stopAtSlide</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="-1" type="number" ng-model="rsOptions.stopAtSlide" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">stopAfterLoops</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="-1" type="number" ng-model="rsOptions.stopAfterLoops" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <!--Mobile Visibility-->
+      <!--Layout Styles-->
+      <div class="form-group">
+        <label class="col-sm-6 control-label">spinner</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.spinner" ng-change="rsApi.restart()">
+            <option>spinner1</option>
+            <option>spinner2</option>
+            <option>spinner3</option>
+            <option>spinner4</option>
+            <option>spinner5</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideTimerBar</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.hideTimerBar" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">fullWidth</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.fullWidth" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">autoHeight</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.autoHeight" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">fullScreenAlignForce</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.fullScreenAlignForce" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">forceFullWidth</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.forceFullWidth" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">fullScreen</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.fullScreen" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">fullScreenOffsetContainer</label>
+        <div class="col-sm-6">
+          <input class="form-control" ng-model="rsOptions.fullScreenOffsetContainer" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">shadow</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" min="0" max="1" step="1" ng-model="rsOptions.shadow" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">dottedOverlay</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.dottedOverlay" ng-change="rsApi.restart()">
+            <option>none</option>
+            <option>twoxtwo</option>
+            <option>threexthree</option>
+            <option>twoxtwowhite</option>
+            <option>threexthreewhite</option>
+          </select>
+        </div>
+      </div>
+      <!--Parallax Settings-->
+    </div>
+    <div class="col-sm-6">
+      <div class="tp-banner-container margin-top-20">
+        <div revolution="rsOptions" class="tp-banner">
+          <ul>
+            <li revolution-slide="slider" ng-repeat="slider in currentSliders"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
   <button class="btn btn-primary" type="button" ng-click="save()">存檔</button>

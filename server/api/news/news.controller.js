@@ -6,7 +6,7 @@ var Q = require('q');
   
 
 exports.getFbPosts = function() {
-  var defered = Q.defer();
+  var deferred = Q.defer();
   https.get({
     hostname: 'graph.facebook.com',
     path: '/v2.5/565567036875754/feed?' + 
@@ -22,9 +22,13 @@ exports.getFbPosts = function() {
     });
     results.on('end', function(d) {
       data = JSON.parse(Buffer.concat(data));
-      defered.resolve(data.data);
+      deferred.resolve(data.data);
       console.log(data.data.length);
     });
+  })
+  .on('error', function(err) {
+    console.log(err.stack)
+    deferred.resolve([]);
   });
-  return defered.promise;
+  return deferred.promise;
 }
