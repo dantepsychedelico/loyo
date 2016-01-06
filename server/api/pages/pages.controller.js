@@ -8,6 +8,7 @@ var multiparty = require('multiparty'),
     Page = mongoose.model('Page'),
     Airplane = mongoose.model('Airplane'),
     History = mongoose.model('History'),
+    Slide = mongoose.model('Slide'),
     _ = require('lodash'),
     Q = require('q');
 
@@ -261,6 +262,41 @@ exports.getNavBar = function(req, res, next) {
         ts: page.ts
       };
     }));
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
+  });
+};
+
+exports.saveSlide = function(req, res, next) {
+  var deferred = Q.defer();
+  if (req.body._id) {
+    Slide.findOne({_id: req.body._id})
+    .then(function(slide) {
+      deferred.resolve(_.merge(slide, req.body));
+    });
+  } else {
+    var slide = new Slide(req.body);
+    deferred.resolve(slide);
+  }
+  deferred.promise
+  .then(function(slide) {
+    return slide.save()
+    .then(function() {
+      res.send(slide._id);
+    });
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
+  });
+};
+
+exports.getSlides = function(req, res, next) {
+  Slide.find().exec()
+  .then(function(slides) {
+    res.send(slides);
   })
   .catch(function(err) {
     console.log(err.stack);

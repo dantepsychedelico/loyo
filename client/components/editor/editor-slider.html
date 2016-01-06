@@ -6,7 +6,7 @@
 <section class="container content-lg" style="padding-top: 50px;">
   <div class="row">
     <tabset>
-      <tab heading="全部投影片" active="tabs[0].active">
+      <tab heading="全部投影片" active="tabs[0].active" select="getSlides()">
         <div class="row margin-top-20" ng-if="tabs[0].active">
           <div class="tp-banner-container col-sm-5" 
               ng-repeat="slider in sliders" ng-class-odd="'col-sm-offset-1'"
@@ -35,9 +35,9 @@
               <li class="{{nav[0]}}"><a href="" ng-click="navClick(0)">Slide Options</a></li>
               <li class="{{nav[1]}}"><a href="" ng-click="navClick(1)">Main Image</a></li>
               <li class="{{nav[$index+2]}}" ng-repeat="elem in eslider.elems | filter:{tag:'div'} ">
-                <a href="" ng-click="navClick($index+2)">Text</a>
+                <a href="" ng-click="navClick($index+2)">Text<i class="fa fa-trash pull-right" ng-click="removeText(eslider, $index, rsApi, $event)"></i></a>
               </li>
-              <li><a href="" ng-click="addText()"><span class="fa fa-plus"> Add Text </span></a></li>
+              <li><a href="" ng-click="addText(eslider)"><span class="fa fa-plus"> Add Text </span></a></li>
             </ul>
           </div>
           <div class="col-sm-3">
@@ -673,6 +673,11 @@
               </ul>
             </div>
           </div>
+          <div class="col-sm-1">
+            <button class="btn btn-success" ng-click="saveSlider(eslider)">
+              <i class="fa fa-floppy-o"></i>
+            </button>
+          </div>
           <div class="col-sm-6 margin-top-20 summernote-slider" 
               ng-repeat="elem in eslider.elems | filter:{tag:'div'} " 
               ng-if="nav[$index+2]">
@@ -681,6 +686,9 @@
                 non-trust height="200"></div>
           </div>
         </div>
+      </tab>
+      <tab select="addSlider()">
+        <tab-heading><span class="fa fa-plus"></span></tab-heading>
       </tab>
     </tabset>
   </div>

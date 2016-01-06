@@ -37,5 +37,13 @@ router.get('/navbar', function(req, res, next) {
   pages.getNavBar(req, res, next);
 });
 
+router.post('/slide', function(req, res, next) {
+  pages.saveSlide(req, res, next);
+});
+
+router.get('/slide', function(req, res, next) {
+  pages.getSlides(req, res, next);
+});
+
 module.exports = router;
 

@@ -114,8 +114,8 @@ var History = new Schema({
   }
 });
 
-var Slides = new Schema({
-  name: String,
+var Slide = new Schema({
+  title: String,
   transition: String,
   slotamount: Number,
   masterspeed: Number,
@@ -124,22 +124,17 @@ var Slides = new Schema({
   target: String,
   slideIndex: String,
   thumb: String,
-  title: String,
-  elems: [{
-    tag: String,
-    lazyload: String,
-    bgrepeat: String,
-    bgfit: Number,
-    bgfitend: Number,
-    positionend: String,
-    kenburns: String,
-    duration: Number,
-    ease: String
-  }]
+  class: String,
+  elems: [Schema.Types.Mixed]
+});
+
+var PageSlide = new Schema({
+  slides: [Slide]
 });
 
 mongoose.model('Image', Image);
 mongoose.model('Album', Album);
 mongoose.model('Page', Page);
 mongoose.model('History', History);
-mongoose.model('Slides', Slides);
+mongoose.model('Slide', Slide);
+mongoose.model('PageSlide', PageSlide);
