@@ -368,6 +368,36 @@
         </div>
       </div>
       <!--Parallax Settings-->
+      <div class="form-group">
+        <label class="col-sm-6 control-label">parallax</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.parallax" ng-change="rsApi.restart()">
+            <option>mouse</option>
+            <option>scroll</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">parallaxBgFreeze</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.parallaxBgFreeze" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">parallaxLevels</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.parallax" ng-change="rsApi.restart()">
+            <option>none</option>
+            <option>twoxtwo</option>
+            <option>threexthree</option>
+            <option>twoxtwowhite</option>
+            <option>threexthreewhite</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div class="col-sm-6">
       <div class="tp-banner-container margin-top-20">
