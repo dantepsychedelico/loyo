@@ -5,8 +5,8 @@
   <div class="row margin-top-20">
     <div class="col-sm-2" ng-style="height">
       <div class="tp-banner-container margin-top-20" 
-          ng-repeat="slider in sliders"
-          ng-click="selectSlider(slider)" style="cursor: pointer;">
+          ng-repeat="slider in sliders" ng-class="{'slide-select': select}"
+          ng-click="select=!select; selectSlider(slider, select)" style="cursor: pointer;">
         <div revolution="allRsOptions" class="tp-banner">
           <ul>
             <li revolution-slide="slider" one-slide="true"></li>
@@ -276,6 +276,64 @@
         </div>
       </div>
       <!--Mobile Visibility-->
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideCaptionAtLimit</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="0" type="number" ng-model="rsOptions.hideCaptionAtLimit" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideAllCaptionAtLimit</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="0" type="number" ng-model="rsOptions.hideAllCaptionAtLimit" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideSliderAtLimit</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="0" type="number" ng-model="rsOptions.hideSliderAtLimit" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label"> hideNavDelayOnMobile</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="0" type="number" ng-model="rsOptions.hideNavDelayOnMobile" ng-change="rsApi.restart()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideThumbsOnMobile</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.hideThumbsOnMobile" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideBulletsOnMobile</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.hideThumbsOnMobile" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-6 control-label">hideArrowsOnMobile</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.hideArrowsOnMobile" ng-change="rsApi.restart()">
+            <option>on</option>
+            <option>off</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" ng-show="rsOptions.hideThumbsOnMobile==='off'">
+        <label class="col-sm-6 control-label">hideThumbsUnderResoluition</label>
+        <div class="col-sm-6">
+          <input class="form-control" min="0" max="1900" type="number" 
+              ng-model="rsOptions.hideThumbsUnderResoluition" ng-change="rsApi.restart()">
+        </div>
+      </div>
       <!--Layout Styles-->
       <div class="form-group">
         <label class="col-sm-6 control-label">spinner</label>
@@ -401,7 +459,7 @@
     </div>
     <div class="col-sm-6">
       <div class="tp-banner-container margin-top-20">
-        <div revolution="rsOptions" class="tp-banner">
+        <div revolution="rsOptions" class="tp-banner" revolution-api="rsApi">
           <ul>
             <li revolution-slide="slider" ng-repeat="slider in currentSliders"></li>
           </ul>

@@ -129,7 +129,8 @@ var Slide = new Schema({
 });
 
 var PageSlide = new Schema({
-  slides: [Slide]
+  options: Schema.Types.Mixed,
+  slides: [mongoose.Types.ObjectId]
 });
 
 mongoose.model('Image', Image);

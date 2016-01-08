@@ -136,6 +136,16 @@ angular.module('loyoApp')
 //  hideTimerBar: 'on',
 //     navigationStyle:'preview4'
   };
+  $scope.currentSliders = [];
+  $scope.selectSlider = function(slider, select) {
+    if (select) {
+      $scope.currentSliders.push(slider);
+//       $scope.rsApi.restart();
+    } else {
+      $scope.currentSliders = _.remove($scope.currentSliders, slider);
+//       $scope.rsApi.restart();
+    }
+  };
   $scope.allRsOptions = {
     startwidth: 1360,
     startheight: 760,

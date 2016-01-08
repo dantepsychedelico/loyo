@@ -50,6 +50,7 @@ angular.module('unify', [])
       };
       var restart = this.restart = function() {
         $element.removeClass('revslider-initialised tp-simpleresponsive');
+        console.log(html);
         $element.html(html);
         $compile($element)($scope);
       };
@@ -62,6 +63,7 @@ angular.module('unify', [])
     },
     compile: function(tElement, tAttrs) {
       var wait = tElement.find('[revolution-slide]').length;
+      console.log(wait, tElement);
       return function(scope, element, attrs) {
         if (!wait) {
           var api = element.revolution(angular.extend({
