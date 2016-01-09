@@ -142,7 +142,9 @@ angular.module('loyoApp')
       $scope.currentSliders.push(slider);
       $scope.rsApi.restart();
     } else {
-      $scope.currentSliders = _.remove($scope.currentSliders, slider);
+      $scope.currentSliders = _.filter($scope.currentSliders, function(currentSlider) {
+        return currentSlider !== slider;
+      });
       $scope.rsApi.restart();
     }
   };
