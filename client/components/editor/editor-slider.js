@@ -133,17 +133,17 @@ angular.module('loyoApp')
     hideThumbs: 10,
 //     fullScreen: 'on',
 //     hideAllCaptionAtLimit: 420,
-//  hideTimerBar: 'on',
+//     hideTimerBar: 'on',
 //     navigationStyle:'preview4'
   };
   $scope.currentSliders = [];
   $scope.selectSlider = function(slider, select) {
     if (select) {
       $scope.currentSliders.push(slider);
-//       $scope.rsApi.restart();
+      $scope.rsApi.restart();
     } else {
       $scope.currentSliders = _.remove($scope.currentSliders, slider);
-//       $scope.rsApi.restart();
+      $scope.rsApi.restart();
     }
   };
   $scope.allRsOptions = {

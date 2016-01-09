@@ -37,21 +37,26 @@ angular.module('unify', [])
     restrict: 'A',
     controller: function($scope, $element, $attrs, $compile) {
       var promises = [];
-      var html = $element.html();
       this.addPromise = function(promise) {
         promises.push(promise);
       };
       var start = this.start = function() {
         $q.all(promises)
         .then(function() {
-          var api = $element.revolution($parse($attrs.revolution)($scope));
+          var options = $parse($attrs.revolution)($scope) || {};
+          var timerBar = angular.element('<div class="tp-bannertimer">');
+          if (options.timerBarPosition === 'bottom') {
+            timerBar.addClass('tp-bottom');
+          }
+          var tpBanner = $element.find('.tp-banner:first');
+          tpBanner.append(timerBar);
+          var api = tpBanner.revolution(options);
           promises = [];
         });
       };
       var restart = this.restart = function() {
-        $element.removeClass('revslider-initialised tp-simpleresponsive');
-        console.log(html);
-        $element.html(html);
+        $element.find('.tp-banner:first').revkill();
+        $element.html($element.data('html'));
         $compile($element)($scope);
       };
       if ($attrs.revolutionApi) {
@@ -63,10 +68,11 @@ angular.module('unify', [])
     },
     compile: function(tElement, tAttrs) {
       var wait = tElement.find('[revolution-slide]').length;
-      console.log(wait, tElement);
+      var html = tElement.html();
       return function(scope, element, attrs) {
+        element.data('html', html);
         if (!wait) {
-          var api = element.revolution(angular.extend({
+          var api = element.find('.tp-banner:first').revolution(angular.extend({
               delay: 9000,
               startwidth: 1360,
               startheight: 760,

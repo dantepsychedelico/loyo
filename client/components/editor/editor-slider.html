@@ -9,9 +9,10 @@
       <tab heading="全部投影片" active="tabs[0].active" select="getSlides()">
         <div class="row margin-top-20" ng-if="tabs[0].active">
           <div class="tp-banner-container col-sm-5" 
+              revolution="rsOptions"
               ng-repeat="slider in sliders" ng-class-odd="'col-sm-offset-1'"
               ng-click="selectSlider(slider)" style="cursor: pointer;">
-            <div revolution="rsOptions" class="tp-banner">
+            <div class="tp-banner">
               <ul>
                 <li revolution-slide="slider" one-slide="true"></li>
               </ul>
@@ -643,8 +644,8 @@
               </div>
             </form>
           </div>
-          <div class="tp-banner-container col-sm-6">
-            <div revolution="rsOptions" class="tp-banner" revolution-api="rsApi">
+          <div revolution="rsOptions" revolution-api="rsApi" class="tp-banner-container col-sm-6">
+            <div class="tp-banner">
               <ul>
                 <li revolution-slide="eslider" one-slide="true"></li>
               </ul>

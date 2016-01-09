@@ -5,9 +5,10 @@
   <div class="row margin-top-20">
     <div class="col-sm-2" ng-style="height">
       <div class="tp-banner-container margin-top-20" 
+          revolution="allRsOptions"
           ng-repeat="slider in sliders" ng-class="{'slide-select': select}"
           ng-click="select=!select; selectSlider(slider, select)" style="cursor: pointer;">
-        <div revolution="allRsOptions" class="tp-banner">
+        <div class="tp-banner">
           <ul>
             <li revolution-slide="slider" one-slide="true"></li>
           </ul>
@@ -357,6 +358,15 @@
         </div>
       </div>
       <div class="form-group">
+        <label class="col-sm-6 control-label">timerBarPosition</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="rsOptions.timerBarPosition" ng-change="rsApi.restart()">
+            <option>top</option>
+            <option>bottom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
         <label class="col-sm-6 control-label">fullWidth</label>
         <div class="col-sm-6">
           <select class="form-control" ng-model="rsOptions.fullWidth" ng-change="rsApi.restart()">
@@ -458,8 +468,8 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="tp-banner-container margin-top-20">
-        <div revolution="rsOptions" class="tp-banner" revolution-api="rsApi">
+      <div revolution="rsOptions" class="tp-banner-container margin-top-20" revolution-api="rsApi">
+        <div class="tp-banner">
           <ul>
             <li revolution-slide="slider" ng-repeat="slider in currentSliders"></li>
           </ul>
