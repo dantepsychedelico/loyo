@@ -20,6 +20,7 @@ angular.module('loyoApp')
     hideThumbs: 10,
     fullScreen: 'on',
     hideAllCaptionAtLimit: 420,
+    timerBarPosition: 'bottom',
 //  hideTimerBar: 'on',
     navigationStyle:'preview4'
   };
