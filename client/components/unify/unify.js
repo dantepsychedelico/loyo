@@ -84,7 +84,7 @@ angular.module('unify', [])
           }, $parse(attrs.revolution)(scope)));
         }
         scope.$on('$destroy', function() {
-          element.revkill();
+          element.find('.tp-banner:first').revkill();
         });
       };
     }

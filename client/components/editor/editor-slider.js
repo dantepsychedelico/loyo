@@ -136,6 +136,10 @@ angular.module('loyoApp')
 //     hideTimerBar: 'on',
 //     navigationStyle:'preview4'
   };
+  $scope.tab = {index: 0};
+  $scope.selectTab = function(index) {
+    $scope.tab.index = index;
+  }
   $scope.currentSliders = [];
   $scope.selectSlider = function(slider, select) {
     if (select) {

@@ -26,6 +26,46 @@ form[name$=createForm] {
   background-color: #555;
 }
 
-.slide-select {
-  border: #FF9898 4px solid;
+.tp-banner-container {
+  & .fa-minus {
+    display: none;
+  }
+  & .fa-plus {
+    display: inline-block;
+  }
+  &.slide-select {
+    border: #FF9898 4px solid;
+    & .fa-minus {
+      display: inline-block;
+    }
+    & .fa-plus {
+      display: none;
+    }
+  }
+}
+
+.tp-banner-container:hover .tp-banner-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  z-index: 200;
+  background-color: rgba(0,0,0,0.5);
+  & .btn-u {
+    display: block;
+    position: absolute;
+    top: 33%;
+    &.btn-left {
+      left: 25%;
+    }
+    &.btn-right {
+      right: 25%;
+    }
+    border-color: #fff;
+    color: #fff;
+  }
+}
+
+.tp-banner-hover button {
+  display: none;
 }
