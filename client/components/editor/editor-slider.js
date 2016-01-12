@@ -133,7 +133,6 @@ angular.module('loyoApp')
     hideThumbs: 10,
 //     fullScreen: 'on',
 //     hideAllCaptionAtLimit: 420,
-//     hideTimerBar: 'on',
 //     navigationStyle:'preview4'
   };
   $scope.tab = {index: 0};
@@ -141,21 +140,23 @@ angular.module('loyoApp')
     $scope.tab.index = index;
   }
   $scope.currentSliders = [];
-  $scope.selectSlider = function(slider, select) {
+  $scope.select = [];
+  $scope.selectSlider = function(slider, select, rsApi) {
     if (select) {
       $scope.currentSliders.push(slider);
-      $scope.rsApi.restart();
+      rsApi.restart();
     } else {
       $scope.currentSliders = _.filter($scope.currentSliders, function(currentSlider) {
         return currentSlider !== slider;
       });
-      $scope.rsApi.restart();
+      rsApi.restart();
     }
   };
   $scope.allRsOptions = {
     startwidth: 1360,
     startheight: 760,
     hideThumbs: 10,
+    hideTimerBar: 'on'
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();
@@ -164,6 +165,63 @@ angular.module('loyoApp')
   $scope.height = {
     height: ($window.innerHeight-250)+'px',
     'overflow-y': 'auto'
+  };
+  // edit slide
+  $scope.nav = ['active'];
+  $scope.currentNav = 0;
+  $scope.navClick = function(index) {
+    $scope.nav = [];
+    $scope.nav[index] = 'active';
+    $scope.currentNav = index;
+  };
+  $scope.summernoteOptions = {
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'italic', 'underline', 'clear']],
+      ['custom', ['kai', 'ming']],
+      ['fontname', ['fontname']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['table', ['table']],
+      ['insert', ['link', 'album', 'hr']],
+      ['view', ['fullscreen', 'codeview']],
+    ]
+  };
+  $scope.addText = function(eslider) {
+    eslider.elems.push({
+      tag: 'div',
+      class: 'tp-caption revolution-ch1'
+    });
+  };
+  $scope.removeText = function(eslider, index, rsApi, event) {
+    eslider.elems = _.reduce(eslider.elems, function(elems, elem, idx) {
+      if (idx!==index) elems.push(elem);
+      return elems;
+    }, []);
+    rsApi.restart();
+  };
+  $scope.editSliders = [];
+  $scope.editSlider = function(slider) {
+    var index = _.indexOf($scope.editSliders, slider);
+    if (index === -1) {
+      $scope.editSliders.push(slider);
+      index = $scope.editSliders.length-1;
+    }
+  };
+  $scope.addSlider = function() {
+    var slider = {
+      transition: 'fade',
+      slotamount: 5,
+      masterspeed: 1000,
+      class: 'revolution-mch-1',
+      title: 'Empty Slide',
+      elems: [{ 
+        tag: 'img'
+      }]
+    };
+    $scope.selectSlider(slider);
   };
 })
 .directive('rvPosition', function() {
