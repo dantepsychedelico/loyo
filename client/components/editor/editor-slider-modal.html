@@ -7,11 +7,11 @@
         ng-repeat="eslider in editSliders">
       <a href="#" ng-click="selectTab($index+1)">
         {{eslider.title}}
-        <i class="fa fa-times"></i>
+        <i class="fa fa-times slide-close"></i>
       </a>
     </li>
     <li role="presentation">
-      <a href="#" ng-click="">
+      <a href="#" ng-click="addSlider()">
         <span class="fa fa-plus"></span>
       </a>
     </li>

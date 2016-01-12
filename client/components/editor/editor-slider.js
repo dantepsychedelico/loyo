@@ -64,7 +64,8 @@ angular.module('loyoApp')
       class: 'revolution-mch-1',
       title: 'Empty Slide',
       elems: [{ 
-        tag: 'img'
+        tag: 'img',
+        src: '/assets/images/empty.jpg'
       }]
     };
     $scope.selectSlider(slider);
@@ -219,10 +220,11 @@ angular.module('loyoApp')
       class: 'revolution-mch-1',
       title: 'Empty Slide',
       elems: [{ 
-        tag: 'img'
+        tag: 'img',
+        src: '/assets/images/empty.jpg'
       }]
     };
-    $scope.selectSlider(slider);
+    $scope.editSlider(slider);
   };
 })
 .directive('rvPosition', function() {

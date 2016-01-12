@@ -70,11 +70,11 @@ form[name$=createForm] {
   display: none;
 }
 
-.slider-close {
+.slide-close {
   margin-left: 5px;
   cursor: pointer;
-  opacity: .2;
+  opacity: .4;
 }
-.slider-close:hover {
-  opacity: .5;
+.slide-close:hover {
+  opacity: .7;
 }
