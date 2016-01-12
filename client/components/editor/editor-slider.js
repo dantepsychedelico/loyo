@@ -209,6 +209,7 @@ angular.module('loyoApp')
       $scope.editSliders.push(slider);
       index = $scope.editSliders.length-1;
     }
+    $scope.tab.index = index+1;
   };
   $scope.addSlider = function() {
     var slider = {
