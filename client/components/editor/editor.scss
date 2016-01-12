@@ -69,3 +69,12 @@ form[name$=createForm] {
 .tp-banner-hover button {
   display: none;
 }
+
+.slider-close {
+  margin-left: 5px;
+  cursor: pointer;
+  opacity: .2;
+}
+.slider-close:hover {
+  opacity: .5;
+}

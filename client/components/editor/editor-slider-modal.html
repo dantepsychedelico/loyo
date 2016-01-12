@@ -5,7 +5,10 @@
     </li>
     <li role="presentation" ng-class="{active: tab.index===($index+1)}" 
         ng-repeat="eslider in editSliders">
-      <a href="#" ng-click="selectTab($index+1)">{{eslider.title}}</a>
+      <a href="#" ng-click="selectTab($index+1)">
+        {{eslider.title}}
+        <i class="fa fa-times"></i>
+      </a>
     </li>
     <li role="presentation">
       <a href="#" ng-click="">
