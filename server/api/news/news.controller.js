@@ -13,7 +13,7 @@ exports.getFbPosts = function() {
       querystring.stringify({
         fields: 'full_picture,description,created_time,story,message,name,link',
         access_token: '914232871945661|GDprdujSfhFChugjNJEA5AT2cbA',
-        limit: 5
+        limit: 10
       })
   }, function(results) {
     var data = []
@@ -31,4 +31,4 @@ exports.getFbPosts = function() {
     deferred.resolve([]);
   });
   return deferred.promise;
-}
+};
