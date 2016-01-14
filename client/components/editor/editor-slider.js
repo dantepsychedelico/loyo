@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('loyoApp')
-.directive('editorSlider', function($modal) {
+.directive('editorSlider', function($modal, $parse) {
   return {
     restrict: 'EAC',
     template: function(tElement, tAttrs) {
       if (tAttrs.editorSlider === 'navbar') {
-        return '<a ui-sref="editorSlider"><span class="fa fa-slideshare"></span></a>'
+        return '<a ui-sref="editorSlider"><span class="fa fa-slideshare"></span></a>';
       }
-      return '<a href="" ng-click="open()"><span class="fa fa-slideshare"></span></a>'
+      return '<a href="" ng-click="open()"><span class="fa fa-slideshare"></span></a>';
     },
     scope: true,
     link: function(scope, element, attrs) {
@@ -23,15 +23,18 @@ angular.module('loyoApp')
               .then(function(results) {
                 return results.data;
               });
+            },
+            pageSlide: function($http) {
+              return $http.get('/api/pages/pageSlide/'+$parse(attrs.pageSlideId)(scope))
+              .then(function(results) {
+                return results.data;
+              });
             }
-//             insert: function() {
-//               return attrs.insert;
-//             }
           }
         });
-//         modalInstance.result.then(function(src) {
-//           $parse(attrs.insert).assign(scope, src);
-//         });
+        modalInstance.result.then(function(src) {
+          element.scope().$eval(attrs.resolve);
+        });
       };
     }
   };
@@ -126,22 +129,34 @@ angular.module('loyoApp')
     });
   };
 })
-.controller('editorSliderModalCtrl', function($scope, $window, $modalInstance, sliders) {
-  $scope.rsOptions = {
-    delay: 9000,
-    startwidth: 1360,
-    startheight: 760,
-    hideThumbs: 10,
-//     fullScreen: 'on',
+.controller('editorSliderModalCtrl', function($scope, $http, $window, $modalInstance, sliders, pageSlide) {
+  $scope.rsOptions = pageSlide.options || {};
+  console.log($scope.rsOptions);
+  $scope.select = [];
+  $scope.currentSliders = _.filter(sliders, function(slide, index) {
+    var isFind = _.find(pageSlide.slides, {_id: slide._id});
+    if (isFind) $scope.select[index] = true;
+    return isFind;
+  });
+//   $scope.rsOptions = {
+//     delay: 9000,
+//     startwidth: 1360,
+//     startheight: 760,
+//     hideThumbs: 10,
+// //     fullScreen: 'on',
 //     hideAllCaptionAtLimit: 420,
 //     navigationStyle:'preview4'
-  };
+//   };
   $scope.tab = {index: 0};
   $scope.selectTab = function(index) {
     $scope.tab.index = index;
-  }
-  $scope.currentSliders = [];
-  $scope.select = [];
+  };
+  $scope.removeTab = function(index, event) {
+    $scope.tab.index = index-1;
+    $scope.editSliders = _.filter($scope.editSliders, function(eslide, i) {
+      return index-1 !== i
+    });
+  };
   $scope.selectSlider = function(slider, select, rsApi) {
     if (select) {
       $scope.currentSliders.push(slider);
@@ -158,6 +173,16 @@ angular.module('loyoApp')
     startheight: 760,
     hideThumbs: 10,
     hideTimerBar: 'on'
+  };
+  $scope.save = function() {
+    $http.post('/api/pages/pageSlide/'+pageSlide._id, {
+      options: $scope.rsOptions,
+      slides: _.map($scope.currentSliders, function(slide) {
+        return slide._id;
+      })
+    }).then(function(result) {
+      $modalInstance.close(result.data);
+    });
   };
   $scope.cancel = function() {
     $modalInstance.dismiss();
@@ -225,6 +250,12 @@ angular.module('loyoApp')
       }]
     };
     $scope.editSlider(slider);
+  };
+  $scope.saveSlider = function(slider) {
+    $http.post('/api/pages/slide', slider)
+    .then(function(result) {
+      slider._id = result.data;
+    });
   };
 })
 .directive('rvPosition', function() {

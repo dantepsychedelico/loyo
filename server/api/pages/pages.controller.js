@@ -9,6 +9,7 @@ var multiparty = require('multiparty'),
     Airplane = mongoose.model('Airplane'),
     History = mongoose.model('History'),
     Slide = mongoose.model('Slide'),
+    PageSlide = mongoose.model('PageSlide'),
     _ = require('lodash'),
     Q = require('q');
 
@@ -272,7 +273,7 @@ exports.getNavBar = function(req, res, next) {
 exports.saveSlide = function(req, res, next) {
   var deferred = Q.defer();
   if (req.body._id) {
-    Slide.findOne({_id: req.body._id})
+    Slide.findOne({_id: req.body._id}).exec()
     .then(function(slide) {
       deferred.resolve(_.merge(slide, req.body));
     });
@@ -297,6 +298,53 @@ exports.getSlides = function(req, res, next) {
   Slide.find().exec()
   .then(function(slides) {
     res.send(slides);
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
+  });
+};
+
+exports.getSlide = function(req, res, next) {
+  Slide.findOne({_id: req.params.id}).exec()
+  .then(function(slide) {
+    res.send(slide);
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
+  });
+};
+
+exports.savePageSlide = function(req, res, next) {
+  PageSlide.findOne({_id: req.params.id}).exec()
+  .then(function(pageSlide) {
+    if (!pageSlide) pageSlide = new PageSlide({_id: req.params.id});
+    pageSlide.options = req.body.options || {};
+    pageSlide.slides = req.body.slides;
+    return pageSlide.save()
+  })
+  .then(function() {
+    res.sendStatus(200);
+  })
+  .catch(function(err) {
+    console.log(err.stack);
+    res.sendStatus(500);
+  });
+};
+
+exports.getPageSlide = function(req, res, next) {
+  PageSlide.findOne({_id: req.params.id}).exec()
+  .then(function(pageSlide) {
+    pageSlide = pageSlide || {_id: req.params.id, options: {}, slides: []};
+    return Slide.find({_id: {$in: pageSlide.slides}})
+    .then(function(slides) {
+      res.json({
+        _id: pageSlide._id,
+        options: pageSlide.options,
+        slides: slides
+      });
+    });
   })
   .catch(function(err) {
     console.log(err.stack);

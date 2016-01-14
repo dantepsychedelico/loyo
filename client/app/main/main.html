@@ -1,5 +1,5 @@
 <!--=== Slider ===-->
-<div revolution="rsOptions" class="tp-banner-container">
+<div revolution="rsOptions" revolution-api="rsApi" class="tp-banner-container">
   <div class="tp-banner">
     <ul>
       <li revolution-slide="slider" ng-repeat="slider in sliders"></li>
@@ -36,7 +36,8 @@
 </div>
 -->
 <div class="container context-lg homepage-container">
-  <span editor-slider rs-options="rsOptions" sliders="sliders" 
+  <span editor-slider page-slide-id="pageSlideId"
+      resolve="getPageSlide(rsApi)"
       style="position: absolute; top: 100px; left: 30px; z-index: 50; font-size: 20px;">
   </span>
   <div class="headline col-md-12">

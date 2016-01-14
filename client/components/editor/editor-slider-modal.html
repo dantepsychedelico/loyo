@@ -7,7 +7,7 @@
         ng-repeat="eslider in editSliders">
       <a href="#" ng-click="selectTab($index+1)">
         {{eslider.title}}
-        <i class="fa fa-times slide-close"></i>
+        <i class="fa fa-times slide-close" ng-click="removeTab($index+1, $event)"></i>
       </a>
     </li>
     <li role="presentation">
@@ -428,6 +428,7 @@
           </select>
         </div>
       </div>
+      <!--
       <div class="form-group">
         <label class="col-sm-6 control-label">fullScreen</label>
         <div class="col-sm-6">
@@ -437,6 +438,7 @@
           </select>
         </div>
       </div>
+      -->
       <div class="form-group">
         <label class="col-sm-6 control-label">fullScreenOffsetContainer</label>
         <div class="col-sm-6">
@@ -493,7 +495,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6" ng-style="height">
       <div revolution="rsOptions" class="tp-banner-container margin-top-20" revolution-api="rsApi">
         <div class="tp-banner">
           <ul>

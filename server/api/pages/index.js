@@ -45,5 +45,17 @@ router.get('/slide', function(req, res, next) {
   pages.getSlides(req, res, next);
 });
 
+router.get('/slide/:id', function(req, res, next) {
+  pages.getSlide(req, res, next);
+});
+
+router.post('/pageSlide/:id', function(req, res, next) {
+  pages.savePageSlide(req, res, next);
+});
+
+router.get('/pageSlide/:id', function(req, res, next) {
+  pages.getPageSlide(req, res, next);
+});
+
 module.exports = router;
 
