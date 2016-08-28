@@ -1,5 +1,9 @@
 # Loyo Website
 
+## install
+
+  please read Dockerfile to install environment
+  
 ## Will do
 
 - 行程內容(project detail)
