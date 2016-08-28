@@ -18,11 +18,11 @@ angular.module('loyoApp')
       templateUrl: 'components/editor/editor-slider.html',
       controller: 'editorSliderCtrl'
     })
-    .state('關於我們', {
+    .state('about', {
       url: '/關於我們',
       templateUrl: 'app/main/about_loyo.html'
     })
-    .state('出團資訊', {
+    .state('groupInfo', {
       url: '/出團資訊?{start}&{end}&{key}&{page}',
       templateUrl: 'app/main/search-results.html',
       controller: 'searchResults',
@@ -61,6 +61,19 @@ angular.module('loyoApp')
             });
         }
       }
+    })
+    .state('account', {
+        url: '/account',
+        abstract: true,
+        template: '<div ui-view></div>'
+    })
+    .state('account.signin', {
+        url: '/signin',
+        templateUrl: '/app/auth/signin.html'
+    })
+    .state('account.signup', {
+        url: '/signup',
+        templateUrl: '/app/auth/signup.html'
     });
 });
 

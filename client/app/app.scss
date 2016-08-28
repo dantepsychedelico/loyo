@@ -405,3 +405,51 @@ $screen-width: 1300px, 1400px, 1500px, 1600px, 1700px;
 .project-detail .timeline-body h3 {
   color: #00AA55;
 }
+.header-v6.header-fixed-shrink .sign-in:hover .sign-in-open {
+    top: 70px;
+}
+.header-v6 .sign-in:hover .sign-in-open {
+    display: block;
+}
+.header-v6 .sign-in .sign-in-open {
+    border-top-color: #e74c3c !important;
+}
+.header-v6 .sign-in .sign-in-open {
+    right: 0;
+    top: 94px;
+    padding: 15px;
+    display: none;
+    min-width: 250px;
+    background: #fff;
+    position: absolute;
+    border: 1px solid #e7e7e7;
+    border-top: 2px solid #72c02c;
+}
+
+/*Registration and Login Page v1
+------------------------------------*/
+.reg-page {
+    color: #555;
+    padding: 30px;
+    background: #fefefe;
+    border: solid 1px #eee;
+    box-shadow: 0 0 3px #eee;
+}
+
+/*Reg Header*/
+.reg-header {
+    color: #555;
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: solid 1px #eee;
+}
+
+.reg-header h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/*Reg Forms*/
+.reg-page label {
+    color: #777;
+}

@@ -79,7 +79,7 @@ angular.module('loyoApp')
             date).format('YYYY-MM-DD/HH:mm');
   };
   $scope.search = function() {
-    $state.go('出團資訊', {
+    $state.go('groupInfo', {
       start: $scope.dataFormator($scope.data.start),
       end: $scope.dataFormator($scope.data.end),
       key: $scope.data.key,

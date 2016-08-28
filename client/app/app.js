@@ -13,10 +13,8 @@ angular.module('loyoApp', [
   'agGrid'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-  $urlRouterProvider
-    .otherwise('/');
-
-  $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
 })
 .run(function ($rootScope, $window) {
   $rootScope.$on('$locationChangeSuccess', function(e) {

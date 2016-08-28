@@ -89,10 +89,10 @@ angular.module('loyoApp')
     restrict: 'EAC',
     template: function(tElement, tAttrs) {
       if (tAttrs.imageUpload === 'short') {
-        return '<span class="fa fa-cloud-upload" ng-click="open()"></span>'
+        return '<span class="fa fa-cloud-upload" ng-click="open()"></span>';
       }
       if (tAttrs.imageUpload === 'navbar') {
-        return '<a href="" ng-click="open()"><span class="fa fa-cloud-upload"></span></a>'
+        return '<i class="menu-icons-style radius-x fa fa-cloud-upload" ng-click="open()"></i>';
       }
       if (tAttrs.imageUpload === 'select') {
         return '<button class="btn-u btn-u-aqua" type="button" ng-click="open()">'+
