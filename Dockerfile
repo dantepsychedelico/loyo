@@ -1,15 +1,12 @@
-FROM node:0.12.9
+FROM node:4.5
 # FROM node:4.2.3
 
 MAINTAINER Zac Chung
 
-# RUN ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-
 RUN apt-get update && \
-	apt-get install -y ssh vim gcc make build-essential git ruby-full && \
+	apt-get install -y vim gcc make build-essential git ruby-full && \
     gem install sass
 
-# RUN npm install -g mean-cli && \
 RUN npm install -g npm && \
     npm install -g bower && \
     npm install -g grunt-cli && \
@@ -25,6 +22,6 @@ USER loyo
 
 WORKDIR /home/loyo
 
-RUN npm install && bower install --config.interactive=false
+# RUN npm install && bower install
 
-CMD ["grunt", "serve:dist"]
+# CMD ["grunt", "serve:dist"]

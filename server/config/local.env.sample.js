@@ -10,5 +10,7 @@ module.exports = {
   SESSION_SECRET:   'loyo-secret',
 
   // Control debug level for modules using visionmedia/debug
-  DEBUG: ''
+  DEBUG: '',
+  FACEBOOK_APP_ID: '',
+  FACEBOOK_APP_SECRET: ''
 };
