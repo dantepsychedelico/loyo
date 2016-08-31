@@ -22,6 +22,6 @@ USER loyo
 
 WORKDIR /home/loyo
 
-# RUN npm install && bower install
+RUN npm install && bower install
 
-# CMD ["grunt", "serve:dist"]
+CMD ["grunt", "serve:dist"]
