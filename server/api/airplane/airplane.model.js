@@ -30,4 +30,4 @@ var Airplane = new Schema({
   '回程日期': Date
 });
 
-module.exports = mongoose.model('Airplane', Airplane);
+mongoose.model('Airplane', Airplane);

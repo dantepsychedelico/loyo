@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var Airplane = require('./airplane.model');
+var Airplane = mongoose.model('Airplane');
 var _ = require('lodash');
 var moment = require('moment');
 

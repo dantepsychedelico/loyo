@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var airplain = require('./airplane.controller');
+var airplain = require('./airplane.ctrl');
 
 var router = express.Router();
 

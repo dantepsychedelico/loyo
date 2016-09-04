@@ -1,6 +1,5 @@
 'use strict';
 
-require('./model');
 var multiparty = require('multiparty'),
     mongoose = require('mongoose'),
     Image = mongoose.model('Image'),

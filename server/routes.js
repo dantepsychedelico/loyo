@@ -6,15 +6,20 @@
 
 var errors = require('./components/errors');
 var path = require('path');
+var glob = require('glob');
 
 module.exports = function(app) {
+
+    glob.sync('server/*/*/*model.js').forEach(function(file) {
+        require('./'+path.relative('server', file));
+    });
 
     // Insert routes below
     app.use('/api/airplane', require('./api/airplane'));
     app.use('/api/news', require('./api/news'));
     app.use('/api/pages', require('./api/pages'));
     app.use('/api/images', require('./api/pages/images'));
-    app.use('/api/auth', require('./api/auth'));
+    app.use('/auth', require('./api/auth'));
     
     // All undefined asset or api routes should return a 404
     app.route('/:url(api|auth|components|app|bower_components|assets)/*')
