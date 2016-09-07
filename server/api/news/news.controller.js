@@ -18,7 +18,7 @@ exports.getFbPosts = function() {
         json: true
     }, function(err, res, body) {
         if (err) deferred.reject(err);
-        deferred.resolve(body.data);
+        deferred.resolve((body||{}).data);
     });
     return deferred.promise;
 };
