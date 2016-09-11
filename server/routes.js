@@ -13,8 +13,10 @@ module.exports = function(app) {
     glob.sync('server/*/*/*model.js').forEach(function(file) {
         require('./'+path.relative('server', file));
     });
+    var passport = require('./api/auth/auth.passport');
 
     // Insert routes below
+    app.post('/api/*', passport.authenticate('bearer', {session: false}));
     app.use('/api/airplane', require('./api/airplane'));
     app.use('/api/news', require('./api/news'));
     app.use('/api/pages', require('./api/pages'));

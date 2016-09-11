@@ -37,7 +37,7 @@
 -->
 <div class="container context-lg homepage-container">
   <span editor-slider page-slide-id="pageSlideId"
-      resolve="getPageSlide(rsApi)"
+      resolve="getPageSlide(rsApi)" ng-show="$user.user.isAdmin"
       style="position: absolute; top: 100px; left: 30px; z-index: 50; font-size: 20px;">
   </span>
   <div class="headline col-md-12">

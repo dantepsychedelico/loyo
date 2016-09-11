@@ -7,6 +7,8 @@ var mongoose = require('mongoose'),
     TwitterStrategy = require('passport-twitter').Strategy,
     FacebookStrategy = require('passport-facebook').Strategy,
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
+    BearerStrategy = require('passport-http-bearer').Strategy,
+    auth = new require('./auth.ctrl')(),
     User = mongoose.model('User');
 
 // Serialize the user id to push into the session
@@ -46,7 +48,7 @@ function(email, password, done) {
         message: 'Invalid password'
       });
     }
-    return done(null, user);
+    return done(null, user.toPassport());
   });
 }
 ));
@@ -155,5 +157,15 @@ function(accessToken, refreshToken, profile, done) {
 //   });
 // }
 // ));
+
+passport.use(new BearerStrategy(function(token, done) {
+    auth.isVerify(token)
+    .then(function(user) {
+        done(null, user.toPassport());
+    })
+    .catch(function(err) {
+        done(null, false);
+    });
+}));
 
 module.exports = passport;

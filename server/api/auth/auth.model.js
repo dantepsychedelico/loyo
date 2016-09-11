@@ -88,7 +88,8 @@ var UserSchema = new Schema({
 /**
  * Virtuals
  */
-UserSchema.virtual('password').set(function(password) {
+UserSchema.virtual('password')
+.set(function(password) {
   this._password = password;
   this.salt = this.makeSalt();
   this.hashed_password = this.hashPassword(password);
@@ -176,6 +177,13 @@ UserSchema.methods = {
     delete obj.hashed_password;
     delete obj.salt;
     return obj;
+  },
+  toPassport: function() {
+      return {
+          _id: this._id, 
+          email: this.email, 
+          isAdmin: this.isAdmin()
+      };
   }
 };
 

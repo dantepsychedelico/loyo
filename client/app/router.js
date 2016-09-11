@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('loyoApp')
-.config(function ($stateProvider) {
+.config(['$stateProvider', function ($stateProvider) {
   $stateProvider
     .state('main', {
       url: '/',
@@ -49,7 +49,7 @@ angular.module('loyoApp')
       templateUrl: '/app/pages/pages.html',
       controller: 'PageCtrl',
       resolve: {
-        page: function(navBar, $stateParams) {
+        page: ['navBar', '$stateParams', function(navBar, $stateParams) {
           return navBar.promise
             .then(function() {
               return {
@@ -59,7 +59,7 @@ angular.module('loyoApp')
                                      $stateParams.pname)
               };
             });
-        }
+        }]
       }
     })
     .state('account', {
@@ -75,5 +75,4 @@ angular.module('loyoApp')
         url: '/signup',
         templateUrl: '/app/auth/signup.html'
     });
-});
-
+}]);
