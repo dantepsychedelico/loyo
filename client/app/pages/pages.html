@@ -47,6 +47,7 @@
         <div class="panel-heading" id="intro">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>簡介
             <editor bind="intro" class="pull-right" 
+                ng-show="$user.user.isAdmin"
                 template-url="components/editor/intro-editor-modal.html"
                 pageid="pageid" title="簡介">
             </editor>
@@ -66,6 +67,7 @@
         <div class="panel-heading" id="feature">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>行程特色
             <editor bind="feature" class="pull-right" 
+                ng-show="$user.user.isAdmin"
                 template-url="components/editor/editor-summernote-modal.html"
                 pageid="pageid" title="行程特色">
             </editor>
@@ -77,6 +79,7 @@
         <div class="panel-heading" id="specialize">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>特別安排
             <editor bind="specialize" class="pull-right" 
+                ng-show="$user.user.isAdmin"
                 template-url="components/editor/editor-summernote-modal.html"
                 pageid="pageid" title="特別安排">
             </editor>
@@ -89,6 +92,7 @@
         <div class="panel-heading" id="detail">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>行程內容
             <editor bind="details" class="pull-right" 
+                ng-show="$user.user.isAdmin"
                 template-url="components/editor/details-editor-modal.html"
                 window-template-url="template/modal/window-fullwidth.html"
                 pageid="pageid" title="行程內容">
@@ -137,6 +141,7 @@
         <div class="panel-heading" id="airplane">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>航班參考
             <editor bind="airplanes" class="pull-right" 
+                ng-show="$user.user.isAdmin"
                 template-url="components/editor/airplane-editor-modal.html"
                 pageid="pageid" title="航班參考">
             </editor>
@@ -177,6 +182,7 @@
         <div class="panel-heading" id="production">
           <h3 class="panel-title"><i class="fa fa-tasks"></i>出團資訊及報名
             <editor bind="productions" class="pull-right"
+                ng-show="$user.user.isAdmin"
                 controller="editorProductionsModalCtrl"
                 template-url="components/editor/productions-editor-modal.html"
                 window-template-url="template/modal/window-fullwidth.html"

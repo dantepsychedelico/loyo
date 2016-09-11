@@ -9,7 +9,7 @@ angular.module('loyoApp')
       controller: 'MainCtrl'
     })
     .state('editorPage', {
-      url: '/產品頁面', 
+      url: '/productions', 
       templateUrl: 'components/editor/editor-pages.html',
       controller: 'editorPageCtrl'
     })
@@ -49,15 +49,18 @@ angular.module('loyoApp')
       templateUrl: '/app/pages/pages.html',
       controller: 'PageCtrl',
       resolve: {
-        page: ['navBar', '$stateParams', function(navBar, $stateParams) {
+        page: ['navBar', '$stateParams', '$http', function(navBar, $stateParams, $http) {
           return navBar.promise
             .then(function() {
-              return {
-                type: 'page',
-                id: navBar.getId($stateParams.category, 
-                                     $stateParams.subcategory, 
-                                     $stateParams.pname)
-              };
+                var id = navBar.getId($stateParams.category, $stateParams.subcategory, $stateParams.pname);
+                return $http.get('/api/pages/context/'+id)
+                .then(function(results) {
+                    return {
+                        id: id,
+                        type: 'page',
+                        context: results.data
+                    }
+                });
             });
         }]
       }
